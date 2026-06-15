@@ -15,13 +15,16 @@
         }
         .page {
             width: 210mm;
+            height: 297mm;
             min-height: 297mm;
+            max-height: 297mm;
             padding: 20mm 15mm 20mm 30mm;
             margin: 10px auto;
             background: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: relative;
             page-break-after: always;
+            overflow: hidden;
         }
         .page:last-child { page-break-after: auto; }
         @media print {
@@ -143,7 +146,6 @@
     <p><b>Kurs ishining vazifalari:</b> axborot tizimlari nazariy asoslarini o'rganish; muzqaymoq do'koni faoliyatini tahlil qilish; mavjud tizimlarni qiyosiy tahlil qilish; funksional talablarni shakllantirish; ma'lumotlar bazasini loyihalash; tizimni dasturiy amalga oshirish va testlash.</p>
     <p><b>Tadqiqot ob'ekti</b> - muzqaymoq do'konining faoliyati va boshqaruv jarayonlari. <b>Tadqiqot predmeti</b> - boshqaruv jarayonlarini axborot texnologiyalari yordamida avtomatlashtirish. <b>Tadqiqot usullari:</b> tizimli tahlil, qiyosiy tahlil, modellashtirish, ob'ektga yo'naltirilgan dasturlash va testlash usullari qo'llanilgan.</p>
     <p><b>Kurs ishi tuzilishi.</b> Ish uchta bobdan iborat. Birinchi bobda nazariy asoslar va mavjud tizimlar tahlili, ikkinchi bobda tizimni loyihalash (talablar, MB, UML), uchinchi bobda dasturiy amalga oshirish va testlash natijalari keltirilgan. Ish hajmi 45 betni tashkil etadi.</p>
-    <div class="page-num">1</div>
 </div>
 
 <!-- ===== 2-BET: I BOB, 1.1 boshlanishi ===== -->
@@ -162,7 +164,6 @@
         <tr><td>Arxitektura</td><td>Fayl-server, mijoz-server, web, bulut</td><td>Texnik amalga oshirish usuli</td></tr>
     </table>
     <p>Bizning loyihamiz uchun veb-asosli mijoz-server arxitekturasidagi tranzaksion qayta ishlash va boshqaruv axborot tizimi kombinatsiyasi eng mos keladi.</p>
-    <div class="page-num">2</div>
 </div>
 
 <!-- ===== 3-BET: 1.1 davomi ===== -->
@@ -186,7 +187,6 @@
     </ul>
     <p>Axborot tizimlarini ishlab chiqish jarayoni SDLC (Software Development Life Cycle) modellariga asoslanadi. Eng ko'p ishlatiladigan modellar: kaskad (waterfall), iterativ, spiral va Agile. Bizning loyihamizda iterativ yondashuvdan foydalanildi, chunki u kurs ishi doirasida eng maqbul usul hisoblanadi - har bir iteratsiyada yangi funksionallik qo'shiladi va tizim bosqichma-bosqich takomillashtiriladi.</p>
     <p>Ma'lumotlar bazasini loyihalash axborot tizimini yaratishning eng muhim bosqichlaridan biridir. Ma'lumotlar bazasi - ma'lum sohaga tegishli strukturalangan ma'lumotlar to'plami bo'lib, MBBT (Ma'lumotlar Bazasini Boshqarish Tizimi) yordamida boshqariladi. Zamonaviy MBBT larga Oracle, MySQL, PostgreSQL, SQLite va MongoDB misol bo'la oladi.</p>
-    <div class="page-num">3</div>
 </div>
 
 <!-- ===== 4-BET: 1.1 davomi ===== -->
@@ -207,7 +207,6 @@
     </ul>
     <p>OWASP (Open Web Application Security Project) tomonidan aniqlangan eng keng tarqalgan xavflar: SQL injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), autentifikatsiya buzilishi va ma'lumotlar oqishi. Ishlab chiqilayotgan tizimda ushbu xavflarning oldini olish choralari ko'riladi.</p>
     <p>API (Application Programming Interface) zamonaviy tizimlar orasidagi o'zaro aloqani ta'minlaydi. REST (Representational State Transfer) arxitekturasi eng keng tarqalgan API uslubi bo'lib, HTTP protokoli ustida ishlaydi. RESTful API lar GET, POST, PUT, DELETE so'rovlari orqali resurslar bilan ishlash imkonini beradi. Bu yondashuv tizimning kengaytirilishi va boshqa tizimlar bilan integratsiya qilinishini osonlashtiradi.</p>
-    <div class="page-num">4</div>
 </div>
 
 <!-- ===== 5-BET: 1.1 davomi ===== -->
@@ -228,7 +227,6 @@
     </table>
     <p>UML (Unified Modeling Language) - dasturiy ta'minot tizimlarini modellashtirish uchun standart grafik til. UML diagrammalar: Use Case (foydalanish holatlari), Class (sinflar), Sequence (ketma-ketlik), Activity (faoliyat), Component (komponentlar) va Deployment (joylashtirish) diagrammalari. Ular tizim arxitekturasini vizual tarzda ifodalash va jamoa bilan muloqot qilish imkonini beradi.</p>
     <p>Versiyalarni boshqarish tizimi (VCS) dasturiy ta'minot ishlab chiqishning ajralmas qismi. Git - eng mashhur taqsimlangan VCS bo'lib, GitHub, GitLab va Bitbucket platformalarida ishlatiladi. Git branch, merge, pull request kabi mexanizmlar jamoa ishlashini samarali tashkil etishga yordam beradi.</p>
-    <div class="page-num">5</div>
 </div>
 
 <!-- ===== 6-BET: 1.1 yakuni ===== -->
@@ -243,7 +241,6 @@
     <p>Foydalanuvchi interfeysi (UI) dizayni axborot tizimi muvaffaqiyatining muhim omili. Jakob Nilsenning foydalanish qulayligi tamoyillari (Usability Heuristics) quyidagilardan iborat: tizim holatining ko'rinishi, real dunyo bilan moslik, foydalanuvchi nazorati, izchillik va standartlar, xatolarning oldini olish, tanib olish (eslab qolish emas), moslashuvchanlik va samaradorlik.</p>
     <p>Responsive (moslashuvchan) dizayn turli ekran o'lchamlarida to'g'ri ko'rinishni ta'minlaydi. Media Queries, Flexbox va CSS Grid texnologiyalari yordamida sahifa tartibi avtomatik moslashadi. Bootstrap kabi CSS frameworklar bu jarayonni soddalashtiradi.</p>
     <p>Xulosa qilib aytganda, zamonaviy axborot tizimlari ko'p qatlamli arxitektura, xavfsizlik mexanizmlari, veb-texnologiyalar va bulutli infratuzilma asosida quriladi. Ular dasturiy ta'minot ishlab chiqish metodologiyalariga amal qilgan holda yaratiladi va testlanadi. Keyingi bo'limda biz muzqaymoq do'koni faoliyatining o'ziga xos xususiyatlarini va avtomatlashtirishning dolzarbligini ko'rib chiqamiz.</p>
-    <div class="page-num">6</div>
 </div>
 
 <!-- ===== 7-BET: 1.2 boshlanishi ===== -->
@@ -268,7 +265,6 @@
         <tr><td>Bir vaqtda ishlash</td><td>Cheklangan</td><td>Cheksiz</td></tr>
         <tr><td>Tarixiy ma'lumotlar</td><td>Qiyin topiladi</td><td>Bir lahzada</td></tr>
     </table>
-    <div class="page-num">7</div>
 </div>
 
 <!-- ===== 8-BET: 1.2 davomi ===== -->
@@ -287,7 +283,6 @@
     </table>
     <p>Yuqoridagi jadvaldan ko'rinib turibdiki, avtomatlashtirilgan boshqaruv tizimi barcha asosiy ko'rsatkichlarni sezilarli yaxshilaydi. Ayniqsa mahsulot isrofi va hisobot tayyorlash vaqtidagi farq e'tiborga loyiq.</p>
     <p>O'zbekiston hukumati tomonidan qabul qilingan "Raqamli O'zbekiston - 2030" strategiyasi doirasida kichik va o'rta biznes sub'ektlarining raqamli texnologiyalarga o'tishi rag'batlantirilmoqda. Bu strategiya doirasida IT-xizmatlardan foydalanish uchun soliq imtiyozlari, subsidiyalar va bepul maslahat xizmatlari ko'rsatilmoqda. Shu sababli, hozirgi vaqtda muzqaymoq do'konlari uchun boshqaruv tizimini ishlab chiqish va joriy etish eng qulay vaqt hisoblanadi.</p>
-    <div class="page-num">8</div>
 </div>
 
 <!-- ===== 9-BET: 1.2 davomi ===== -->
@@ -321,7 +316,6 @@
         <text x="340" y="175" font-size="9">📈 Real vaqt analitika</text>
     </svg>
     <p class="fig-caption">1.1-rasm. Avtomatlashtirishdan oldin va keyin solishtirma</p>
-    <div class="page-num">9</div>
 </div>
 
 <!-- ===== 10-BET: 1.2 yakuni ===== -->
@@ -340,7 +334,6 @@
     </ul>
     <p>Shu bilan birga, avtomatlashtirishning ba'zi cheklovlari ham mavjud. Dastlabki investitsiya talab etiladi, xodimlarni o'qitish vaqt oladi, internetga bog'liqlik yuzaga keladi va texnik xizmat ko'rsatish zarur bo'ladi. Biroq bu cheklovlar tizimning uzoq muddatli afzalliklari oldida ahamiyatsiz.</p>
     <p>Xulosa qilib aytganda, muzqaymoq do'koni faoliyatini avtomatlashtirish nafaqat zamonaviy talab, balki raqobatbardosh bo'lib qolish uchun zaruriy shartdir. O'zbekistondagi mavjud bozor sharoitlari va davlat qo'llab-quvvatlashi bu jarayonni yanada osonlashtiradi. Keyingi bo'limda biz bozorda mavjud bo'lgan boshqaruv tizimlarini qiyosiy tahlil qilamiz va o'z tizimimizning ustunliklarini asoslaymiz.</p>
-    <div class="page-num">10</div>
 </div>
 
 <!-- ===== 11-BET: 1.3 boshlanishi ===== -->
@@ -352,7 +345,6 @@
     <p><b>R-Keeper.</b> Rossiya bozorida 30 yildan ortiq tajribaga ega tizim. Asosan restoran va kafe uchun mo'ljallangan. POS terminallari, oshxona boshqaruvi va mehmonxona modullariga ega. Afzalliklari: uzoq yillik tajriba, barqaror ishlashi, ko'p tilli interfeys. Kamchiliklari: juda yuqori narx (10+ mln so'm boshlang'ich), eski arxitektura, bulutli versiya cheklangan, texnik xizmat ko'rsatish qimmat.</p>
     <p><b>Poster POS.</b> Ukraina kompaniyasi tomonidan ishlab chiqilgan zamonaviy bulutli POS tizimi. iPad va Android planshetlarida ishlaydi. Afzalliklari: oddiy interfeys, tez o'rnatish, arzon narx (200-500 ming so'm/oy), bulutli. Kamchiliklari: cheklangan funksionallik, internet kerak, O'zbekiston to'lov tizimlariga to'liq integratsiya yo'q.</p>
     <p><b>Square POS.</b> AQSh kompaniyasi tomonidan ishlab chiqilgan tizim. Kichik biznes uchun sodda va samarali POS yechim. Afzalliklari: bepul asosiy versiya, sodda interfeys, mobil ilova. Kamchiliklari: O'zbekistonda ishlamaydi, ingliz tilida, cheklangan hisobot imkoniyatlari, mahalliy soliq tizimiga mos emas.</p>
-    <div class="page-num">11</div>
 </div>
 
 <!-- ===== 12-BET: 1.3 davomi ===== -->
@@ -374,7 +366,6 @@
     <p>Biroq, mavjud tizimlarning ham o'rganish kerak bo'lgan kuchli tomonlari bor. 1C ning buxgalteriya integratsiyasi, iiko ning real vaqt analitikasi, Poster ning sodda interfeysi - bularning barchasidan o'z tizimimizda foydalanishimiz mumkin. Amalda eng yaxshi amaliyotlarni o'rganib, ularni o'z tizimimizga qo'llash - bu eng to'g'ri yondashuv.</p>
     <p>Texnik arxitektura nuqtai nazaridan ham farqlarni ko'rib chiqamiz. 1C o'zining maxsus platformasida ishlaydi va uni o'zgartirish uchun 1C dasturchilarini jalb qilish kerak. iiko va R-Keeper yopiq tijorat tizimlari bo'lib, foydalanuvchi ularning ichki kodiga kira olmaydi. Poster va Square SaaS (Software as a Service) modelida ishlaydi - yani foydalanuvchi dasturni emas, balki xizmatni sotib oladi.</p>
     <p>Bizning tizimimiz esa ochiq kodli texnologiyalar (Python, Flask, SQLite) asosida qurilgan. Bu quyidagi afzalliklarni beradi: kod to'liq nazorat ostida, istalgan vaqtda o'zgartirish mumkin, hech qanday litsenziya to'lovlari yo'q, jamiyat tomonidan qo'llab-quvvatlanuvchi texnologiyalar ishlatilgan. Bundan tashqari, tizimni istalgan serverga o'rnatish mumkin - mahalliy kompyuter, VPS yoki bulutli platforma.</p>
-    <div class="page-num">12</div>
 </div>
 
 <!-- ===== 13-BET: 1.3 davomi ===== -->
@@ -418,7 +409,6 @@
     <p>Bozordagi tizimlarning yana bir muhim farqi - texnik qo'llab-quvvatlash modelidir. Tijorat tizimlari (1C, iiko, R-Keeper) uchun texnik xizmat ko'rsatish alohida to'lov talab qiladi, bu yillik xarajatlarga 2-5 mln so'm qo'shadi. Poster va Square uchun texnik qo'llab-quvvatlash oylik obuna narxiga kiritilgan, lekin u cheklangan. Bizning tizimimiz ochiq kodli bo'lgani uchun, texnik masalalarni tashkilotning o'z IT-mutaxassisi hal qilishi yoki jamiyat (community) yordamiga murojaat qilishi mumkin.</p>
     <p>Xavfsizlik jihatidan ham farqlar mavjud. Tijorat tizimlari ma'lumotlarni o'z serverlarida saqlaydi va foydalanuvchi ularning xavfsizlik siyosatiga bog'liq bo'ladi. Bizning tizimimiz esa ma'lumotlarni mahalliy serverda saqlaydi, bu esa foydalanuvchiga to'liq nazorat imkonini beradi. Shu bilan birga, zamonaviy xavfsizlik standartlari (HTTPS, bcrypt, CSRF himoya) qo'llaniladi.</p>
     <p>Muhim jihat - bu tizimlarning O'zbekiston bozorigq moslashganlik darajasidir. Mavjud tizimlarning hech biri O'zbekiston so'mida ishlash, mahalliy soliq hisobotlari, o'zbek tilida interfeys kabi xususiyatlarni to'liq qo'llab-quvvatlamaydi. Bizning tizimimiz esa boshidanoq O'zbekiston bozori uchun maxsus ishlab chiqilgan.</p>
-    <div class="page-num">13</div>
 </div>
 
 <!-- ===== 14-BET: 1.3 yakuni, I Bob xulosa ===== -->
@@ -430,7 +420,6 @@
     <p>To'rtinchidan, ko'pchilik tizimlar internetga doimiy ulanishni talab qiladi. O'zbekistonning ayrim hududlarida internet sifati hali ham yetarli darajada emas, bu esa bulutli tizimlar uchun muammo yaratishi mumkin. Bizning tizimimiz esa lokal rejimda ham ishlash imkoniyatiga ega.</p>
     <p><b>I Bob bo'yicha xulosa.</b> Birinchi bobda axborot tizimlarining nazariy asoslari o'rganildi, ularning turlari, arxitekturasi va rivojlanish bosqichlari ko'rib chiqildi. Muzqaymoq do'koni faoliyatining o'ziga xos xususiyatlari va avtomatlashtirishning dolzarbligi asoslandi. Bozordagi mavjud tizimlar qiyosiy tahlil qilindi va ishlab chiqilayotgan tizimning afzalliklari ko'rsatildi.</p>
     <p>Tahlil natijalari shuni ko'rsatdiki, O'zbekiston muzqaymoq do'konlari uchun maxsus moslashtirilgan, arzon va ochiq kodli boshqaruv tizimini yaratish zaruriyati mavjud. Ikkinchi bobda biz ana shu tizimni loyihalash jarayonini - talablar tahlili, ma'lumotlar bazasi loyihalash va UML diagrammalar yaratishni batafsil ko'rib chiqamiz.</p>
-    <div class="page-num">14</div>
 </div>
 
 <!-- ===== 15-BET: II BOB, 2.1 boshlanishi ===== -->
@@ -454,7 +443,6 @@
         <tr><td>FR-10</td><td>Sotuv statistikasini vizualizatsiya qilish</td><td>Past</td><td>Hisobotlar</td></tr>
     </table>
     <p>Har bir funksional talab uchun ustuvorlik darajasi belgilangan: Yuqori - tizim ishlamay qoladi, O'rta - muhim, lekin tizim ishlay oladi, Past - qulaylik uchun kerakli funksiya.</p>
-    <div class="page-num">15</div>
 </div>
 
 <!-- ===== 16-BET: 2.1 davomi ===== -->
@@ -479,7 +467,6 @@
     <p><b>2. Menejer.</b> Kundalik operatsiyalarni boshqaradi. Mahsulotlar va buyurtmalar bilan ishlaydi, omborxona qoldiqlarini nazorat qiladi, hisobotlarni ko'radi. Ammo foydalanuvchilarni boshqarolmaydi va tizim sozlamalarini o'zgartira olmaydi.</p>
     <p><b>3. Sotuvchi (Kassir).</b> Cheklangan huquqlarga ega. Faqat buyurtma yaratadi, mahsulotlar ro'yxatini ko'radi va o'z sotuvlari bo'yicha hisobot oladi. Boshqa xodimlar ma'lumotlariga va tizim sozlamalariga kira olmaydi.</p>
     <p><b>4. Omborchi.</b> Omborxona operatsiyalarini bajaradi. Mahsulot kirim-chiqimini qayd etadi, qoldiqlarni tekshiradi, yaroqlilik muddatini nazorat qiladi. Moliyaviy hisobotlarga va sotuvlarga kirish huquqi yo'q.</p>
-    <div class="page-num">16</div>
 </div>
 
 <!-- ===== 17-BET: 2.1 davomi - Use Cases ===== -->
@@ -513,7 +500,6 @@
         <li><b>Asosiy oqim:</b> 1) Hisobotlar sahifasini ochish → 2) Hisobot turini tanlash (kunlik/haftalik/oylik) → 3) Sanalar oralig'ini belgilash → 4) "Shakllantirish" tugmasini bosish → 5) Hisobot jadval va grafik shaklida ko'rsatiladi</li>
     </ul>
     <p>Yuqoridagi foydalanish holatlari tizimning asosiy funksionalligini qamrab oladi. Har bir holat uchun tegishli test stsenariylari ham tayyorlanadi, bu esa tizimni testlash bosqichida ishlatiladi.</p>
-    <div class="page-num">17</div>
 </div>
 
 <!-- ===== 18-BET: 2.1 yakuni ===== -->
@@ -544,7 +530,6 @@
     </ul>
     <p>Tizim monolitik arxitekturada quriladi, chunki loyiha hajmi kichik va microservice arxitektura bu bosqichda ortiqcha murakkablik yaratadi. Biroq, kod modular tuzilishda yoziladi - har bir modul (blueprint) mustaqil bo'lib, kelajakda alohida servisga ajratish imkoniyati saqlanadi.</p>
     <p>Tizimning umumiy arxitekturasi MVC (Model-View-Controller) patterniga asoslanadi. Flask frameworkida bu pattern quyidagicha amalga oshiriladi: Model - SQLAlchemy modellari (ma'lumotlar bazasi jadvallari), View - Jinja2 shablonlari (HTML sahifalar), Controller - Flask route funksiyalari (biznes logika). Bu pattern kodni tartibli saqlash va osonlik bilan kengaytirish imkonini beradi.</p>
-    <div class="page-num">18</div>
 </div>
 
 <!-- ===== 19-BET: 2.2 boshlanishi ===== -->
@@ -599,7 +584,6 @@
     </svg>
     <p class="fig-caption">2.1-rasm. Tizimning ER-diagrammasi</p>
     <p>ER-diagrammadan ko'rinib turibdiki, tizimning markaziy ob'ekti - Product (mahsulot). U Category bilan ko'pga-bir (many-to-one) bog'lanishga ega. Order (buyurtma) User tomonidan yaratiladi va OrderItem orqali mahsulotlar bilan bog'lanadi. Inventory ob'ekti mahsulotlarning omborxonadagi harakatini qayd etadi.</p>
-    <div class="page-num">19</div>
 </div>
 
 <!-- ===== 20-BET: 2.2 davomi ===== -->
@@ -639,7 +623,6 @@
         <tr><td>payment_method</td><td>VARCHAR(20)</td><td>DEFAULT 'cash'</td><td>To'lov usuli</td></tr>
         <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Yaratilgan vaqt</td></tr>
     </table>
-    <div class="page-num">20</div>
 </div>
 
 <!-- ===== 21-BET: 2.2 davomi ===== -->
@@ -691,7 +674,6 @@ CREATE TABLE product (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 </pre>
-    <div class="page-num">21</div>
 </div>
 
 <!-- ===== 22-BET: 2.2 yakuni ===== -->
@@ -756,7 +738,6 @@ BEGIN
 END;
 </pre>
     <p>Shu tariqa ma'lumotlar bazasi loyihalash bosqichi yakunlandi. Keyingi bo'limda tizimning umumiy arxitekturasi va UML diagrammalar ko'rib chiqiladi.</p>
-    <div class="page-num">22</div>
 </div>
 
 <!-- ===== 23-BET: 2.3 boshlanishi ===== -->
@@ -812,7 +793,6 @@ END;
     </svg>
     <p class="fig-caption">2.2-rasm. Tizimning uch qatlamli arxitekturasi</p>
     <p>Arxitektura diagrammasidan ko'rinib turibdiki, har bir qatlam o'z vazifasini bajaradi va faqat qo'shni qatlam bilan aloqa qiladi. Bu tamoyil (separation of concerns) kodni tushunish va saqlab turishni osonlashtiradi.</p>
-    <div class="page-num">23</div>
 </div>
 
 <!-- ===== 24-BET: 2.3 davomi - Use Case diagram ===== -->
@@ -874,7 +854,6 @@ END;
     </svg>
     <p class="fig-caption">2.3-rasm. Foydalanish holatlari (Use Case) diagrammasi</p>
     <p>Use Case diagrammadan ko'rinib turibdiki, Administrator barcha funksiyalarga kirish huquqiga ega, Menejer mahsulotlar, buyurtmalar, omborxona va hisobotlar bilan ishlaydi, Sotuvchi esa faqat mahsulotlarni ko'rish va buyurtma yaratish imkoniyatiga ega.</p>
-    <div class="page-num">24</div>
 </div>
 
 <!-- ===== 25-BET: 2.3 davomi - Class diagram ===== -->
@@ -946,7 +925,6 @@ END;
     <p class="fig-caption">2.4-rasm. Sinflar (Class) diagrammasi</p>
     <p>Sinflar diagrammasida asosiy to'rtta sinf ko'rsatilgan: User, Product, Order va OrderItem. Har bir sinf atributlar (xususiyatlar) va metodlarga (funksiyalar) ega. Sinflar orasidagi bog'lanishlar (association) sonlar bilan belgilangan - masalan, bitta Order bir nechta OrderItem ga ega bo'lishi mumkin (1:*).</p>
     <p>Tizimning ketma-ketlik diagrammasi (Sequence Diagram) "Buyurtma yaratish" jarayonini vaqt bo'yicha tasvirlaydi. Sotuvchi mahsulotlarni tanlaydi, tizim omborxona qoldig'ini tekshiradi, buyurtma yaratiladi va omborxona yangilanadi. Bu jarayon transaksion xususiyatga ega - agar biron bir bosqichda xatolik yuzaga kelsa, barcha o'zgarishlar bekor qilinadi (rollback).</p>
-    <div class="page-num">25</div>
 </div>
 
 <!-- ===== 26-BET: 2.3 yakuni - Sequence diagram ===== -->
@@ -1013,7 +991,6 @@ END;
     <p class="fig-caption">2.5-rasm. Buyurtma yaratish ketma-ketlik diagrammasi</p>
     <p>Ketma-ketlik diagrammasidan ko'rinib turibdiki, buyurtma yaratish jarayoni 11 ta bosqichdan iborat. Sotuvchi mahsulotlarni tanlaydi, Controller omborxona qoldig'ini tekshiradi, keyin buyurtma va omborxona yangilanadi. Barcha amallar tranzaksiya ichida bajariladi, bu esa ma'lumotlar yaxlitligini ta'minlaydi.</p>
     <p><b>II Bob bo'yicha xulosa.</b> Ikkinchi bobda tizimning to'liq loyihasi yaratildi. Funksional va nofunksional talablar aniqlandi, foydalanuvchi rollari va ularning huquqlari belgilandi. Ma'lumotlar bazasi normalizatsiya qilinib loyihalandi, SQL buyruqlari yozildi. Tizim arxitekturasi (3-tier), UML diagrammalar (Use Case, Class, Sequence) yaratildi. Uchinchi bobda ushbu loyihani dasturiy amalga oshirish jarayoni batafsil ko'rib chiqiladi.</p>
-    <div class="page-num">26</div>
 </div>
 
 <!-- ===== 27-BET: III BOB, 3.1 boshlanishi ===== -->
@@ -1040,7 +1017,6 @@ END;
         <li>Kichik loyihalar uchun Django ga nisbatan maqbulroq.</li>
     </ul>
     <p><b>SQLite ma'lumotlar bazasi.</b> SQLite - serverga ehtiyoj bo'lmagan, bitta faylda saqlanadigan relyatsion MBBT. U dunyodagi eng ko'p tarqalgan MBBT hisoblanadi (har bir smartfon va brauzerda mavjud). Uni tanlash sabablari: o'rnatish kerak emas, bitta .db fayli, tranzaksiyalar qo'llab-quvvatlanadi, 281 TB gacha ma'lumot saqlaydi, cross-platform.</p>
-    <div class="page-num">27</div>
 </div>
 
 <!-- ===== 28-BET: 3.1 davomi ===== -->
@@ -1104,7 +1080,6 @@ muzqaymoq-boshqaruv/
     ├── test_products.py
     └── test_orders.py
 </pre>
-    <div class="page-num">28</div>
 </div>
 
 <!-- ===== 29-BET: 3.1 davomi - Configuration ===== -->
@@ -1197,7 +1172,6 @@ def create_app(config_name='default'):
     
     return app
 </pre>
-    <div class="page-num">29</div>
 </div>
 
 <!-- ===== 30-BET: 3.1 yakuni ===== -->
@@ -1278,7 +1252,6 @@ flask seed-db
 flask run --host=0.0.0.0 --port=5000
 </pre>
     <p>Shu tariqa loyihaning texnologik asosi tayyorlandi. Keyingi bo'limda tizimning asosiy modullarini ishlab chiqish jarayoni batafsil ko'rib chiqiladi.</p>
-    <div class="page-num">30</div>
 </div>
 
 <!-- ===== 31-BET: 3.2 boshlanishi ===== -->
@@ -1351,7 +1324,6 @@ class Product(db.Model):
             return self.expiry_date &lt; datetime.utcnow().date()
         return False
 </pre>
-    <div class="page-num">31</div>
 </div>
 
 <!-- ===== 32-BET: 3.2 davomi - Auth va Routes ===== -->
@@ -1459,7 +1431,6 @@ def add():
     
     return render_template('products/add.html', form=form)
 </pre>
-    <div class="page-num">32</div>
 </div>
 
 <!-- ===== 33-BET: 3.2 davomi - Orders va Templates ===== -->
@@ -1543,7 +1514,6 @@ def create():
                           products=products)
 </pre>
     <p>Yuqoridagi kodda buyurtma yaratish jarayoni tranzaksiya ichida amalga oshiriladi. Agar biron mahsulotning qoldig'i yetarli bo'lmasa, barcha o'zgarishlar bekor qilinadi (rollback). Bu ma'lumotlar yaxlitligini ta'minlaydi.</p>
-    <div class="page-num">33</div>
 </div>
 
 <!-- ===== 34-BET: 3.2 davomi - Templates ===== -->
@@ -1646,7 +1616,6 @@ def create():
 &lt;/div&gt;
 {% endblock %}
 </pre>
-    <div class="page-num">34</div>
 </div>
 
 <!-- ===== 35-BET: 3.2 davomi - Reports module ===== -->
@@ -1736,7 +1705,6 @@ def inventory():
     )
 </pre>
     <p>Hisobotlar moduli SQLAlchemy ning aggregate funksiyalaridan (SUM, COUNT, GROUP BY) foydalanib, turli davrlar uchun statistik ma'lumotlarni shakllantirib beradi. Natijalar Chart.js kutubxonasi yordamida grafik ko'rinishda vizualizatsiya qilinadi.</p>
-    <div class="page-num">35</div>
 </div>
 
 </body>
