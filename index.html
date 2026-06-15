@@ -1312,5 +1312,95 @@
         <div class="page-number">32</div>
     </div>
 
+    <!-- ==================== SAHIFA 33: 2.3 boshlanishi ==================== -->
+    <div class="page">
+        <div class="content">
+            <h3>2.3. Tizimni sinovdan o'tkazish va xatolarni bartaraf etish</h3>
+
+            <p>Dasturiy ta'minot sifatini ta'minlash uchun tizimni turli darajadagi sinovlardan o'tkazish muhim bosqich hisoblanadi. Ushbu bo'limda maktab boshqaruv tizimini sinovdan o'tkazish metodologiyasi, qo'llangan sinov turlari va aniqlangan xatolarni bartaraf etish jarayoni batafsil yoritiladi.</p>
+
+            <p><b>Sinov strategiyasi.</b> Tizimni sinovdan o'tkazishda quyidagi sinov piramidasi (Testing Pyramid) tamoyiliga amal qilindi:</p>
+
+            <ul>
+                <li><b>Unit testlar (birlik testlar)</b> - eng ko'p sonli, individual funksiyalar va modullarni tekshiradi;</li>
+                <li><b>Integration testlar (integratsiya testlar)</b> - modullar orasidagi o'zaro ta'sirni tekshiradi;</li>
+                <li><b>End-to-End testlar (E2E)</b> - butun tizimni foydalanuvchi nuqtai nazaridan tekshiradi.</li>
+            </ul>
+
+            <p><b>Unit Testing (Jest framework).</b> Jest yordamida server tomonidagi funksiyalar sinovdan o'tkazildi. Sinovdan o'tkazilgan modullar:</p>
+
+            <p><b>1. Authentication moduli testlari:</b></p>
+            <ul>
+                <li>Ro'yxatdan o'tishda to'g'ri ma'lumotlar bilan muvaffaqiyatli yaratilish;</li>
+                <li>Mavjud email bilan ro'yxatdan o'tishda xato qaytarish;</li>
+                <li>Qisqa parol bilan ro'yxatdan o'tishda validatsiya xatosi;</li>
+                <li>To'g'ri ma'lumotlar bilan login muvaffaqiyati;</li>
+                <li>Noto'g'ri parol bilan login muvaffaqiyatsizligi;</li>
+                <li>Mavjud bo'lmagan email bilan login xatosi.</li>
+            </ul>
+
+            <p><b>2. Student Controller testlari:</b></p>
+            <ul>
+                <li>Barcha o'quvchilar ro'yxatini olish (GET /api/students);</li>
+                <li>Yangi o'quvchi yaratish (POST /api/students) - validatsiya bilan;</li>
+                <li>O'quvchi ma'lumotlarini yangilash (PUT /api/students/:id);</li>
+                <li>Mavjud bo'lmagan o'quvchini so'rashda 404 xatosi;</li>
+                <li>Autorizatsiyasiz so'rovda 401 xatosi.</li>
+            </ul>
+
+            <p><b>3. Grade va Attendance modullari testlari:</b></p>
+            <ul>
+                <li>Baho qo'shishda validatsiya (1-5 oralig'ida);</li>
+                <li>Davomat belgilashda to'g'ri holat qiymatlari;</li>
+                <li>O'rtacha ball hisoblash funksiyasining to'g'riligi;</li>
+                <li>Statistik hisob-kitoblar aniqligi.</li>
+            </ul>
+        </div>
+        <div class="page-number">33</div>
+    </div>
+
+    <!-- ==================== SAHIFA 34: 2.3 davomi ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Integration Testing (Supertest).</b> API endpointlarini sinovdan o'tkazish uchun Supertest kutubxonasidan foydalanildi. Test ma'lumotlar bazasi (test database) yaratildi va har bir test oldin ma'lumotlar bazasi tozalanadi (beforeEach). Sinovdan o'tkazilgan integratsiya stsenariylari:</p>
+
+            <ul>
+                <li>Ro'yxatdan o'tish → Login → Token olish → Himoyalangan endpointga kirish;</li>
+                <li>O'quvchi yaratish → Baholar qo'yish → Hisobot olish;</li>
+                <li>Sinf yaratish → O'quvchilarni biriktirish → Davomat belgilash;</li>
+                <li>Admin yaratish → O'qituvchi yaratish → Ruxsatlarni tekshirish.</li>
+            </ul>
+
+            <p><b>Frontend Testing (React Testing Library).</b> React komponentlari sinovdan o'tkazildi:</p>
+
+            <ul>
+                <li>Login formasi - to'g'ri renderlanishi, validatsiya, submit hodisasi;</li>
+                <li>StudentList - ma'lumotlar yuklanishi, pagination ishlashi;</li>
+                <li>GradeForm - baho kiritish, saqlash funksiyasi;</li>
+                <li>Dashboard - statistik kartalar to'g'ri ko'rsatilishi.</li>
+            </ul>
+
+            <p><b>Manual Testing (Qo'lda sinovdan o'tkazish).</b> Avtomatlashtirilgan testlardan tashqari, tizim qo'lda ham sinovdan o'tkazildi. Quyidagi stsenariylarda tekshirildi:</p>
+
+            <ul>
+                <li>Turli brauzerlar: Chrome, Firefox, Safari, Edge;</li>
+                <li>Turli ekran o'lchamlari: Desktop (1920x1080), Tablet (768x1024), Mobile (375x667);</li>
+                <li>Sekin internet ulanish simulyatsiyasi (3G);</li>
+                <li>Ko'p foydalanuvchi bir vaqtda ishlashi (concurrent users).</li>
+            </ul>
+
+            <p><b>Aniqlangan xatolar va ularni bartaraf etish.</b> Sinovdan o'tkazish jarayonida quyidagi asosiy xatolar aniqlandi:</p>
+
+            <p><b>1-xato: Token muddati tugaganda foydalanuvchi tizimdan chiqarilmaydi.</b></p>
+            <p><i>Sabab:</i> Frontend da token expiration tekshiruvi yo'q edi.</p>
+            <p><i>Yechim:</i> Axios response interceptor ga token tekshiruvi qo'shildi. 401 status kodi qaytganda avtomatik logout va login sahifasiga yo'naltirish amalga oshiriladi.</p>
+
+            <p><b>2-xato: Bir vaqtda ikki o'qituvchi bir xil o'quvchiga baho qo'yganda ma'lumot yo'qolishi.</b></p>
+            <p><i>Sabab:</i> Race condition - parallel yozish operatsiyalari.</p>
+            <p><i>Yechim:</i> MongoDB ning atomic operations (findOneAndUpdate) dan foydalanish va optimistic locking qo'llash.</p>
+        </div>
+        <div class="page-number">34</div>
+    </div>
+
 </body>
 </html>
