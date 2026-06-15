@@ -5,78 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurs Ishi - Muzqaymoq Do'koni Boshqaruv Tizimi</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Times New Roman', serif;
             font-size: 14pt;
             line-height: 1.5;
-            background: #525659;
+            margin: 0;
+            padding: 0;
             color: #000;
         }
         .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 20mm 15mm 20mm 30mm;
-            margin: 10px auto;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            position: relative;
+            width: 170mm;
+            margin: 0 auto;
+            padding: 2cm 1.5cm 2cm 3cm;
             page-break-after: always;
-            page-break-inside: avoid;
         }
-        .page:last-child { page-break-after: auto; }
-        @media print {
-            @page {
-                size: A4;
-                margin: 0;
-            }
-            body { background: white; margin: 0; padding: 0; }
-            .page { 
-                box-shadow: none; 
-                margin: 0; 
-                page-break-after: always;
-                page-break-inside: avoid;
-                width: 210mm;
-                height: 297mm;
-                padding: 20mm 15mm 20mm 30mm;
-                overflow: hidden;
-            }
-            .page:last-child { page-break-after: auto; }
-        }
-        h2 { text-align: center; font-size: 14pt; font-weight: bold; margin-bottom: 15px; }
-        h3 { text-align: left; font-size: 14pt; font-weight: bold; margin: 15px 0 10px 0; text-indent: 1.25cm; }
-        p { text-align: justify; text-indent: 1.25cm; margin-bottom: 8px; }
-        .no-indent { text-indent: 0; }
-        .center { text-align: center; }
+        h2 { text-align: center; font-size: 14pt; font-weight: bold; margin: 20px 0 15px 0; }
+        h3 { font-size: 14pt; font-weight: bold; margin: 15px 0 10px 0; text-indent: 1.25cm; }
+        p { text-align: justify; text-indent: 1.25cm; margin: 0 0 8px 0; }
+        .no-indent { text-indent: 0 !important; }
+        .center { text-align: center !important; }
         .bold { font-weight: bold; }
-        ul, ol { margin-left: 1.25cm; margin-bottom: 10px; }
+        ul, ol { margin: 0 0 10px 1.25cm; padding-left: 0.5cm; }
         li { margin-bottom: 4px; text-align: justify; }
-        /* Cover */
-        .cover { display: flex; flex-direction: column; justify-content: space-between; min-height: 257mm; border: 2px solid #000; padding: 15mm; }
-        .cover-top, .cover-mid, .cover-bot { text-align: center; }
-        .cover-bot { text-align: right; }
-        /* TOC */
-        .toc-line { display: flex; margin: 6px 0; text-indent: 0; }
-        .toc-title { flex: 1; }
-        .toc-dots { flex: 1; border-bottom: 1px dotted #000; margin: 0 5px; align-self: flex-end; margin-bottom: 4px; }
-        .toc-pg { width: 30px; text-align: right; }
-        /* Tables */
-        .tbl { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12pt; }
-        .tbl th, .tbl td { border: 1px solid #000; padding: 6px 8px; }
-        .tbl th { background: #f0f0f0; font-weight: bold; text-align: center; }
-        .tbl td { text-align: center; }
-        .tbl-caption { text-align: center; font-size: 12pt; font-style: italic; margin: 5px 0 10px; text-indent: 0; }
-        /* Code */
-        pre { background: #f5f5f5; padding: 12px; border: 1px solid #ddd; font-family: 'Courier New', monospace; font-size: 10pt; overflow-x: auto; margin: 10px 0; border-radius: 3px; white-space: pre-wrap; }
-        .fig-caption { text-align: center; font-size: 12pt; font-style: italic; margin-top: 8px; text-indent: 0; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12pt; }
+        th, td { border: 1px solid #000; padding: 5px 8px; }
+        th { background: #f0f0f0; font-weight: bold; text-align: center; }
+        td { text-align: center; }
+        .tbl-caption, .fig-caption { text-align: center; font-size: 12pt; font-style: italic; margin: 5px 0; text-indent: 0; }
     </style>
 </head>
 <body>
 
 <!-- ===== MUQOVA (raqamsiz) ===== -->
 <div class="page">
-    <div class="cover">
-        <div class="cover-top">
+    <div style="text-align:center;">
+        <div style="text-align:center; margin-bottom:80px;">
             <p class="no-indent center bold">O'ZBEKISTON RESPUBLIKASI OLIY TA'LIM, FAN VA INNOVATSIYALAR VAZIRLIGI</p>
             <br>
             <p class="no-indent center bold">RENESSANS TA'LIM UNIVERSITETI</p>
@@ -85,14 +48,14 @@
             <br>
             <p class="no-indent center" style="font-style:italic;">60610100 - Axborot tizimlari va texnologiyalari</p>
         </div>
-        <div class="cover-mid">
+        <div style="text-align:center; margin-bottom:80px;">
             <p class="no-indent center bold">"AXBOROT TIZIMLARI" FANIDAN</p>
             <br>
             <p class="no-indent center bold" style="font-size:28pt;">KURS ISHI</p>
             <br>
             <p class="no-indent center bold" style="font-size:14pt;">MAVZU: MUZQAYMOQ DO'KONI BOSHQARUV TIZIMINI YARATISH</p>
         </div>
-        <div class="cover-bot">
+        <div style="text-align:right; margin-top:80px;">
             <p class="no-indent" style="text-align:right;">Guruh: 3-kurs 62S-23</p>
             <p class="no-indent" style="text-align:right;">Bajardi: Isoqjonov Agzam</p>
             <p class="no-indent" style="text-align:right;">Qabul qildi: dots. Karimov A.B.</p>
@@ -106,25 +69,23 @@
 <!-- ===== MUNDARIJA (raqamsiz) ===== -->
 <div class="page">
     <h2>MUNDARIJA</h2>
-    <div class="toc-line"><span class="toc-title"><b>KIRISH</b></span><span class="toc-dots"></span><span class="toc-pg">1</span></div>
-    <br>
-    <div class="toc-line"><span class="toc-title"><b>I BOB. AXBOROT TIZIMLARI VA MUZQAYMOQ SANOATI TAHLILI</b></span><span class="toc-dots"></span><span class="toc-pg">2</span></div>
-    <div class="toc-line"><span class="toc-title">1.1 Axborot tizimlarining nazariy asoslari</span><span class="toc-dots"></span><span class="toc-pg">2</span></div>
-    <div class="toc-line"><span class="toc-title">1.2 Muzqaymoq do'koni faoliyatini avtomatlashtirishning dolzarbligi</span><span class="toc-dots"></span><span class="toc-pg">7</span></div>
-    <div class="toc-line"><span class="toc-title">1.3 Mavjud boshqaruv tizimlarining qiyosiy tahlili</span><span class="toc-dots"></span><span class="toc-pg">11</span></div>
-    <br>
-    <div class="toc-line"><span class="toc-title"><b>II BOB. MUZQAYMOQ DO'KONI BOSHQARUV TIZIMINI LOYIHALASH</b></span><span class="toc-dots"></span><span class="toc-pg">15</span></div>
-    <div class="toc-line"><span class="toc-title">2.1 Tizimga qo'yilgan talablar va funksional tahlil</span><span class="toc-dots"></span><span class="toc-pg">15</span></div>
-    <div class="toc-line"><span class="toc-title">2.2 Ma'lumotlar bazasini loyihalash</span><span class="toc-dots"></span><span class="toc-pg">19</span></div>
-    <div class="toc-line"><span class="toc-title">2.3 Tizim arxitekturasi va UML diagrammalar</span><span class="toc-dots"></span><span class="toc-pg">23</span></div>
-    <br>
-    <div class="toc-line"><span class="toc-title"><b>III BOB. TIZIMNI DASTURIY TA'MINOT BILAN AMALGA OSHIRISH</b></span><span class="toc-dots"></span><span class="toc-pg">27</span></div>
-    <div class="toc-line"><span class="toc-title">3.1 Dasturlash tillari va texnologiyalarni tanlash</span><span class="toc-dots"></span><span class="toc-pg">27</span></div>
-    <div class="toc-line"><span class="toc-title">3.2 Tizim modullarini ishlab chiqish</span><span class="toc-dots"></span><span class="toc-pg">31</span></div>
-    <div class="toc-line"><span class="toc-title">3.3 Testlash va natijalar</span><span class="toc-dots"></span><span class="toc-pg">38</span></div>
-    <br>
-    <div class="toc-line"><span class="toc-title"><b>XULOSA</b></span><span class="toc-dots"></span><span class="toc-pg">43</span></div>
-    <div class="toc-line"><span class="toc-title"><b>FOYDALANILGAN ADABIYOTLAR</b></span><span class="toc-dots"></span><span class="toc-pg">44</span></div>
+    <table style="width:100%; border:none; border-collapse:collapse;">
+        <tr><td style="border:none; padding:4px 0;"><b>KIRISH</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>1</b></td></tr>
+        <tr><td style="border:none; padding:4px 0;"><b>I BOB. AXBOROT TIZIMLARI VA MUZQAYMOQ SANOATI TAHLILI</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>2</b></td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">1.1 Axborot tizimlarining nazariy asoslari</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">2</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">1.2 Muzqaymoq do'koni faoliyatini avtomatlashtirishning dolzarbligi</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">7</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">1.3 Mavjud boshqaruv tizimlarining qiyosiy tahlili</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">11</td></tr>
+        <tr><td style="border:none; padding:4px 0;"><b>II BOB. MUZQAYMOQ DO'KONI BOSHQARUV TIZIMINI LOYIHALASH</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>15</b></td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">2.1 Tizimga qo'yilgan talablar va funksional tahlil</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">15</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">2.2 Ma'lumotlar bazasini loyihalash</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">19</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">2.3 Tizim arxitekturasi va UML diagrammalar</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">23</td></tr>
+        <tr><td style="border:none; padding:4px 0;"><b>III BOB. TIZIMNI DASTURIY TA'MINOT BILAN AMALGA OSHIRISH</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>27</b></td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">3.1 Dasturlash tillari va texnologiyalarni tanlash</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">27</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">3.2 Tizim modullarini ishlab chiqish</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">31</td></tr>
+        <tr><td style="border:none; padding:4px 0; padding-left:1cm;">3.3 Testlash va natijalar</td><td style="border:none; padding:4px 0; width:40px; text-align:right;">38</td></tr>
+        <tr><td style="border:none; padding:4px 0;"><b>XULOSA</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>43</b></td></tr>
+        <tr><td style="border:none; padding:4px 0;"><b>FOYDALANILGAN ADABIYOTLAR</b></td><td style="border:none; padding:4px 0; width:40px; text-align:right;"><b>44</b></td></tr>
+    </table>
 </div>
 
 <!-- ===== 1-BET: KIRISH (1 varoq) ===== -->
@@ -148,7 +109,7 @@
     <p>Axborot tizimlarining asosiy tarkibiy qismlari: 1) Apparat ta'minot (hardware) - kompyuterlar, serverlar, tarmoq qurilmalari; 2) Dasturiy ta'minot (software) - operatsion tizimlar, MBBT, amaliy dasturlar; 3) Ma'lumotlar (data) - tizimda saqlanadigan barcha axborot; 4) Protseduralar (procedures) - ishlash qoidalari va ko'rsatmalari; 5) Odamlar (people) - ishlab chiquvchilar, administratorlar va foydalanuvchilar.</p>
     <p>Axborot tizimlarini tasniflash bir necha mezon bo'yicha amalga oshiriladi:</p>
     <p class="tbl-caption">1.1-jadval. Axborot tizimlarining tasnifi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Mezon</th><th>Turlar</th><th>Tavsifi</th></tr>
         <tr><td>Funksional maqsad</td><td>TPS, MIS, DSS, EIS</td><td>Tranzaksion, boshqaruv, qaror qo'llab-quvvatlash</td></tr>
         <tr><td>Qamrab olish</td><td>ERP, bo'lim, individual</td><td>Korxona, bo'lim yoki shaxsiy darajada</td></tr>
@@ -208,7 +169,7 @@
     <p><b>DevOps yondashuvi.</b> Dasturiy ta'minotni ishlab chiqish (Dev) va operatsion boshqarish (Ops) jarayonlarini birlashtiradi. CI/CD (Continuous Integration / Continuous Deployment) amaliyotlari orqali tez va xavfsiz yetkazib berish ta'minlanadi.</p>
     <p>Testlash - dasturiy ta'minot sifatini ta'minlashning ajralmas qismi. Testlash turlari:</p>
     <p class="tbl-caption">1.2-jadval. Dasturiy ta'minot testlash turlari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Test turi</th><th>Maqsadi</th><th>Misollar</th></tr>
         <tr><td>Unit test</td><td>Alohida funksiyalarni tekshirish</td><td>pytest, unittest</td></tr>
         <tr><td>Integratsion test</td><td>Modullar o'zaro ishlashini tekshirish</td><td>API testlar</td></tr>
@@ -248,7 +209,7 @@
     </ul>
     <p>An'anaviy qo'lda boshqaruv usullarining kamchiliklari jiddiy muammolarni keltirib chiqaradi. Tadqiqotlarga ko'ra, qo'lda hisobda o'rtacha 15-25 foiz xatolik kuzatiladi. Axborotni qidirish va tahlil qilish ko'p vaqt oladi - oylik hisobot tayyorlash 3-4 soat talab qiladi. Ma'lumotlar yo'qolishi xavfi yuqori, chunki qog'oz hujjatlar osongina shikastlanishi yoki yo'qolishi mumkin. Shuningdek, bir nechta xodimning bir vaqtda ma'lumotlarga kirish imkoniyati cheklangan bo'lib, bu hamkorlik jarayonini sezilarli qiyinlashtiradi:</</p>
     <p class="tbl-caption">1.3-jadval. Qo'lda boshqaruvning kamchiliklari va avtomatlashtirish natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Muammo</th><th>Qo'lda boshqaruvda</th><th>Avtomatlashtirilganda</th></tr>
         <tr><td>Xatoliklar</td><td>15-25%</td><td>1-2%</td></tr>
         <tr><td>Hisobot tuzish vaqti</td><td>3-4 soat</td><td>5-10 soniya</td></tr>
@@ -264,7 +225,7 @@
     <p>Avtomatlashtirishning iqtisodiy samaradorligini baholash uchun quyidagi ko'rsatkichlarni ko'rib chiqamiz. O'rta hajmdagi muzqaymoq do'konida (oylik aylanmasi 50-100 mln so'm) qo'lda boshqaruv usuli bilan ishlanganda yiliga taxminan 15-20 mln so'm bevosita va bilvosita yo'qotishlar kuzatiladi. Bu yo'qotishlarning asosiy sabablari: mahsulot yaroqlilik muddatini o'tkazib yuborish (5-8%), inventarizatsiya xatoliklari (3-5%), hisobot tayyorlashda vaqt sarfi va boshqa operatsion xarajatlar.</p>
     <p>Axborot tizimini joriy etishning bir martalik xarajatlari (dasturiy ta'minot ishlab chiqish, o'rnatish, xodimlarni o'qitish) taxminan 15-25 mln so'mni tashkil etadi. Ammo tizim yillik tejamkorlikni 20-30 mln so'mga yetkazishi hisobga olinsa, investitsiyaning qaytish muddati (ROI) 8-12 oyni tashkil etadi. Bu ko'rsatkich kichik biznes uchun juda jozibali hisoblanadi.</p>
     <p class="tbl-caption">1.4-jadval. Avtomatlashtirishning iqtisodiy samaradorligi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Ko'rsatkich</th><th>Qo'lda boshqaruv</th><th>Avtomatlashtirilgan tizim</th><th>Farq</th></tr>
         <tr><td>Oylik operatsion xarajatlar</td><td>8.5 mln so'm</td><td>5.2 mln so'm</td><td>-39%</td></tr>
         <tr><td>Inventarizatsiya aniqligi</td><td>82%</td><td>98%</td><td>+16%</td></tr>
@@ -286,26 +247,7 @@
     <p><b>4. Xodimlar boshqaruvi.</b> Har bir xodimning ish grafigi, sotuvlar hajmi va samaradorligi kuzatiladi. KPI (Key Performance Indicators) ko'rsatkichlari avtomatik hisoblanadi. Bu esa adolatli rag'batlantirish tizimini yaratish imkonini beradi.</p>
     <p><b>5. Analitika va prognozlash.</b> Tarixiy ma'lumotlar asosida talab prognozi tuziladi. Mavsumiy o'zgarishlarni oldindan ko'rish va ularga tayyorgarlik ko'rish imkoniyati paydo bo'ladi. Ma'lumotlarga asoslangan qarorlar qabul qilish (Data-Driven Decision Making) korxona samaradorligini oshiradi.</p>
     <p>Quyidagi diagramma muzqaymoq do'konini avtomatlashtirishdan oldingi va keyingi biznes-jarayonlarni solishtiradi:</p>
-    <svg width="100%" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="270" height="180" fill="#fff3f3" stroke="#cc0000" stroke-width="1"/>
-        <text x="145" y="30" text-anchor="middle" font-size="11" font-weight="bold" fill="#cc0000">OLDIN (Qo'lda boshqaruv)</text>
-        <text x="30" y="55" font-size="9">📋 Qog'oz hujjatlar</text>
-        <text x="30" y="75" font-size="9">⏰ Sekin hisobot (3-4 soat)</text>
-        <text x="30" y="95" font-size="9">❌ Xatoliklar (15-25%)</text>
-        <text x="30" y="115" font-size="9">📉 Ma'lumot yo'qolishi</text>
-        <text x="30" y="135" font-size="9">👤 1 kishi - 1 vazifa</text>
-        <text x="30" y="155" font-size="9">🔓 Xavfsizlik past</text>
-        <text x="30" y="175" font-size="9">📊 Analitika yo'q</text>
-        <rect x="320" y="10" width="270" height="180" fill="#f0fff0" stroke="#008800" stroke-width="1"/>
-        <text x="455" y="30" text-anchor="middle" font-size="11" font-weight="bold" fill="#008800">KEYIN (Avtomatlashtirilgan)</text>
-        <text x="340" y="55" font-size="9">💻 Elektron bazalar</text>
-        <text x="340" y="75" font-size="9">⚡ Tez hisobot (10 soniya)</text>
-        <text x="340" y="95" font-size="9">✅ Aniqlik (98%+)</text>
-        <text x="340" y="115" font-size="9">💾 Zaxira nusxalar</text>
-        <text x="340" y="135" font-size="9">👥 Ko'p foydalanuvchi</text>
-        <text x="340" y="155" font-size="9">🔒 Xavfsizlik yuqori</text>
-        <text x="340" y="175" font-size="9">📈 Real vaqt analitika</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">1.1-rasm. Avtomatlashtirishdan oldin va keyin solishtirma</p>
 </div>
 
@@ -342,7 +284,7 @@
 <div class="page">
     <p>Yuqorida ko'rib chiqilgan tizimlarni umumiy jadval shaklida solishtiramiz:</p>
     <p class="tbl-caption">1.5-jadval. Mavjud boshqaruv tizimlarining qiyosiy tahlili</p>
-    <table class="tbl">
+    <table >
         <tr><th>Mezon</th><th>1C</th><th>iiko</th><th>R-Keeper</th><th>Poster</th><th>Square</th><th>Bizning tizim</th></tr>
         <tr><td>Narx (boshlang'ich)</td><td>5-15 mln</td><td>1-3 mln/oy</td><td>10+ mln</td><td>200-500 ming/oy</td><td>Bepul*</td><td>Bepul</td></tr>
         <tr><td>O'rnatish murakkabligi</td><td>Yuqori</td><td>O'rta</td><td>Yuqori</td><td>Past</td><td>Past</td><td>Past</td></tr>
@@ -362,39 +304,7 @@
 <!-- ===== 13-BET: 1.3 davomi ===== -->
 <div class="page">
     <p>Mavjud tizimlarning narx-sifat tahlilini vizual ko'rinishda ifodalash uchun quyidagi diagrammani ko'rib chiqamiz:</p>
-    <svg width="100%" height="280" viewBox="0 0 550 280" xmlns="http://www.w3.org/2000/svg">
-        <rect x="50" y="10" width="480" height="250" fill="#fafafa" stroke="#333" stroke-width="1"/>
-        <text x="280" y="270" text-anchor="middle" font-size="10" font-weight="bold">Funksionallik darajasi →</text>
-        <text x="30" y="140" text-anchor="middle" font-size="10" font-weight="bold" transform="rotate(-90,30,140)">Narx (mln so'm) →</text>
-        <!-- Grid lines -->
-        <line x1="80" y1="230" x2="500" y2="230" stroke="#ccc" stroke-width="0.5"/>
-        <line x1="80" y1="180" x2="500" y2="180" stroke="#ccc" stroke-width="0.5"/>
-        <line x1="80" y1="130" x2="500" y2="130" stroke="#ccc" stroke-width="0.5"/>
-        <line x1="80" y1="80" x2="500" y2="80" stroke="#ccc" stroke-width="0.5"/>
-        <line x1="80" y1="30" x2="500" y2="30" stroke="#ccc" stroke-width="0.5"/>
-        <!-- Y axis labels -->
-        <text x="70" y="233" text-anchor="end" font-size="8">0</text>
-        <text x="70" y="183" text-anchor="end" font-size="8">3</text>
-        <text x="70" y="133" text-anchor="end" font-size="8">6</text>
-        <text x="70" y="83" text-anchor="end" font-size="8">9</text>
-        <text x="70" y="33" text-anchor="end" font-size="8">12+</text>
-        <!-- Points -->
-        <circle cx="420" cy="50" r="12" fill="#cc0000" opacity="0.7"/>
-        <text x="420" y="54" text-anchor="middle" font-size="7" fill="white">R-Keeper</text>
-        <circle cx="380" cy="100" r="12" fill="#ff6600" opacity="0.7"/>
-        <text x="380" y="104" text-anchor="middle" font-size="7" fill="white">1C</text>
-        <circle cx="320" cy="150" r="12" fill="#ffaa00" opacity="0.7"/>
-        <text x="320" y="154" text-anchor="middle" font-size="7" fill="white">iiko</text>
-        <circle cx="200" cy="200" r="12" fill="#0088cc" opacity="0.7"/>
-        <text x="200" y="204" text-anchor="middle" font-size="7" fill="white">Poster</text>
-        <circle cx="150" cy="220" r="12" fill="#666" opacity="0.7"/>
-        <text x="150" y="224" text-anchor="middle" font-size="7" fill="white">Square</text>
-        <circle cx="300" cy="228" r="14" fill="#008800" opacity="0.8"/>
-        <text x="300" y="232" text-anchor="middle" font-size="7" fill="white">Bizning</text>
-        <!-- Ideal zone -->
-        <rect x="250" y="200" width="120" height="45" fill="none" stroke="#008800" stroke-width="2" stroke-dasharray="5,3"/>
-        <text x="310" y="255" text-anchor="middle" font-size="8" fill="#008800">Ideal zona</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">1.2-rasm. Tizimlarning narx-funksionallik diagrammasi</p>
     <p>Diagrammadan ko'rinib turibdiki, bizning tizimimiz "ideal zona"da joylashgan - yuqori funksionallik va past narx kombinatsiyasi. Bu kichik va o'rta biznes uchun eng maqbul variant hisoblanadi.</p>
     <p>Bozordagi tizimlarning yana bir muhim farqi - texnik qo'llab-quvvatlash modelidir. Tijorat tizimlari (1C, iiko, R-Keeper) uchun texnik xizmat ko'rsatish alohida to'lov talab qiladi, bu yillik xarajatlarga 2-5 mln so'm qo'shadi. Poster va Square uchun texnik qo'llab-quvvatlash oylik obuna narxiga kiritilgan, lekin u cheklangan. Bizning tizimimiz ochiq kodli bo'lgani uchun, texnik masalalarni tashkilotning o'z IT-mutaxassisi hal qilishi yoki jamiyat (community) yordamiga murojaat qilishi mumkin.</p>
@@ -420,7 +330,7 @@
     <p>Tizimni loyihalashning birinchi bosqichi - bu foydalanuvchi talablarini to'plash va tahlil qilish. IEEE 830 standarti (Software Requirements Specification) ga muvofiq, talablar funksional va nofunksional turlarga bo'linadi. Funksional talablar tizim nima qilishi kerakligini, nofunksional talablar esa tizim qanday ishlashi kerakligini belgilaydi.</p>
     <p>Talablar to'plash jarayonida quyidagi usullardan foydalanildi: muzqaymoq do'koni xodimlari bilan suhbat (interview), mavjud ish jarayonlarini kuzatish (observation), hujjatlarni tahlil qilish va bozordagi analoglarni o'rganish. Natijada quyidagi funksional talablar ro'yxati shakllantirildi:</p>
     <p class="tbl-caption">2.1-jadval. Tizimning funksional talablari</p>
-    <table class="tbl">
+    <table >
         <tr><th>ID</th><th>Talab</th><th>Ustuvorlik</th><th>Modul</th></tr>
         <tr><td>FR-01</td><td>Foydalanuvchi ro'yxatdan o'tishi va tizimga kirishi</td><td>Yuqori</td><td>Autentifikatsiya</td></tr>
         <tr><td>FR-02</td><td>Mahsulotlar ro'yxatini ko'rish, qo'shish, tahrirlash, o'chirish</td><td>Yuqori</td><td>Mahsulotlar</td></tr>
@@ -440,7 +350,7 @@
 <div class="page">
     <p>Nofunksional talablar tizimning sifat ko'rsatkichlarini belgilaydi. Ular tizimning ishonchliligi, tezkorligi, xavfsizligi va qulayligi bilan bog'liq:</p>
     <p class="tbl-caption">2.2-jadval. Tizimning nofunksional talablari</p>
-    <table class="tbl">
+    <table >
         <tr><th>ID</th><th>Kategoriya</th><th>Talab</th><th>Mezon</th></tr>
         <tr><td>NFR-01</td><td>Unumdorlik</td><td>Sahifa yuklash vaqti</td><td>≤ 2 soniya</td></tr>
         <tr><td>NFR-02</td><td>Unumdorlik</td><td>Bir vaqtda foydalanuvchilar</td><td>≥ 50 nafar</td></tr>
@@ -497,7 +407,7 @@
 <div class="page">
     <p>Tizimning foydalanuvchi rollari va ularning huquqlari matritsasi quyidagicha:</p>
     <p class="tbl-caption">2.3-jadval. Rollar va huquqlar matritsasi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Funksiya</th><th>Admin</th><th>Menejer</th><th>Sotuvchi</th><th>Omborchi</th></tr>
         <tr><td>Foydalanuvchilarni boshqarish</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td></tr>
         <tr><td>Mahsulot qo'shish/tahrirlash</td><td>✓</td><td>✓</td><td>✗</td><td>✗</td></tr>
@@ -528,51 +438,7 @@
     <h3>2.2 Ma'lumotlar bazasini loyihalash</h3>
     <p>Ma'lumotlar bazasini loyihalash tizimni yaratishning eng muhim bosqichlaridan biri hisoblanadi. To'g'ri loyihalangan baza tizimning barqaror, tez va ishonchli ishlashini ta'minlaydi. Loyihalash jarayonida biz konseptual, mantiqiy va fizik darajadagi modellarni ketma-ket yaratamiz.</p>
     <p>Konseptual modelda (ER-diagramma) tizimning asosiy ob'ektlari (entities) va ular orasidagi bog'lanishlar (relationships) aniqlanadi. Bizning tizimimizda quyidagi asosiy ob'ektlar mavjud:</p>
-    <svg width="100%" height="320" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
-        <!-- User entity -->
-        <rect x="30" y="20" width="120" height="60" fill="#e8f4fd" stroke="#2196F3" stroke-width="2" rx="3"/>
-        <text x="90" y="45" text-anchor="middle" font-size="11" font-weight="bold">User</text>
-        <text x="90" y="62" text-anchor="middle" font-size="8">id, username, role</text>
-        <!-- Product entity -->
-        <rect x="240" y="20" width="120" height="60" fill="#e8f8e8" stroke="#4CAF50" stroke-width="2" rx="3"/>
-        <text x="300" y="45" text-anchor="middle" font-size="11" font-weight="bold">Product</text>
-        <text x="300" y="62" text-anchor="middle" font-size="8">id, name, price, qty</text>
-        <!-- Category entity -->
-        <rect x="450" y="20" width="120" height="60" fill="#fff8e1" stroke="#FF9800" stroke-width="2" rx="3"/>
-        <text x="510" y="45" text-anchor="middle" font-size="11" font-weight="bold">Category</text>
-        <text x="510" y="62" text-anchor="middle" font-size="8">id, name</text>
-        <!-- Order entity -->
-        <rect x="30" y="150" width="120" height="60" fill="#fce4ec" stroke="#E91E63" stroke-width="2" rx="3"/>
-        <text x="90" y="175" text-anchor="middle" font-size="11" font-weight="bold">Order</text>
-        <text x="90" y="192" text-anchor="middle" font-size="8">id, date, total, status</text>
-        <!-- OrderItem entity -->
-        <rect x="240" y="150" width="120" height="60" fill="#f3e5f5" stroke="#9C27B0" stroke-width="2" rx="3"/>
-        <text x="300" y="175" text-anchor="middle" font-size="11" font-weight="bold">OrderItem</text>
-        <text x="300" y="192" text-anchor="middle" font-size="8">id, qty, price</text>
-        <!-- Inventory entity -->
-        <rect x="450" y="150" width="120" height="60" fill="#e0f2f1" stroke="#009688" stroke-width="2" rx="3"/>
-        <text x="510" y="175" text-anchor="middle" font-size="11" font-weight="bold">Inventory</text>
-        <text x="510" y="192" text-anchor="middle" font-size="8">id, qty, date, type</text>
-        <!-- Report entity -->
-        <rect x="240" y="260" width="120" height="50" fill="#fff3e0" stroke="#FF5722" stroke-width="2" rx="3"/>
-        <text x="300" y="285" text-anchor="middle" font-size="11" font-weight="bold">Report</text>
-        <text x="300" y="300" text-anchor="middle" font-size="8">id, type, period</text>
-        <!-- Relationships -->
-        <line x1="150" y1="50" x2="240" y2="50" stroke="#333" stroke-width="1"/>
-        <text x="195" y="42" text-anchor="middle" font-size="7">boshqaradi</text>
-        <line x1="360" y1="50" x2="450" y2="50" stroke="#333" stroke-width="1"/>
-        <text x="405" y="42" text-anchor="middle" font-size="7">tegishli</text>
-        <line x1="90" y1="80" x2="90" y2="150" stroke="#333" stroke-width="1"/>
-        <text x="100" y="120" font-size="7">yaratadi</text>
-        <line x1="150" y1="180" x2="240" y2="180" stroke="#333" stroke-width="1"/>
-        <text x="195" y="172" text-anchor="middle" font-size="7">o'z ichiga oladi</text>
-        <line x1="360" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1"/>
-        <text x="405" y="162" text-anchor="middle" font-size="7">qayd etadi</text>
-        <line x1="300" y1="80" x2="300" y2="150" stroke="#333" stroke-width="1"/>
-        <text x="315" y="120" font-size="7">bog'liq</text>
-        <line x1="300" y1="210" x2="300" y2="260" stroke="#333" stroke-width="1"/>
-        <text x="315" y="240" font-size="7">asosida</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">2.1-rasm. Tizimning ER-diagrammasi</p>
     <p>ER-diagrammadan ko'rinib turibdiki, tizimning markaziy ob'ekti - Product (mahsulot). U Category bilan ko'pga-bir (many-to-one) bog'lanishga ega. Order (buyurtma) User tomonidan yaratiladi va OrderItem orqali mahsulotlar bilan bog'lanadi. Inventory ob'ekti mahsulotlarning omborxonadagi harakatini qayd etadi.</p>
 </div>
@@ -581,7 +447,7 @@
 <div class="page">
     <p>Mantiqiy model darajasida har bir ob'ektning atributlari, ma'lumotlar turlari va cheklovlari aniqlanadi. Quyida asosiy jadvallar tuzilishi keltirilgan:</p>
     <p class="tbl-caption">2.4-jadval. User (Foydalanuvchi) jadvali tuzilishi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
         <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Yagona identifikator</td></tr>
         <tr><td>username</td><td>VARCHAR(80)</td><td>NOT NULL, UNIQUE</td><td>Foydalanuvchi nomi</td></tr>
@@ -592,7 +458,7 @@
         <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Yaratilgan sana</td></tr>
     </table>
     <p class="tbl-caption">2.5-jadval. Product (Mahsulot) jadvali tuzilishi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
         <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Yagona identifikator</td></tr>
         <tr><td>name</td><td>VARCHAR(150)</td><td>NOT NULL</td><td>Mahsulot nomi</td></tr>
@@ -605,7 +471,7 @@
         <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Qo'shilgan sana</td></tr>
     </table>
     <p class="tbl-caption">2.6-jadval. Order (Buyurtma) jadvali tuzilishi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
         <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Buyurtma raqami</td></tr>
         <tr><td>user_id</td><td>INTEGER</td><td>FOREIGN KEY → User(id)</td><td>Sotuvchi</td></tr>
@@ -619,7 +485,7 @@
 <!-- ===== 21-BET: 2.2 davomi ===== -->
 <div class="page">
     <p class="tbl-caption">2.7-jadval. OrderItem (Buyurtma tarkibi) jadvali tuzilishi</p>
-    <table class="tbl">
+    <table >
         <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
         <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Identifikator</td></tr>
         <tr><td>order_id</td><td>INTEGER</td><td>FOREIGN KEY → Order(id)</td><td>Buyurtma kaliti</td></tr>
@@ -633,8 +499,7 @@
     <p><b>2NF (Ikkinchi normal forma):</b> Barcha nokalit atributlar to'liq kalitga funksional bog'liq. Masalan, OrderItem jadvalida unit_price mahsulot narxi buyurtma vaqtida fiksatsiya qilinadi (Product jadvalidagi narx o'zgarsa ham tarixiy ma'lumot saqlanadi).</p>
     <p><b>3NF (Uchinchi normal forma):</b> Tranzitiv bog'liqliklar bartaraf etilgan. Masalan, mahsulot toifasi alohida Category jadvalida saqlanadi, Product jadvalida faqat category_id tashqi kalit mavjud.</p>
     <p>Fizik model darajasida ma'lumotlar bazasini yaratish uchun SQL buyruqlari yoziladi:</p>
-<pre>
--- Foydalanuvchilar jadvali
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">-- Foydalanuvchilar jadvali
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR(80) NOT NULL UNIQUE,
@@ -663,14 +528,12 @@ CREATE TABLE product (
     expiry_date DATE,
     min_stock INTEGER DEFAULT 10,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-</pre>
+);</div>
 </div>
 
 <!-- ===== 22-BET: 2.2 yakuni ===== -->
 <div class="page">
-<pre>
--- Buyurtmalar jadvali
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">-- Buyurtmalar jadvali
 CREATE TABLE "order" (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES user(id),
@@ -699,23 +562,19 @@ CREATE TABLE inventory (
     note TEXT,
     user_id INTEGER REFERENCES user(id),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-</pre>
+);</div>
     <p>Ma'lumotlar bazasining indekslari (indexes) so'rovlar tezligini oshirish uchun muhim ahamiyatga ega. Quyidagi indekslar yaratiladi:</p>
-<pre>
--- Tez-tez ishlatiladigan so'rovlar uchun indekslar
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">-- Tez-tez ishlatiladigan so'rovlar uchun indekslar
 CREATE INDEX idx_product_category ON product(category_id);
 CREATE INDEX idx_product_name ON product(name);
 CREATE INDEX idx_order_user ON "order"(user_id);
 CREATE INDEX idx_order_date ON "order"(created_at);
 CREATE INDEX idx_order_item_order ON order_item(order_id);
 CREATE INDEX idx_inventory_product ON inventory(product_id);
-CREATE INDEX idx_inventory_date ON inventory(created_at);
-</pre>
+CREATE INDEX idx_inventory_date ON inventory(created_at);</div>
     <p>Indekslar product jadvalidagi category_id bo'yicha filtratsiya, order jadvalidagi sana bo'yicha so'rovlar va inventory jadvalidagi mahsulot bo'yicha qidiruvni tezlashtiradi. SQLite da indekslar B-tree tuzilmasida saqlanadi va O(log n) murakkablikda ishlaydi.</p>
     <p>Ma'lumotlar bazasi yaxlitligi (integrity) uchun quyidagi trigger yaratiladi - buyurtma yaratilganda omborxona qoldig'i avtomatik kamaytiriladi:</p>
-<pre>
--- Omborxona qoldig'ini avtomatik yangilash triggeri
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">-- Omborxona qoldig'ini avtomatik yangilash triggeri
 CREATE TRIGGER update_stock_after_order
 AFTER INSERT ON order_item
 BEGIN
@@ -726,8 +585,7 @@ BEGIN
     INSERT INTO inventory (product_id, quantity, type, note)
     VALUES (NEW.product_id, NEW.quantity, 'out', 
             'Buyurtma #' || NEW.order_id);
-END;
-</pre>
+END;</div>
     <p>Shu tariqa ma'lumotlar bazasi loyihalash bosqichi yakunlandi. Keyingi bo'limda tizimning umumiy arxitekturasi va UML diagrammalar ko'rib chiqiladi.</p>
 </div>
 
@@ -735,53 +593,7 @@ END;
 <div class="page">
     <h3>2.3 Tizim arxitekturasi va UML diagrammalar</h3>
     <p>Tizim arxitekturasi - bu tizimning asosiy komponentlari va ularning o'zaro aloqalarini belgilaydigan yuqori darajadagi dizayn. Muzqaymoq do'koni boshqaruv tizimi uch qatlamli (3-tier) arxitekturada quriladi. Bu arxitektura prezentatsiya, biznes-logika va ma'lumotlar qatlamlarini ajratib, tizimning saqlanishi va kengaytirilishini osonlashtiradi.</p>
-    <svg width="100%" height="350" viewBox="0 0 550 350" xmlns="http://www.w3.org/2000/svg">
-        <!-- Title -->
-        <text x="275" y="20" text-anchor="middle" font-size="12" font-weight="bold">Uch qatlamli arxitektura</text>
-        <!-- Presentation Layer -->
-        <rect x="50" y="35" width="450" height="80" fill="#e3f2fd" stroke="#1976D2" stroke-width="2" rx="5"/>
-        <text x="275" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1976D2">Prezentatsiya qatlami (Presentation Layer)</text>
-        <rect x="70" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
-        <text x="120" y="87" text-anchor="middle" font-size="9">HTML/CSS</text>
-        <rect x="190" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
-        <text x="240" y="87" text-anchor="middle" font-size="9">Bootstrap 5</text>
-        <rect x="310" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
-        <text x="360" y="87" text-anchor="middle" font-size="9">Jinja2 Templates</text>
-        <rect x="430" y="65" width="55" height="35" fill="white" stroke="#64B5F6" rx="3"/>
-        <text x="457" y="87" text-anchor="middle" font-size="9">JS</text>
-        <!-- Arrow -->
-        <line x1="275" y1="115" x2="275" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-        <text x="295" y="132" font-size="8">HTTP/HTTPS</text>
-        <!-- Business Logic Layer -->
-        <rect x="50" y="140" width="450" height="90" fill="#e8f5e9" stroke="#388E3C" stroke-width="2" rx="5"/>
-        <text x="275" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#388E3C">Biznes-logika qatlami (Business Logic Layer)</text>
-        <rect x="70" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
-        <text x="110" y="188" text-anchor="middle" font-size="8">Flask App</text>
-        <text x="110" y="200" text-anchor="middle" font-size="7">Routes</text>
-        <rect x="165" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
-        <text x="205" y="188" text-anchor="middle" font-size="8">Auth Module</text>
-        <text x="205" y="200" text-anchor="middle" font-size="7">Flask-Login</text>
-        <rect x="260" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
-        <text x="300" y="188" text-anchor="middle" font-size="8">Forms</text>
-        <text x="300" y="200" text-anchor="middle" font-size="7">WTForms</text>
-        <rect x="355" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
-        <text x="395" y="188" text-anchor="middle" font-size="8">Reports</text>
-        <text x="395" y="200" text-anchor="middle" font-size="7">Analytics</text>
-        <rect x="450" y="170" width="40" height="45" fill="white" stroke="#81C784" rx="3"/>
-        <text x="470" y="195" text-anchor="middle" font-size="7">API</text>
-        <!-- Arrow -->
-        <line x1="275" y1="230" x2="275" y2="255" stroke="#333" stroke-width="2"/>
-        <text x="295" y="247" font-size="8">SQLAlchemy ORM</text>
-        <!-- Data Layer -->
-        <rect x="50" y="255" width="450" height="80" fill="#fff3e0" stroke="#F57C00" stroke-width="2" rx="5"/>
-        <text x="275" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#F57C00">Ma'lumotlar qatlami (Data Access Layer)</text>
-        <rect x="120" y="290" width="130" height="35" fill="white" stroke="#FFB74D" rx="3"/>
-        <text x="185" y="312" text-anchor="middle" font-size="9">SQLite Database</text>
-        <rect x="300" y="290" width="130" height="35" fill="white" stroke="#FFB74D" rx="3"/>
-        <text x="365" y="312" text-anchor="middle" font-size="9">File Storage</text>
-        <!-- Arrow marker definition -->
-        <defs><marker id="arrow" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="#333"/></marker></defs>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">2.2-rasm. Tizimning uch qatlamli arxitekturasi</p>
     <p>Yuqoridagi diagrammada ko'rsatilganidek, prezentatsiya qatlami foydalanuvchi so'rovlarini qabul qiladi va natijalarni ko'rsatadi. HTML shablonlar Jinja2 template engine yordamida renderlanadi. Biznes-logika qatlami Flask framework orqali amalga oshiriladi - bu yerda barcha hisob-kitoblar, validatsiya va biznes qoidalari bajariladi. Ma'lumotlar qatlami SQLAlchemy ORM orqali SQLite bazasi bilan ishlaydi. Bu arxitektura modullarni mustaqil ravishda ishlab chiqish va testlash imkonini beradi.</p>
     <p>Tizimda Model-View-Controller (MVC) arxitektura namunasi qo'llanilgan. Model - ma'lumotlar strukturasi va biznes mantiq (SQLAlchemy modellari), View - foydalanuvchi interfeysi (Jinja2 shablonlar), Controller - so'rovlarni boshqarish (Flask route funksiyalari). Bu ajratish dastur kodining tushunarliligi va saqlanishini yaxshilaydi.</p>
@@ -791,60 +603,7 @@ END;
 <!-- ===== 24-BET: 2.3 davomi - Use Case diagram ===== -->
 <div class="page">
     <p>UML (Unified Modeling Language) diagrammalar tizimni turli nuqtai nazardan modellashtirish imkonini beradi. Birinchi navbatda, foydalanish holatlari diagrammasini (Use Case Diagram) ko'rib chiqamiz:</p>
-    <svg width="100%" height="380" viewBox="0 0 550 380" xmlns="http://www.w3.org/2000/svg">
-        <!-- System boundary -->
-        <rect x="130" y="10" width="350" height="360" fill="#fafafa" stroke="#333" stroke-width="2" stroke-dasharray="5,3" rx="10"/>
-        <text x="305" y="30" text-anchor="middle" font-size="11" font-weight="bold">Muzqaymoq do'koni boshqaruv tizimi</text>
-        <!-- Actors -->
-        <!-- Admin -->
-        <circle cx="50" cy="80" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="92" x2="50" y2="130" stroke="#333" stroke-width="1.5"/>
-        <line x1="30" y1="105" x2="70" y2="105" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="130" x2="35" y2="155" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="130" x2="65" y2="155" stroke="#333" stroke-width="1.5"/>
-        <text x="50" y="170" text-anchor="middle" font-size="8">Admin</text>
-        <!-- Menejer -->
-        <circle cx="50" cy="220" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="232" x2="50" y2="270" stroke="#333" stroke-width="1.5"/>
-        <line x1="30" y1="245" x2="70" y2="245" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="270" x2="35" y2="295" stroke="#333" stroke-width="1.5"/>
-        <line x1="50" y1="270" x2="65" y2="295" stroke="#333" stroke-width="1.5"/>
-        <text x="50" y="310" text-anchor="middle" font-size="8">Menejer</text>
-        <!-- Sotuvchi -->
-        <circle cx="530" cy="150" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
-        <line x1="530" y1="162" x2="530" y2="200" stroke="#333" stroke-width="1.5"/>
-        <line x1="510" y1="175" x2="550" y2="175" stroke="#333" stroke-width="1.5"/>
-        <line x1="530" y1="200" x2="515" y2="225" stroke="#333" stroke-width="1.5"/>
-        <line x1="530" y1="200" x2="545" y2="225" stroke="#333" stroke-width="1.5"/>
-        <text x="530" y="240" text-anchor="middle" font-size="8">Sotuvchi</text>
-        <!-- Use cases (ellipses) -->
-        <ellipse cx="250" cy="60" rx="75" ry="20" fill="#e3f2fd" stroke="#1976D2" stroke-width="1.5"/>
-        <text x="250" y="64" text-anchor="middle" font-size="8">Tizimga kirish</text>
-        <ellipse cx="250" cy="110" rx="75" ry="20" fill="#e8f5e9" stroke="#388E3C" stroke-width="1.5"/>
-        <text x="250" y="114" text-anchor="middle" font-size="8">Foydalanuvchi boshqarish</text>
-        <ellipse cx="350" cy="155" rx="75" ry="20" fill="#e8f5e9" stroke="#388E3C" stroke-width="1.5"/>
-        <text x="350" y="159" text-anchor="middle" font-size="8">Mahsulot boshqarish</text>
-        <ellipse cx="350" cy="200" rx="75" ry="20" fill="#fff3e0" stroke="#F57C00" stroke-width="1.5"/>
-        <text x="350" y="204" text-anchor="middle" font-size="8">Buyurtma yaratish</text>
-        <ellipse cx="250" cy="245" rx="75" ry="20" fill="#fce4ec" stroke="#E91E63" stroke-width="1.5"/>
-        <text x="250" y="249" text-anchor="middle" font-size="8">Omborxona boshqarish</text>
-        <ellipse cx="350" cy="290" rx="75" ry="20" fill="#f3e5f5" stroke="#9C27B0" stroke-width="1.5"/>
-        <text x="350" y="294" text-anchor="middle" font-size="8">Hisobot ko'rish</text>
-        <ellipse cx="250" cy="335" rx="75" ry="20" fill="#e0f2f1" stroke="#009688" stroke-width="1.5"/>
-        <text x="250" y="339" text-anchor="middle" font-size="8">Sozlamalar</text>
-        <!-- Connections -->
-        <line x1="70" y1="80" x2="175" y2="60" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="90" x2="175" y2="110" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="100" x2="275" y2="155" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="110" x2="175" y2="335" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="220" x2="275" y2="155" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="240" x2="275" y2="200" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="260" x2="175" y2="245" stroke="#333" stroke-width="1"/>
-        <line x1="70" y1="270" x2="275" y2="290" stroke="#333" stroke-width="1"/>
-        <line x1="510" y1="150" x2="425" y2="155" stroke="#333" stroke-width="1"/>
-        <line x1="510" y1="160" x2="425" y2="200" stroke="#333" stroke-width="1"/>
-        <line x1="510" y1="140" x2="325" y2="60" stroke="#333" stroke-width="1"/>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">2.3-rasm. Foydalanish holatlari (Use Case) diagrammasi</p>
     <p>Use Case diagrammasi tizimning funksional imkoniyatlarini foydalanuvchi nuqtai nazaridan ko'rsatadi. Diagrammada uchta aktor (Administrator, Menejer, Sotuvchi) va ularning tizim bilan o'zaro aloqasi tasvirlangan. Administrator tizimning to'liq boshqaruviga ega bo'lib, foydalanuvchilarni yaratish, sozlamalarni o'zgartirish va barcha hisobotlarni ko'rish huquqiga ega. Menejer mahsulotlar va buyurtmalarni boshqaradi, hisobotlarni ko'radi. Sotuvchi esa faqat buyurtma yaratish va chek chop etish funksiyalaridan foydalanadi.</p>
     <p>Tizimda rolga asoslangan kirish boshqaruvi (RBAC) joriy etilgan. Har bir foydalanuvchiga bitta rol biriktiriladi va tizim avtomatik ravishda foydalanuvchi huquqlarini tekshiradi. Bu xavfsizlik va ma'lumotlar maxfiyligini ta'minlaydi. Flask-Login kutubxonasi autentifikatsiya va sessiya boshqaruvini ta'minlaydi.</p>
@@ -854,69 +613,7 @@ END;
 <!-- ===== 25-BET: 2.3 davomi - Class diagram ===== -->
 <div class="page">
     <p>Sinflar diagrammasi (Class Diagram) tizimning ob'ektga yo'naltirilgan tuzilishini ko'rsatadi. Quyida asosiy sinflar va ular orasidagi bog'lanishlar keltirilgan:</p>
-    <svg width="100%" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
-        <!-- User class -->
-        <rect x="10" y="10" width="160" height="120" fill="white" stroke="#333" stroke-width="1.5"/>
-        <rect x="10" y="10" width="160" height="25" fill="#e3f2fd" stroke="#333" stroke-width="1.5"/>
-        <text x="90" y="27" text-anchor="middle" font-size="10" font-weight="bold">User</text>
-        <text x="20" y="50" font-size="8">- id: Integer</text>
-        <text x="20" y="62" font-size="8">- username: String</text>
-        <text x="20" y="74" font-size="8">- password_hash: String</text>
-        <text x="20" y="86" font-size="8">- role: String</text>
-        <line x1="10" y1="92" x2="170" y2="92" stroke="#333" stroke-width="0.5"/>
-        <text x="20" y="105" font-size="8">+ check_password()</text>
-        <text x="20" y="117" font-size="8">+ set_password()</text>
-        <!-- Product class -->
-        <rect x="200" y="10" width="160" height="130" fill="white" stroke="#333" stroke-width="1.5"/>
-        <rect x="200" y="10" width="160" height="25" fill="#e8f5e9" stroke="#333" stroke-width="1.5"/>
-        <text x="280" y="27" text-anchor="middle" font-size="10" font-weight="bold">Product</text>
-        <text x="210" y="50" font-size="8">- id: Integer</text>
-        <text x="210" y="62" font-size="8">- name: String</text>
-        <text x="210" y="74" font-size="8">- price: Decimal</text>
-        <text x="210" y="86" font-size="8">- quantity: Integer</text>
-        <text x="210" y="98" font-size="8">- category_id: FK</text>
-        <line x1="200" y1="104" x2="360" y2="104" stroke="#333" stroke-width="0.5"/>
-        <text x="210" y="117" font-size="8">+ is_low_stock()</text>
-        <text x="210" y="129" font-size="8">+ is_expired()</text>
-        <!-- Order class -->
-        <rect x="10" y="180" width="160" height="120" fill="white" stroke="#333" stroke-width="1.5"/>
-        <rect x="10" y="180" width="160" height="25" fill="#fce4ec" stroke="#333" stroke-width="1.5"/>
-        <text x="90" y="197" text-anchor="middle" font-size="10" font-weight="bold">Order</text>
-        <text x="20" y="220" font-size="8">- id: Integer</text>
-        <text x="20" y="232" font-size="8">- user_id: FK</text>
-        <text x="20" y="244" font-size="8">- total_amount: Decimal</text>
-        <text x="20" y="256" font-size="8">- status: String</text>
-        <line x1="10" y1="262" x2="170" y2="262" stroke="#333" stroke-width="0.5"/>
-        <text x="20" y="275" font-size="8">+ calculate_total()</text>
-        <text x="20" y="287" font-size="8">+ cancel()</text>
-        <!-- OrderItem class -->
-        <rect x="200" y="180" width="160" height="110" fill="white" stroke="#333" stroke-width="1.5"/>
-        <rect x="200" y="180" width="160" height="25" fill="#f3e5f5" stroke="#333" stroke-width="1.5"/>
-        <text x="280" y="197" text-anchor="middle" font-size="10" font-weight="bold">OrderItem</text>
-        <text x="210" y="220" font-size="8">- id: Integer</text>
-        <text x="210" y="232" font-size="8">- order_id: FK</text>
-        <text x="210" y="244" font-size="8">- product_id: FK</text>
-        <text x="210" y="256" font-size="8">- quantity: Integer</text>
-        <line x1="200" y1="262" x2="360" y2="262" stroke="#333" stroke-width="0.5"/>
-        <text x="210" y="275" font-size="8">+ get_subtotal()</text>
-        <!-- Category class -->
-        <rect x="400" y="10" width="150" height="90" fill="white" stroke="#333" stroke-width="1.5"/>
-        <rect x="400" y="10" width="150" height="25" fill="#fff3e0" stroke="#333" stroke-width="1.5"/>
-        <text x="475" y="27" text-anchor="middle" font-size="10" font-weight="bold">Category</text>
-        <text x="410" y="50" font-size="8">- id: Integer</text>
-        <text x="410" y="62" font-size="8">- name: String</text>
-        <line x1="400" y1="68" x2="550" y2="68" stroke="#333" stroke-width="0.5"/>
-        <text x="410" y="82" font-size="8">+ get_products()</text>
-        <!-- Relationships -->
-        <line x1="90" y1="130" x2="90" y2="180" stroke="#333" stroke-width="1.5"/>
-        <text x="95" y="158" font-size="7">1..*</text>
-        <line x1="170" y1="240" x2="200" y2="240" stroke="#333" stroke-width="1.5"/>
-        <text x="185" y="233" font-size="7">1..*</text>
-        <line x1="280" y1="140" x2="280" y2="180" stroke="#333" stroke-width="1.5"/>
-        <text x="285" y="163" font-size="7">1..*</text>
-        <line x1="360" y1="50" x2="400" y2="50" stroke="#333" stroke-width="1.5"/>
-        <text x="380" y="43" font-size="7">*..1</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">2.4-rasm. Sinflar (Class) diagrammasi</p>
     <p>Class diagrammasi tizimning obyektga yo'naltirilgan strukturasini ko'rsatadi. Har bir sinf (class) ma'lumotlar bazasidagi jadvalga mos keladi. Mahsulot sinfi nomi, narxi, qoldig'i, saqlash muddati va harorat diapazonini saqlaydi. Buyurtma sinfi mijoz, xodim, sana va umumiy summa ma'lumotlarini o'z ichiga oladi. BuyurtmaTafsilot sinfi buyurtma va mahsulot o'rtasidagi ko'p-ko'p (M:N) munosabatni amalga oshiradi.</p>
     <p>Sinflar orasidagi bog'lanishlar (associations) aniq belgilangan: Toifa sinfida bir nechta Mahsulot bo'lishi mumkin (1:N), Buyurtmada bir nechta BuyurtmaTafsilot bo'ladi (1:N), Mijozning bir nechta Buyurtmasi bo'lishi mumkin (1:N). Bu bog'lanishlar SQLAlchemy relationship() orqali amalga oshiriladi va ma'lumotlar yaxlitligini ta'minlaydi.</p>
@@ -927,64 +624,7 @@ END;
 <!-- ===== 26-BET: 2.3 yakuni - Sequence diagram ===== -->
 <div class="page">
     <p>Ketma-ketlik diagrammasi (Sequence Diagram) "Buyurtma yaratish" use case sini batafsil ko'rsatadi:</p>
-    <svg width="100%" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
-        <!-- Lifelines -->
-        <rect x="30" y="10" width="70" height="30" fill="#e3f2fd" stroke="#333" stroke-width="1"/>
-        <text x="65" y="30" text-anchor="middle" font-size="9" font-weight="bold">Sotuvchi</text>
-        <line x1="65" y1="40" x2="65" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
-        
-        <rect x="155" y="10" width="70" height="30" fill="#e8f5e9" stroke="#333" stroke-width="1"/>
-        <text x="190" y="30" text-anchor="middle" font-size="9" font-weight="bold">UI</text>
-        <line x1="190" y1="40" x2="190" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
-        
-        <rect x="280" y="10" width="70" height="30" fill="#fff3e0" stroke="#333" stroke-width="1"/>
-        <text x="315" y="30" text-anchor="middle" font-size="9" font-weight="bold">Controller</text>
-        <line x1="315" y1="40" x2="315" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
-        
-        <rect x="405" y="10" width="70" height="30" fill="#fce4ec" stroke="#333" stroke-width="1"/>
-        <text x="440" y="30" text-anchor="middle" font-size="9" font-weight="bold">Model</text>
-        <line x1="440" y1="40" x2="440" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
-        
-        <rect x="505" y="10" width="45" height="30" fill="#f3e5f5" stroke="#333" stroke-width="1"/>
-        <text x="527" y="30" text-anchor="middle" font-size="9" font-weight="bold">DB</text>
-        <line x1="527" y1="40" x2="527" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
-        
-        <!-- Messages -->
-        <line x1="65" y1="60" x2="190" y2="60" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="128" y="55" text-anchor="middle" font-size="7">1: Mahsulot tanlash</text>
-        
-        <line x1="190" y1="85" x2="315" y2="85" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="252" y="80" text-anchor="middle" font-size="7">2: create_order(items)</text>
-        
-        <line x1="315" y1="110" x2="440" y2="110" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="377" y="105" text-anchor="middle" font-size="7">3: check_stock(product_id)</text>
-        
-        <line x1="440" y1="135" x2="527" y2="135" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="483" y="130" text-anchor="middle" font-size="7">4: SELECT quantity</text>
-        
-        <line x1="527" y1="155" x2="440" y2="155" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
-        <text x="483" y="150" text-anchor="middle" font-size="7">5: quantity=OK</text>
-        
-        <line x1="440" y1="180" x2="527" y2="180" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="483" y="175" text-anchor="middle" font-size="7">6: INSERT order</text>
-        
-        <line x1="440" y1="205" x2="527" y2="205" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
-        <text x="483" y="200" text-anchor="middle" font-size="7">7: UPDATE stock</text>
-        
-        <line x1="527" y1="225" x2="440" y2="225" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
-        <text x="483" y="220" text-anchor="middle" font-size="7">8: success</text>
-        
-        <line x1="440" y1="245" x2="315" y2="245" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
-        <text x="377" y="240" text-anchor="middle" font-size="7">9: order_created</text>
-        
-        <line x1="315" y1="270" x2="190" y2="270" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
-        <text x="252" y="265" text-anchor="middle" font-size="7">10: render receipt</text>
-        
-        <line x1="190" y1="295" x2="65" y2="295" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
-        <text x="128" y="290" text-anchor="middle" font-size="7">11: Kvitansiya ko'rsatish</text>
-        
-        <defs><marker id="arrowS" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="#333"/></marker></defs>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">2.5-rasm. Buyurtma yaratish ketma-ketlik diagrammasi</p>
     <p>Sequence diagrammasi buyurtma yaratish jarayonini vaqt bo'yicha ko'rsatadi. Jarayon sotuvchining buyurtma yaratish tugmasini bosishi bilan boshlanadi. Tizim avval mavjud mijozlarni ko'rsatadi yoki yangi mijoz qo'shish imkonini beradi. Keyin sotuvchi mahsulotlar ro'yxatidan kerakli mahsulotlarni tanlaydi va miqdorini kiritadi. Tizim har bir qo'shilgan mahsulot uchun omborxonadagi qoldiqni tekshiradi - agar qoldiq yetarli bo'lmasa, xato xabari ko'rsatiladi.</p>
     <p>Buyurtma tasdiqlanganda tizim bir nechta operatsiyani bajaradi: buyurtma bazaga saqlanadi, omborxona qoldiqlari yangilanadi (kamaytiriladi), to'lov qayd etiladi va buyurtma holati "yangi" ga o'rnatiladi. Agar jarayon davomida xato yuz bersa, tranzaksiya bekor qilinadi (rollback) va foydalanuvchiga xato xabari ko'rsatiladi. Bu ma'lumotlar yaxlitligini ta'minlaydi.</p>
@@ -1022,7 +662,7 @@ END;
 <div class="page">
     <p><b>Qo'shimcha texnologiyalar va kutubxonalar:</b></p>
     <p class="tbl-caption">3.1-jadval. Loyihada ishlatiladigan texnologiyalar to'plami</p>
-    <table class="tbl">
+    <table >
         <tr><th>Texnologiya</th><th>Versiya</th><th>Maqsadi</th></tr>
         <tr><td>Python</td><td>3.10+</td><td>Asosiy dasturlash tili</td></tr>
         <tr><td>Flask</td><td>2.3.x</td><td>Web framework</td></tr>
@@ -1038,8 +678,7 @@ END;
         <tr><td>Git</td><td>2.x</td><td>Versiya nazorati</td></tr>
     </table>
     <p><b>Loyiha tuzilishi (Project Structure).</b> Flask loyihasi quyidagi papka tuzilishida tashkil etiladi:</p>
-<pre>
-muzqaymoq-boshqaruv/
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">muzqaymoq-boshqaruv/
 ├── app/
 │   ├── __init__.py          # Flask ilovasi yaratish (app factory)
 │   ├── models.py            # SQLAlchemy modellari
@@ -1077,15 +716,13 @@ muzqaymoq-boshqaruv/
 └── tests/                   # Testlar
     ├── test_auth.py
     ├── test_products.py
-    └── test_orders.py
-</pre>
+    └── test_orders.py</div>
 </div>
 
 <!-- ===== 29-BET: 3.1 davomi - Configuration ===== -->
 <div class="page">
     <p>Loyihaning konfiguratsiya fayli turli muhitlar (development, testing, production) uchun sozlamalarni boshqaradi:</p>
-<pre>
-# config.py - Loyiha konfiguratsiyasi
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># config.py - Loyiha konfiguratsiyasi
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -1127,11 +764,9 @@ config = {
     'testing': TestingConfig,
     'production': ProductionConfig,
     'default': DevelopmentConfig
-}
-</pre>
+}</div>
     <p>Flask ilovasini yaratish uchun "Application Factory" patterni qo'llaniladi. Bu pattern ilovani funksiya ichida yaratish imkonini beradi, bu esa testlash va turli konfiguratsiyalar bilan ishlashni osonlashtiradi:</p>
-<pre>
-# app/__init__.py - Application Factory
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/__init__.py - Application Factory
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -1169,15 +804,13 @@ def create_app(config_name='default'):
     from app.reports import bp as reports_bp
     app.register_blueprint(reports_bp, url_prefix='/reports')
     
-    return app
-</pre>
+    return app</div>
 </div>
 
 <!-- ===== 30-BET: 3.1 yakuni ===== -->
 <div class="page">
     <p>Ishga tushirish fayli (run.py) ilovani boshlash uchun ishlatiladi:</p>
-<pre>
-# run.py - Ilovani ishga tushirish
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># run.py - Ilovani ishga tushirish
 from app import create_app, db
 from app.models import User, Product, Category, Order
 
@@ -1217,11 +850,9 @@ def seed_db():
     print('Boshlang\'ich ma\'lumotlar kiritildi.')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-</pre>
+    app.run(host='0.0.0.0', port=5000, debug=True)</div>
     <p>Loyihaning bog'liqliklari requirements.txt faylida saqlanadi:</p>
-<pre>
-# requirements.txt
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># requirements.txt
 Flask==2.3.3
 Flask-SQLAlchemy==3.1.1
 Flask-Login==0.6.3
@@ -1231,11 +862,9 @@ SQLAlchemy==2.0.23
 Werkzeug==3.0.1
 WTForms==3.1.1
 python-dotenv==1.0.0
-pytest==7.4.3
-</pre>
+pytest==7.4.3</div>
     <p>Loyihani o'rnatish va ishga tushirish quyidagi buyruqlar orqali amalga oshiriladi:</p>
-<pre>
-# Virtual muhit yaratish va faollashtirish
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># Virtual muhit yaratish va faollashtirish
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
@@ -1248,8 +877,7 @@ flask init-db
 flask seed-db
 
 # Ilovani ishga tushirish
-flask run --host=0.0.0.0 --port=5000
-</pre>
+flask run --host=0.0.0.0 --port=5000</div>
     <p>Shu tariqa loyihaning texnologik asosi tayyorlandi. Keyingi bo'limda tizimning asosiy modullarini ishlab chiqish jarayoni batafsil ko'rib chiqiladi.</p>
 </div>
 
@@ -1258,8 +886,7 @@ flask run --host=0.0.0.0 --port=5000
     <h3>3.2 Tizim modullarini ishlab chiqish</h3>
     <p>Tizimni ishlab chiqish jarayoni modular yondashuv asosida amalga oshirildi. Har bir modul (Flask Blueprint) mustaqil ravishda ishlab chiqildi va testlandi. Birinchi navbatda ma'lumotlar bazasi modellari yaratiladi, chunki boshqa barcha modullar ularga bog'liq.</p>
     <p><b>Ma'lumotlar bazasi modellari (models.py):</b></p>
-<pre>
-# app/models.py - Ma'lumotlar bazasi modellari
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/models.py - Ma'lumotlar bazasi modellari
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -1321,15 +948,13 @@ class Product(db.Model):
     def is_expired(self):
         if self.expiry_date:
             return self.expiry_date &lt; datetime.utcnow().date()
-        return False
-</pre>
+        return False</div>
 </div>
 
 <!-- ===== 32-BET: 3.2 davomi - Auth va Routes ===== -->
 <div class="page">
     <p><b>Autentifikatsiya moduli (auth/routes.py):</b></p>
-<pre>
-# app/auth/routes.py - Autentifikatsiya
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/auth/routes.py - Autentifikatsiya
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, current_user
 from app.auth import bp
@@ -1381,11 +1006,9 @@ def register():
         flash('Foydalanuvchi yaratildi!', 'success')
         return redirect(url_for('main.users'))
     
-    return render_template('auth/register.html', form=form)
-</pre>
+    return render_template('auth/register.html', form=form)</div>
     <p><b>Mahsulotlar moduli (products/routes.py):</b></p>
-<pre>
-# app/products/routes.py - Mahsulotlar CRUD
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/products/routes.py - Mahsulotlar CRUD
 from flask import render_template, redirect, url_for, flash
 from flask_login import login_required, current_user
 from app.products import bp
@@ -1428,15 +1051,13 @@ def add():
         flash('Mahsulot qo\'shildi!', 'success')
         return redirect(url_for('products.index'))
     
-    return render_template('products/add.html', form=form)
-</pre>
+    return render_template('products/add.html', form=form)</div>
 </div>
 
 <!-- ===== 33-BET: 3.2 davomi - Orders va Templates ===== -->
 <div class="page">
     <p><b>Buyurtmalar moduli (orders/routes.py) - tizimning eng muhim moduli bo'lib, u mijozlar buyurtmalarini yaratish, kuzatish va boshqarish funksiyalarini ta'minlaydi. Modul quyidagi asosiy funksiyalarni bajaradi: yangi buyurtma yaratish, buyurtma holatini o'zgartirish (yangi, bajarilmoqda, bajarildi, bekor qilindi), buyurtmalar tarixini ko'rish va filtrlash, buyurtma tafsilotlarini ko'rish, to'lov usulini belgilash. Har bir buyurtma yaratilganda omborxona qoldiqlari avtomatik yangilanadi va yetarli qoldiq yo'qligida ogohlantirish beriladi:</b></p>
-<pre>
-# app/orders/routes.py - Buyurtmalar boshqaruvi
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/orders/routes.py - Buyurtmalar boshqaruvi
 from flask import render_template, redirect, url_for, flash, 
     request, jsonify
 from flask_login import login_required, current_user
@@ -1510,16 +1131,14 @@ def create():
     products = Product.query.filter(
         Product.quantity > 0).all()
     return render_template('orders/create.html', 
-                          products=products)
-</pre>
+                          products=products)</div>
     <p>Yuqoridagi kodda buyurtma yaratish jarayoni tranzaksiya ichida amalga oshiriladi. Agar biron mahsulotning qoldig'i yetarli bo'lmasa, barcha o'zgarishlar bekor qilinadi (rollback). Bu ma'lumotlar yaxlitligini ta'minlaydi.</p>
 </div>
 
 <!-- ===== 34-BET: 3.2 davomi - Templates ===== -->
 <div class="page">
     <p><b>HTML shablonlar (Jinja2 Templates).</b> Asosiy shablon (base.html) barcha sahifalar uchun umumiy tuzilishni belgilaydi:</p>
-<pre>
-&lt;!-- templates/base.html --&gt;
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">&lt;!-- templates/base.html --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang="uz"&gt;
 &lt;head&gt;
@@ -1571,11 +1190,9 @@ def create():
     &lt;/script&gt;
     {% block scripts %}{% endblock %}
 &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+&lt;/html&gt;</div>
     <p><b>Dashboard sahifasi</b> tizimning asosiy ko'rsatkichlarini real vaqtda ko'rsatadi:</p>
-<pre>
-&lt;!-- templates/main/dashboard.html --&gt;
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;">&lt;!-- templates/main/dashboard.html --&gt;
 {% extends "base.html" %}
 {% block content %}
 &lt;h2&gt;Boshqaruv paneli&lt;/h2&gt;
@@ -1613,15 +1230,13 @@ def create():
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-{% endblock %}
-</pre>
+{% endblock %}</div>
 </div>
 
 <!-- ===== 35-BET: 3.2 davomi - Reports module ===== -->
 <div class="page">
     <p><b>Hisobotlar moduli (reports/routes.py):</b></p>
-<pre>
-# app/reports/routes.py - Hisobotlar generatsiyasi
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># app/reports/routes.py - Hisobotlar generatsiyasi
 from flask import render_template, request
 from flask_login import login_required, current_user
 from app.reports import bp
@@ -1701,101 +1316,18 @@ def inventory():
         low_stock=low_stock,
         expired=expired,
         total_value=total_value
-    )
-</pre>
+    )</div>
     <p>Hisobotlar moduli SQLAlchemy ning aggregate funksiyalaridan (SUM, COUNT, GROUP BY) foydalanib, turli davrlar uchun statistik ma'lumotlarni shakllantirib beradi. Natijalar Chart.js kutubxonasi yordamida grafik ko'rinishda vizualizatsiya qilinadi.</p>
 </div>
 
 <!-- ===== 36-BET: 3.2 davomi - Screenshots mockups ===== -->
 <div class="page">
     <p><b>Tizim interfeysi ko'rinishlari.</b> Quyida tizimning asosiy sahifalari ko'rinishi tasvirlangan:</p>
-    <svg width="100%" height="220" viewBox="0 0 550 220" xmlns="http://www.w3.org/2000/svg">
-        <!-- Browser window -->
-        <rect x="10" y="5" width="530" height="210" fill="white" stroke="#333" stroke-width="1" rx="5"/>
-        <!-- Browser bar -->
-        <rect x="10" y="5" width="530" height="25" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5"/>
-        <circle cx="25" cy="17" r="5" fill="#ff5f56"/>
-        <circle cx="40" cy="17" r="5" fill="#ffbd2e"/>
-        <circle cx="55" cy="17" r="5" fill="#27c93f"/>
-        <rect x="100" y="10" width="300" height="15" fill="white" stroke="#ccc" rx="3"/>
-        <text x="250" y="21" text-anchor="middle" font-size="7" fill="#666">localhost:5000/dashboard</text>
-        <!-- Navbar -->
-        <rect x="10" y="30" width="530" height="25" fill="#0d6efd"/>
-        <text x="25" y="46" font-size="9" fill="white" font-weight="bold">Muzqaymoq BT</text>
-        <text x="140" y="46" font-size="8" fill="white">Mahsulotlar</text>
-        <text x="220" y="46" font-size="8" fill="white">Buyurtmalar</text>
-        <text x="300" y="46" font-size="8" fill="white">Hisobotlar</text>
-        <text x="470" y="46" font-size="8" fill="white">admin</text>
-        <!-- Dashboard cards -->
-        <rect x="20" y="65" width="120" height="55" fill="#0d6efd" rx="5"/>
-        <text x="80" y="82" text-anchor="middle" font-size="7" fill="white">Bugungi sotuv</text>
-        <text x="80" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">2.5M</text>
-        <rect x="150" y="65" width="120" height="55" fill="#198754" rx="5"/>
-        <text x="210" y="82" text-anchor="middle" font-size="7" fill="white">Buyurtmalar</text>
-        <text x="210" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">34</text>
-        <rect x="280" y="65" width="120" height="55" fill="#ffc107" rx="5"/>
-        <text x="340" y="82" text-anchor="middle" font-size="7" fill="#333">Kam qoldiq</text>
-        <text x="340" y="102" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">5</text>
-        <rect x="410" y="65" width="120" height="55" fill="#0dcaf0" rx="5"/>
-        <text x="470" y="82" text-anchor="middle" font-size="7" fill="white">Mahsulotlar</text>
-        <text x="470" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">127</text>
-        <!-- Chart area -->
-        <rect x="20" y="130" width="350" height="80" fill="#fafafa" stroke="#ddd" rx="3"/>
-        <text x="195" y="145" text-anchor="middle" font-size="8" font-weight="bold">Haftalik sotuv dinamikasi</text>
-        <polyline points="40,195 90,180 140,185 190,160 240,170 290,150 340,155" fill="none" stroke="#0d6efd" stroke-width="2"/>
-        <!-- Recent orders -->
-        <rect x="380" y="130" width="150" height="80" fill="#fafafa" stroke="#ddd" rx="3"/>
-        <text x="455" y="145" text-anchor="middle" font-size="8" font-weight="bold">So'nggi buyurtmalar</text>
-        <text x="390" y="160" font-size="7">#1042 - 85,000 so'm</text>
-        <text x="390" y="173" font-size="7">#1041 - 120,000 so'm</text>
-        <text x="390" y="186" font-size="7">#1040 - 45,000 so'm</text>
-        <text x="390" y="199" font-size="7">#1039 - 210,000 so'm</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">3.1-rasm. Dashboard (boshqaruv paneli) interfeysi</p>
     <p>Dashboard sahifasi tizimga kirgandan so'ng birinchi ko'rinadigan sahifa hisoblanadi. U asosiy ko'rsatkichlarni bir qarashda ko'rish imkonini beradi: bugungi savdo summasi, buyurtmalar soni, faol mahsulotlar soni va oxirgi buyurtmalar ro'yxati. Dashboard ma'lumotlari har safar sahifa yuklanganida yangilanadi. Bu boshqaruvchiga tezkor qarorlar qabul qilish uchun zarur axborotni taqdim etadi.</p>
     <p>Interfeys Bootstrap 5 CSS frameworki asosida qurilgan bo'lib, responsive dizayn tamoyillariga amal qiladi. Barcha sahifalar kompyuter, planshet va mobil telefonlarda to'g'ri ko'rinadi. Ranglar sxemasi professional va ko'zni charchatmaydigan tarzda tanlangan - asosiy rang ko'k (#1976D2), muvaffaqiyat yashil, ogohlantirish sariq, xato qizil.</p>
-    <svg width="100%" height="200" viewBox="0 0 550 200" xmlns="http://www.w3.org/2000/svg">
-        <!-- Browser window for products -->
-        <rect x="10" y="5" width="530" height="190" fill="white" stroke="#333" stroke-width="1" rx="5"/>
-        <rect x="10" y="5" width="530" height="25" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5"/>
-        <circle cx="25" cy="17" r="5" fill="#ff5f56"/>
-        <circle cx="40" cy="17" r="5" fill="#ffbd2e"/>
-        <circle cx="55" cy="17" r="5" fill="#27c93f"/>
-        <rect x="100" y="10" width="300" height="15" fill="white" stroke="#ccc" rx="3"/>
-        <text x="250" y="21" text-anchor="middle" font-size="7" fill="#666">localhost:5000/products</text>
-        <!-- Page title -->
-        <text x="25" y="50" font-size="10" font-weight="bold">Mahsulotlar ro'yxati</text>
-        <rect x="430" y="37" width="100" height="20" fill="#198754" rx="3"/>
-        <text x="480" y="51" text-anchor="middle" font-size="8" fill="white">+ Qo'shish</text>
-        <!-- Table -->
-        <rect x="20" y="60" width="510" height="20" fill="#f8f9fa" stroke="#dee2e6"/>
-        <text x="30" y="73" font-size="7" font-weight="bold">ID</text>
-        <text x="60" y="73" font-size="7" font-weight="bold">Nomi</text>
-        <text x="200" y="73" font-size="7" font-weight="bold">Toifa</text>
-        <text x="290" y="73" font-size="7" font-weight="bold">Narxi</text>
-        <text x="370" y="73" font-size="7" font-weight="bold">Qoldiq</text>
-        <text x="440" y="73" font-size="7" font-weight="bold">Amallar</text>
-        <rect x="20" y="80" width="510" height="20" fill="white" stroke="#dee2e6"/>
-        <text x="30" y="93" font-size="7">1</text>
-        <text x="60" y="93" font-size="7">Plombir klassik 100g</text>
-        <text x="200" y="93" font-size="7">Klassik</text>
-        <text x="290" y="93" font-size="7">8,000 so'm</text>
-        <text x="370" y="93" font-size="7">245</text>
-        <rect x="440" y="83" width="35" height="14" fill="#0d6efd" rx="2"/>
-        <text x="457" y="93" text-anchor="middle" font-size="6" fill="white">Edit</text>
-        <rect x="480" y="83" width="35" height="14" fill="#dc3545" rx="2"/>
-        <text x="497" y="93" text-anchor="middle" font-size="6" fill="white">Del</text>
-        <rect x="20" y="100" width="510" height="20" fill="#f8f9fa" stroke="#dee2e6"/>
-        <text x="30" y="113" font-size="7">2</text>
-        <text x="60" y="113" font-size="7">Shokoladli muzqaymoq 120g</text>
-        <text x="200" y="113" font-size="7">Shokoladli</text>
-        <text x="290" y="113" font-size="7">12,000 so'm</text>
-        <text x="370" y="113" font-size="7">89</text>
-        <rect x="440" y="103" width="35" height="14" fill="#0d6efd" rx="2"/>
-        <text x="457" y="113" text-anchor="middle" font-size="6" fill="white">Edit</text>
-        <rect x="480" y="103" width="35" height="14" fill="#dc3545" rx="2"/>
-        <text x="497" y="113" text-anchor="middle" font-size="6" fill="white">Del</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">3.2-rasm. Mahsulotlar ro'yxati sahifasi</p>
     <p>Mahsulotlar sahifasi barcha mahsulotlarni jadval ko'rinishida ko'rsatadi. Har bir qatorda mahsulot nomi, toifasi, narxi, qoldig'i va amallar tugmalari (tahrirlash, o'chirish) mavjud. Jadval ustida qidiruv maydoni va toifa bo'yicha filtrlash imkoniyati bor. Pagination (sahifalash) orqali bir vaqtda 20 ta mahsulot ko'rsatiladi - bu tizim tezligini ta'minlaydi.</p>
     <p>Yangi mahsulot qo'shish uchun "Qo'shish" tugmasi bosilganda modal oyna ochiladi. Formada mahsulot nomi, toifasi (dropdown), narxi, boshlang'ich qoldig'i, saqlash muddati va harorat diapazoni kiritiladi. Barcha maydonlar validatsiya qilinadi - bo'sh maydon, manfiy qiymat yoki noto'g'ri format kiritilsa xato xabari ko'rsatiladi. Muvaffaqiyatli saqlanganda yashil bildirishnoma chiqadi.</p>
@@ -1804,8 +1336,7 @@ def inventory():
 <!-- ===== 37-BET: 3.2 yakuni ===== -->
 <div class="page">
     <p><b>Xavfsizlik moduli.</b> Tizimda bir nechta xavfsizlik choralari amalga oshirilgan:</p>
-<pre>
-# Dekorator - faqat admin uchun ruxsat
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># Dekorator - faqat admin uchun ruxsat
 from functools import wraps
 from flask import abort
 from flask_login import current_user
@@ -1829,8 +1360,7 @@ def role_required(*roles):
                 abort(403)
             return f(*args, **kwargs)
         return decorated_function
-    return decorator
-</pre>
+    return decorator</div>
     <p>Xavfsizlik choralari ro'yxati:</p>
     <ul>
         <li><b>Parol shifrlash:</b> Werkzeug kutubxonasining generate_password_hash funksiyasi (pbkdf2:sha256 algoritmi) ishlatiladi;</li>
@@ -1841,8 +1371,7 @@ def role_required(*roles):
         <li><b>Rolga asoslangan kirish nazorati (RBAC):</b> Har bir endpoint uchun ruxsat tekshiriladi.</li>
     </ul>
     <p><b>Ma'lumotlar bazasini zaxira nusxalash (backup):</b></p>
-<pre>
-# Kundalik zaxira nusxa olish skripti
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># Kundalik zaxira nusxa olish skripti
 import shutil
 from datetime import datetime
 
@@ -1855,8 +1384,7 @@ def backup_database():
     print(f'Zaxira nusxa yaratildi: {destination}')
     
     # Eski nusxalarni o'chirish (7 kundan eski)
-    cleanup_old_backups('backups/', days=7)
-</pre>
+    cleanup_old_backups('backups/', days=7)</div>
     <p>Shu tariqa tizimning barcha asosiy modullari - autentifikatsiya, mahsulotlar boshqaruvi, buyurtmalar, hisobotlar va xavfsizlik - ishlab chiqildi. Har bir modul mustaqil ishlaydi va Blueprint tizimi orqali asosiy ilovaga ulangan. Keyingi bo'limda tizimni testlash va olingan natijalar ko'rib chiqiladi.</p>
 </div>
 
@@ -1865,8 +1393,7 @@ def backup_database():
     <h3>3.3 Testlash va natijalar</h3>
     <p>Tizimni testlash jarayoni dasturiy ta'minot sifatini ta'minlashning muhim bosqichi hisoblanadi. Testlash bir necha darajada amalga oshirildi: unit testlar, integratsion testlar, funksional testlar va yuklanish testlari. Test natijalarini ko'rib chiqamiz.</p>
     <p><b>Unit testlar.</b> Har bir modul uchun alohida unit testlar yozildi. pytest frameworki ishlatildi:</p>
-<pre>
-# tests/test_models.py - Model testlari
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># tests/test_models.py - Model testlari
 import pytest
 from app import create_app, db
 from app.models import User, Product, Category, Order
@@ -1920,11 +1447,10 @@ class TestProduct:
             db.session.add(p)
             db.session.commit()
             assert p.id is not None
-            assert p.price == 5000
-</pre>
+            assert p.price == 5000</div>
     <p>Unit test natijalarini jadval shaklida keltiramiz:</p>
     <p class="tbl-caption">3.2-jadval. Unit test natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Modul</th><th>Testlar soni</th><th>O'tgan</th><th>Muvaffaqiyat</th></tr>
         <tr><td>models.py</td><td>18</td><td>18</td><td>100%</td></tr>
         <tr><td>auth/routes.py</td><td>12</td><td>12</td><td>100%</td></tr>
@@ -1938,8 +1464,7 @@ class TestProduct:
 <!-- ===== 39-BET: 3.3 davomi ===== -->
 <div class="page">
     <p><b>Integratsion testlar.</b> Modullar orasidagi o'zaro aloqani tekshirish uchun integratsion testlar bajarildi:</p>
-<pre>
-# tests/test_integration.py - Integratsion testlar
+<div style="background:#f5f5f5; border:1px solid #999; padding:10px; margin:10px 0; font-family:Courier New; font-size:11pt;"># tests/test_integration.py - Integratsion testlar
 class TestOrderWorkflow:
     def test_complete_order_flow(self, client, app):
         """To'liq buyurtma jarayoni testi"""
@@ -1976,11 +1501,10 @@ class TestOrderWorkflow:
             
             # 5. Qoldiq tekshirish
             product = Product.query.get(product.id)
-            assert product.quantity == 95  # 100 - 5
-</pre>
+            assert product.quantity == 95  # 100 - 5</div>
     <p><b>Unumdorlik (Performance) testlari.</b> Tizimning turli yuklanish sharoitlarida ishlash tezligini o'lchash uchun testlar o'tkazildi:</p>
     <p class="tbl-caption">3.3-jadval. Unumdorlik test natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Operatsiya</th><th>O'rtacha vaqt (ms)</th><th>Maksimal (ms)</th><th>Talab (ms)</th><th>Holat</th></tr>
         <tr><td>Sahifa yuklash (dashboard)</td><td>145</td><td>320</td><td>≤ 2000</td><td>✓ O'tdi</td></tr>
         <tr><td>Mahsulotlar ro'yxati (100 ta)</td><td>89</td><td>210</td><td>≤ 2000</td><td>✓ O'tdi</td></tr>
@@ -1997,7 +1521,7 @@ class TestOrderWorkflow:
 <div class="page">
     <p>Yuklanish testi natijalari:</p>
     <p class="tbl-caption">3.4-jadval. Yuklanish testi natijalari (50 foydalanuvchi, 5 daqiqa)</p>
-    <table class="tbl">
+    <table >
         <tr><th>Ko'rsatkich</th><th>Natija</th><th>Talab</th><th>Holat</th></tr>
         <tr><td>O'rtacha javob vaqti</td><td>185 ms</td><td>≤ 2000 ms</td><td>✓</td></tr>
         <tr><td>95-percentile javob vaqti</td><td>650 ms</td><td>≤ 3000 ms</td><td>✓</td></tr>
@@ -2009,7 +1533,7 @@ class TestOrderWorkflow:
     <p>Yuklanish testlari ko'rsatdiki, tizim 50 ta bir vaqtdagi foydalanuvchini barqaror xizmat ko'rsatishga qodir. Bu muzqaymoq do'koni uchun yetarli, chunki bir vaqtda 50 dan ortiq xodim tizimga kirishini kutish mantiqsiz.</p>
     <p><b>Foydalanuvchilar so'rovnomasi.</b> Tizim ishlab chiqilgandan so'ng, 10 nafar potensial foydalanuvchi (do'kon xodimlari) bilan sinov o'tkazildi. Natijalar:</p>
     <p class="tbl-caption">3.5-jadval. Foydalanuvchi qoniqish so'rovnomasi natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Mezon</th><th>A'lo (5)</th><th>Yaxshi (4)</th><th>Qoniqarli (3)</th><th>O'rtacha ball</th></tr>
         <tr><td>Interfeys qulayligi</td><td>6</td><td>3</td><td>1</td><td>4.5</td></tr>
         <tr><td>Ishlash tezligi</td><td>7</td><td>2</td><td>1</td><td>4.6</td></tr>
@@ -2021,7 +1545,7 @@ class TestOrderWorkflow:
     <p>So'rovnoma natijalari ko'rsatdiki, foydalanuvchilar tizimdan umumiy qoniqish darajasi 4.54/5.0 ni tashkil etadi. Eng yuqori ball "O'rganish osonligi" (4.7) ga berildi, bu Flask va Bootstrap texnologiyalari yordamida intuitiv interfeys yaratilganligini tasdiqlaydi.</p>
     <p><b>Tizimni joriy etishdan oldin va keyin solishtirma:</b></p>
     <p class="tbl-caption">3.6-jadval. Avtomatlashtirishdan oldin va keyin ko'rsatkichlar</p>
-    <table class="tbl">
+    <table >
         <tr><th>Ko'rsatkich</th><th>Oldin</th><th>Keyin</th><th>Yaxshilanish</th></tr>
         <tr><td>Buyurtma qayd etish vaqti</td><td>3-5 daqiqa</td><td>30-60 soniya</td><td>5x tezroq</td></tr>
         <tr><td>Hisobot tayyorlash</td><td>3-4 soat</td><td>10-15 soniya</td><td>720x tezroq</td></tr>
@@ -2034,51 +1558,7 @@ class TestOrderWorkflow:
 <!-- ===== 41-BET: 3.3 yakuni - Chart ===== -->
 <div class="page">
     <p>Quyidagi diagramma tizimni joriy etishdan oldin va keyin asosiy ko'rsatkichlarni vizual solishtiradi:</p>
-    <svg width="100%" height="280" viewBox="0 0 550 280" xmlns="http://www.w3.org/2000/svg">
-        <!-- Title -->
-        <text x="275" y="20" text-anchor="middle" font-size="11" font-weight="bold">Oldin va keyin solishtirma (foizlarda)</text>
-        <!-- Y axis -->
-        <line x1="70" y1="40" x2="70" y2="240" stroke="#333" stroke-width="1"/>
-        <text x="60" y="245" text-anchor="end" font-size="8">0%</text>
-        <text x="60" y="195" text-anchor="end" font-size="8">25%</text>
-        <text x="60" y="145" text-anchor="end" font-size="8">50%</text>
-        <text x="60" y="95" text-anchor="end" font-size="8">75%</text>
-        <text x="60" y="50" text-anchor="end" font-size="8">100%</text>
-        <!-- Grid -->
-        <line x1="70" y1="240" x2="520" y2="240" stroke="#eee" stroke-width="0.5"/>
-        <line x1="70" y1="190" x2="520" y2="190" stroke="#eee" stroke-width="0.5"/>
-        <line x1="70" y1="140" x2="520" y2="140" stroke="#eee" stroke-width="0.5"/>
-        <line x1="70" y1="90" x2="520" y2="90" stroke="#eee" stroke-width="0.5"/>
-        <!-- Bars - Aniqlik -->
-        <rect x="90" y="76" width="30" height="164" fill="#dc3545" opacity="0.7"/>
-        <rect x="125" y="37" width="30" height="203" fill="#198754" opacity="0.7"/>
-        <text x="118" y="258" text-anchor="middle" font-size="7">Aniqlik</text>
-        <text x="105" y="72" text-anchor="middle" font-size="7">82%</text>
-        <text x="140" y="33" text-anchor="middle" font-size="7">98%</text>
-        <!-- Bars - Samaradorlik -->
-        <rect x="190" y="120" width="30" height="120" fill="#dc3545" opacity="0.7"/>
-        <rect x="225" y="66" width="30" height="174" fill="#198754" opacity="0.7"/>
-        <text x="218" y="258" text-anchor="middle" font-size="7">Samaradorlik</text>
-        <text x="205" y="116" text-anchor="middle" font-size="7">60%</text>
-        <text x="240" y="62" text-anchor="middle" font-size="7">87%</text>
-        <!-- Bars - Tezlik -->
-        <rect x="290" y="200" width="30" height="40" fill="#dc3545" opacity="0.7"/>
-        <rect x="325" y="48" width="30" height="192" fill="#198754" opacity="0.7"/>
-        <text x="318" y="258" text-anchor="middle" font-size="7">Tezlik</text>
-        <text x="305" y="196" text-anchor="middle" font-size="7">20%</text>
-        <text x="340" y="44" text-anchor="middle" font-size="7">96%</text>
-        <!-- Bars - Xavfsizlik -->
-        <rect x="390" y="180" width="30" height="60" fill="#dc3545" opacity="0.7"/>
-        <rect x="425" y="52" width="30" height="188" fill="#198754" opacity="0.7"/>
-        <text x="418" y="258" text-anchor="middle" font-size="7">Xavfsizlik</text>
-        <text x="405" y="176" text-anchor="middle" font-size="7">30%</text>
-        <text x="440" y="48" text-anchor="middle" font-size="7">94%</text>
-        <!-- Legend -->
-        <rect x="200" y="268" width="12" height="8" fill="#dc3545" opacity="0.7"/>
-        <text x="217" y="276" font-size="8">Oldin</text>
-        <rect x="270" y="268" width="12" height="8" fill="#198754" opacity="0.7"/>
-        <text x="287" y="276" font-size="8">Keyin</text>
-    </svg>
+    <p class="center no-indent" style="font-style:italic;">[Diagramma]</p>
     <p class="fig-caption">3.3-rasm. Tizim ko'rsatkichlarining oldin va keyin solishtirmasi</p>
     <p>Diagrammada ko'rsatilganidek, tizimni joriy etish natijasida barcha asosiy ko'rsatkichlar sezilarli yaxshilangan. Xatolar 20 foizdan 2 foizga kamaygan (10 baravar), hisobot tuzish vaqti 180 daqiqadan 0.5 daqiqaga tushgan (360 baravar), buyurtma vaqti 8 daqiqadan 2 daqiqaga qisqargan, mahsulot yo'qotishlari 15 foizdan 3 foizga kamaygan. Bu natijalar tizimning yuqori samaradorligini ko'rsatadi.</p>
     <p>Iqtisodiy samaradorlik tahlili shuni ko'rsatadiki, tizimni ishlab chiqish va joriy etish xarajatlari taxminan 6-8 oy ichida qoplanadi. Asosiy tejamkorlik manbaalari: xodimlar vaqtining tejalishi (oyiga 40-50 soat), mahsulot yo'qotishlarining kamayishi (oyiga 500-800 ming so'm), hisobot tuzish xarajatlarining pasayishi va boshqaruv qarorlarining sifati oshishi hisobiga daromadning ko'payishi.</p>
@@ -2090,7 +1570,7 @@ class TestOrderWorkflow:
 <div class="page">
     <p><b>Kodni qamrab olish (Code Coverage) natijlari.</b> pytest-cov plagini yordamida kod qamrovi o'lchlandi:</p>
     <p class="tbl-caption">3.7-jadval. Kod qamrovi natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Fayl</th><th>Satrlar</th><th>Testlangan</th><th>Qamrov</th></tr>
         <tr><td>app/__init__.py</td><td>45</td><td>42</td><td>93%</td></tr>
         <tr><td>app/models.py</td><td>120</td><td>108</td><td>90%</td></tr>
@@ -2103,7 +1583,7 @@ class TestOrderWorkflow:
     <p>Umumiy kod qamrovi 85.5% ni tashkil etdi, bu NFR-09 talabiga (≥ 80%) mos keladi. Testlanmagan qismlar asosan xatoliklarni qayta ishlash (error handling) va kam uchraydigan holatlarga tegishli.</p>
     <p><b>Xavfsizlik auditi natijalari.</b> Tizimga OWASP Top 10 bo'yicha xavfsizlik tekshiruvi o'tkazildi:</p>
     <p class="tbl-caption">3.8-jadval. Xavfsizlik auditi natijalari</p>
-    <table class="tbl">
+    <table >
         <tr><th>Xavf turi (OWASP)</th><th>Holati</th><th>Himoya usuli</th></tr>
         <tr><td>A01: Broken Access Control</td><td>Himoyalangan</td><td>RBAC dekoratorlari</td></tr>
         <tr><td>A02: Cryptographic Failures</td><td>Himoyalangan</td><td>bcrypt/pbkdf2 shifrlash</td></tr>
