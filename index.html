@@ -1277,5 +1277,40 @@
         <div class="page-number">31</div>
     </div>
 
+    <!-- ==================== SAHIFA 32: 2.2 yakuni ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Attendance (Davomat) sahifasi.</b> O'qituvchi sinfni tanlab, bugungi davomat belgilaydi. Interfeys quyidagicha ishlaydi:</p>
+
+            <ol>
+                <li>O'qituvchi o'z sinflaridan birini tanlaydi (dropdown);</li>
+                <li>Sanani tanlaydi (default: bugungi kun);</li>
+                <li>O'quvchilar ro'yxati checkbox lari bilan ko'rsatiladi;</li>
+                <li>Har bir o'quvchi uchun holat tanlanadi: keldi/kelmadi/kechikdi/sababli;</li>
+                <li>"Saqlash" tugmasi bilan barcha ma'lumotlar serverga yuboriladi;</li>
+                <li>Muvaffaqiyatli saqlanganda yashil bildirishnoma ko'rsatiladi.</li>
+            </ol>
+
+            <p><b>Timetable (Dars jadvali) sahifasi.</b> Dars jadvali haftalik ko'rinishda ko'rsatiladi. Jadval HTML table elementi yordamida qurilgan bo'lib, ustunlarda haftaning kunlari (Dushanba-Shanba), qatorlarda dars soatlari (1-7) joylashgan. Har bir katakda fan nomi va o'qituvchi ismi ko'rsatiladi. Admin tahrirlash rejimida katakni bosib, fan va o'qituvchini tanlashi mumkin.</p>
+
+            <p><b>Reports (Hisobotlar) sahifasi.</b> Turli statistik hisobotlarni ko'rish va eksport qilish imkoniyati:</p>
+
+            <ul>
+                <li><b>Sinf bo'yicha o'rtacha ball</b> - bar chart ko'rinishida;</li>
+                <li><b>Fan bo'yicha natijalar</b> - har bir fandagi o'rtacha ball;</li>
+                <li><b>Davomat statistikasi</b> - oylik/choraklik davomat foizi (line chart);</li>
+                <li><b>O'quvchi progress</b> - individual o'quvchining vaqt davomidagi o'zgarishi;</li>
+                <li><b>PDF eksport</b> - hisobotlarni PDF formatida yuklab olish (jsPDF kutubxonasi).</li>
+            </ul>
+
+            <p><b>Chart.js integratsiyasi.</b> Statistik ma'lumotlarni vizualizatsiya qilish uchun Chart.js kutubxonasidan foydalaniladi. React-chartjs-2 wrapper orqali React komponentlari ichida grafiklar yaratiladi: Bar Chart (ustunli diagram), Line Chart (chiziqli grafik), Pie Chart (doira diagram), Doughnut Chart.</p>
+
+            <p><b>Responsive Layout.</b> Barcha sahifalar mobil qurilmalarda ham to'g'ri ko'rinishi uchun CSS Media Queries va Flexbox/Grid ishlatiladi. Sidebar menyusi mobil rejimda hamburger menyuga aylanadi. Jadvallar mobil rejimda gorizontal scroll bilan ko'rsatiladi yoki card ko'rinishiga o'tadi.</p>
+
+            <p>Kodlash jarayoni yakunlandi. Keyingi bo'limda tizimni sinovdan o'tkazish va xatolarni bartaraf etish jarayoni batafsil yoritiladi.</p>
+        </div>
+        <div class="page-number">32</div>
+    </div>
+
 </body>
 </html>
