@@ -582,5 +582,97 @@
     <div class="page-num">19</div>
 </div>
 
+<!-- ===== 20-BET: 2.2 davomi ===== -->
+<div class="page">
+    <p>Mantiqiy model darajasida har bir ob'ektning atributlari, ma'lumotlar turlari va cheklovlari aniqlanadi. Quyida asosiy jadvallar tuzilishi keltirilgan:</p>
+    <p class="tbl-caption">2.4-jadval. User (Foydalanuvchi) jadvali tuzilishi</p>
+    <table class="tbl">
+        <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
+        <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Yagona identifikator</td></tr>
+        <tr><td>username</td><td>VARCHAR(80)</td><td>NOT NULL, UNIQUE</td><td>Foydalanuvchi nomi</td></tr>
+        <tr><td>email</td><td>VARCHAR(120)</td><td>NOT NULL, UNIQUE</td><td>Email manzil</td></tr>
+        <tr><td>password_hash</td><td>VARCHAR(256)</td><td>NOT NULL</td><td>Shifrlangan parol</td></tr>
+        <tr><td>role</td><td>VARCHAR(20)</td><td>NOT NULL, DEFAULT 'seller'</td><td>Rol (admin/manager/seller/warehouse)</td></tr>
+        <tr><td>is_active</td><td>BOOLEAN</td><td>DEFAULT TRUE</td><td>Faollik holati</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Yaratilgan sana</td></tr>
+    </table>
+    <p class="tbl-caption">2.5-jadval. Product (Mahsulot) jadvali tuzilishi</p>
+    <table class="tbl">
+        <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
+        <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Yagona identifikator</td></tr>
+        <tr><td>name</td><td>VARCHAR(150)</td><td>NOT NULL</td><td>Mahsulot nomi</td></tr>
+        <tr><td>description</td><td>TEXT</td><td>NULL</td><td>Tavsifi</td></tr>
+        <tr><td>price</td><td>DECIMAL(10,2)</td><td>NOT NULL, CHECK(price>0)</td><td>Narxi (so'mda)</td></tr>
+        <tr><td>quantity</td><td>INTEGER</td><td>NOT NULL, DEFAULT 0</td><td>Joriy qoldiq</td></tr>
+        <tr><td>category_id</td><td>INTEGER</td><td>FOREIGN KEY → Category(id)</td><td>Toifa kaliti</td></tr>
+        <tr><td>expiry_date</td><td>DATE</td><td>NULL</td><td>Yaroqlilik muddati</td></tr>
+        <tr><td>min_stock</td><td>INTEGER</td><td>DEFAULT 10</td><td>Minimal qoldiq</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Qo'shilgan sana</td></tr>
+    </table>
+    <p class="tbl-caption">2.6-jadval. Order (Buyurtma) jadvali tuzilishi</p>
+    <table class="tbl">
+        <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
+        <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Buyurtma raqami</td></tr>
+        <tr><td>user_id</td><td>INTEGER</td><td>FOREIGN KEY → User(id)</td><td>Sotuvchi</td></tr>
+        <tr><td>total_amount</td><td>DECIMAL(12,2)</td><td>NOT NULL</td><td>Jami summa</td></tr>
+        <tr><td>status</td><td>VARCHAR(20)</td><td>DEFAULT 'completed'</td><td>Holati</td></tr>
+        <tr><td>payment_method</td><td>VARCHAR(20)</td><td>DEFAULT 'cash'</td><td>To'lov usuli</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td><td>Yaratilgan vaqt</td></tr>
+    </table>
+    <div class="page-num">20</div>
+</div>
+
+<!-- ===== 21-BET: 2.2 davomi ===== -->
+<div class="page">
+    <p class="tbl-caption">2.7-jadval. OrderItem (Buyurtma tarkibi) jadvali tuzilishi</p>
+    <table class="tbl">
+        <tr><th>Maydon</th><th>Tur</th><th>Cheklov</th><th>Tavsif</th></tr>
+        <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY, AUTOINCREMENT</td><td>Identifikator</td></tr>
+        <tr><td>order_id</td><td>INTEGER</td><td>FOREIGN KEY → Order(id)</td><td>Buyurtma kaliti</td></tr>
+        <tr><td>product_id</td><td>INTEGER</td><td>FOREIGN KEY → Product(id)</td><td>Mahsulot kaliti</td></tr>
+        <tr><td>quantity</td><td>INTEGER</td><td>NOT NULL, CHECK(quantity>0)</td><td>Miqdor</td></tr>
+        <tr><td>unit_price</td><td>DECIMAL(10,2)</td><td>NOT NULL</td><td>Birlik narxi</td></tr>
+        <tr><td>subtotal</td><td>DECIMAL(12,2)</td><td>NOT NULL</td><td>Jami (qty × price)</td></tr>
+    </table>
+    <p>Ma'lumotlar bazasini normalizatsiya qilish bo'yicha quyidagi ishlar amalga oshirildi:</p>
+    <p><b>1NF (Birinchi normal forma):</b> Barcha jadvallarda atomik qiymatlar saqlanadi. Hech qanday takrorlanuvchi guruhlar yo'q. Masalan, buyurtma tarkibi alohida OrderItem jadvalida saqlanadi, Order jadvalida emas.</p>
+    <p><b>2NF (Ikkinchi normal forma):</b> Barcha nokalit atributlar to'liq kalitga funksional bog'liq. Masalan, OrderItem jadvalida unit_price mahsulot narxi buyurtma vaqtida fiksatsiya qilinadi (Product jadvalidagi narx o'zgarsa ham tarixiy ma'lumot saqlanadi).</p>
+    <p><b>3NF (Uchinchi normal forma):</b> Tranzitiv bog'liqliklar bartaraf etilgan. Masalan, mahsulot toifasi alohida Category jadvalida saqlanadi, Product jadvalida faqat category_id tashqi kalit mavjud.</p>
+    <p>Fizik model darajasida ma'lumotlar bazasini yaratish uchun SQL buyruqlari yoziladi:</p>
+<pre>
+-- Foydalanuvchilar jadvali
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(80) NOT NULL UNIQUE,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    password_hash VARCHAR(256) NOT NULL,
+    role VARCHAR(20) NOT NULL DEFAULT 'seller',
+    is_active BOOLEAN DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Toifalar jadvali
+CREATE TABLE category (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT
+);
+
+-- Mahsulotlar jadvali
+CREATE TABLE product (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(150) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL CHECK(price > 0),
+    quantity INTEGER NOT NULL DEFAULT 0,
+    category_id INTEGER REFERENCES category(id),
+    expiry_date DATE,
+    min_stock INTEGER DEFAULT 10,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+</pre>
+    <div class="page-num">21</div>
+</div>
+
 </body>
 </html>
