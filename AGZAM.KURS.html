@@ -22,6 +22,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: relative;
             page-break-after: always;
+            page-break-inside: avoid;
         }
         .page:last-child { page-break-after: auto; }
         @media print {
@@ -34,10 +35,13 @@
                 box-shadow: none; 
                 margin: 0; 
                 page-break-after: always;
+                page-break-inside: avoid;
                 width: 210mm;
-                min-height: 297mm;
+                height: 297mm;
                 padding: 20mm 15mm 20mm 30mm;
+                overflow: hidden;
             }
+            .page:last-child { page-break-after: auto; }
         }
         h2 { text-align: center; font-size: 14pt; font-weight: bold; margin-bottom: 15px; }
         h3 { text-align: left; font-size: 14pt; font-weight: bold; margin: 15px 0 10px 0; text-indent: 1.25cm; }
