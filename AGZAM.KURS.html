@@ -1546,5 +1546,198 @@ def create():
     <div class="page-num">33</div>
 </div>
 
+<!-- ===== 34-BET: 3.2 davomi - Templates ===== -->
+<div class="page">
+    <p><b>HTML shablonlar (Jinja2 Templates).</b> Asosiy shablon (base.html) barcha sahifalar uchun umumiy tuzilishni belgilaydi:</p>
+<pre>
+&lt;!-- templates/base.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="uz"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;{% block title %}Muzqaymoq BT{% endblock %}&lt;/title&gt;
+    &lt;link rel="stylesheet" href="{{ url_for('static', 
+        filename='css/bootstrap.min.css') }}"&gt;
+    &lt;link rel="stylesheet" href="{{ url_for('static', 
+        filename='css/style.css') }}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary"&gt;
+        &lt;div class="container"&gt;
+            &lt;a class="navbar-brand" href="/"&gt;
+                🍦 Muzqaymoq BT
+            &lt;/a&gt;
+            {% if current_user.is_authenticated %}
+            &lt;ul class="navbar-nav"&gt;
+                &lt;li&gt;&lt;a class="nav-link" 
+                    href="/products"&gt;Mahsulotlar&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class="nav-link" 
+                    href="/orders"&gt;Buyurtmalar&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a class="nav-link" 
+                    href="/reports"&gt;Hisobotlar&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;span class="text-light"&gt;
+                {{ current_user.username }} 
+                ({{ current_user.role }})
+            &lt;/span&gt;
+            {% endif %}
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    
+    &lt;div class="container mt-4"&gt;
+        {% with messages = get_flashed_messages(
+            with_categories=true) %}
+        {% for category, message in messages %}
+            &lt;div class="alert alert-{{ category }}"&gt;
+                {{ message }}
+            &lt;/div&gt;
+        {% endfor %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    &lt;/div&gt;
+    
+    &lt;script src="{{ url_for('static', 
+        filename='js/bootstrap.bundle.min.js') }}"&gt;
+    &lt;/script&gt;
+    {% block scripts %}{% endblock %}
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p><b>Dashboard sahifasi</b> tizimning asosiy ko'rsatkichlarini real vaqtda ko'rsatadi:</p>
+<pre>
+&lt;!-- templates/main/dashboard.html --&gt;
+{% extends "base.html" %}
+{% block content %}
+&lt;h2&gt;Boshqaruv paneli&lt;/h2&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-md-3"&gt;
+        &lt;div class="card bg-primary text-white"&gt;
+            &lt;div class="card-body"&gt;
+                &lt;h5&gt;Bugungi sotuv&lt;/h5&gt;
+                &lt;h3&gt;{{ today_sales | number_format }} so'm&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        &lt;div class="card bg-success text-white"&gt;
+            &lt;div class="card-body"&gt;
+                &lt;h5&gt;Buyurtmalar&lt;/h5&gt;
+                &lt;h3&gt;{{ today_orders }}&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        &lt;div class="card bg-warning"&gt;
+            &lt;div class="card-body"&gt;
+                &lt;h5&gt;Kam qoldiq&lt;/h5&gt;
+                &lt;h3&gt;{{ low_stock_count }}&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-3"&gt;
+        &lt;div class="card bg-info text-white"&gt;
+            &lt;div class="card-body"&gt;
+                &lt;h5&gt;Mahsulotlar&lt;/h5&gt;
+                &lt;h3&gt;{{ total_products }}&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+{% endblock %}
+</pre>
+    <div class="page-num">34</div>
+</div>
+
+<!-- ===== 35-BET: 3.2 davomi - Reports module ===== -->
+<div class="page">
+    <p><b>Hisobotlar moduli (reports/routes.py):</b></p>
+<pre>
+# app/reports/routes.py - Hisobotlar generatsiyasi
+from flask import render_template, request
+from flask_login import login_required, current_user
+from app.reports import bp
+from app.models import Order, OrderItem, Product
+from app import db
+from datetime import datetime, timedelta
+from sqlalchemy import func
+
+@bp.route('/sales')
+@login_required
+def sales():
+    period = request.args.get('period', 'daily')
+    
+    if period == 'daily':
+        start = datetime.utcnow().replace(
+            hour=0, minute=0, second=0)
+    elif period == 'weekly':
+        start = datetime.utcnow() - timedelta(days=7)
+    elif period == 'monthly':
+        start = datetime.utcnow() - timedelta(days=30)
+    else:
+        start = datetime.utcnow() - timedelta(days=365)
+    
+    # Umumiy sotuv
+    total_sales = db.session.query(
+        func.sum(Order.total_amount)
+    ).filter(Order.created_at >= start).scalar() or 0
+    
+    # Buyurtmalar soni
+    order_count = Order.query.filter(
+        Order.created_at >= start).count()
+    
+    # Eng ko'p sotilgan mahsulotlar
+    top_products = db.session.query(
+        Product.name,
+        func.sum(OrderItem.quantity).label('total_qty'),
+        func.sum(OrderItem.subtotal).label('total_revenue')
+    ).join(OrderItem).join(Order).filter(
+        Order.created_at >= start
+    ).group_by(Product.id).order_by(
+        func.sum(OrderItem.quantity).desc()
+    ).limit(10).all()
+    
+    # Kunlik dinamika
+    daily_sales = db.session.query(
+        func.date(Order.created_at).label('date'),
+        func.sum(Order.total_amount).label('amount'),
+        func.count(Order.id).label('count')
+    ).filter(
+        Order.created_at >= start
+    ).group_by(func.date(Order.created_at)).all()
+    
+    return render_template('reports/sales.html',
+        total_sales=total_sales,
+        order_count=order_count,
+        top_products=top_products,
+        daily_sales=daily_sales,
+        period=period
+    )
+
+@bp.route('/inventory')
+@login_required
+def inventory():
+    """Omborxona hisoboti"""
+    low_stock = Product.query.filter(
+        Product.quantity <= Product.min_stock).all()
+    
+    expired = Product.query.filter(
+        Product.expiry_date < datetime.utcnow().date()
+    ).all()
+    
+    total_value = db.session.query(
+        func.sum(Product.price * Product.quantity)
+    ).scalar() or 0
+    
+    return render_template('reports/inventory.html',
+        low_stock=low_stock,
+        expired=expired,
+        total_value=total_value
+    )
+</pre>
+    <p>Hisobotlar moduli SQLAlchemy ning aggregate funksiyalaridan (SUM, COUNT, GROUP BY) foydalanib, turli davrlar uchun statistik ma'lumotlarni shakllantirib beradi. Natijalar Chart.js kutubxonasi yordamida grafik ko'rinishda vizualizatsiya qilinadi.</p>
+    <div class="page-num">35</div>
+</div>
+
 </body>
 </html>
