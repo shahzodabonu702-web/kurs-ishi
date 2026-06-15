@@ -1200,5 +1200,159 @@ def create_app(config_name='default'):
     <div class="page-num">29</div>
 </div>
 
+<!-- ===== 30-BET: 3.1 yakuni ===== -->
+<div class="page">
+    <p>Ishga tushirish fayli (run.py) ilovani boshlash uchun ishlatiladi:</p>
+<pre>
+# run.py - Ilovani ishga tushirish
+from app import create_app, db
+from app.models import User, Product, Category, Order
+
+app = create_app('development')
+
+@app.shell_context_processor
+def make_shell_context():
+    """Flask shell uchun kontekst"""
+    return {
+        'db': db, 
+        'User': User, 
+        'Product': Product,
+        'Category': Category, 
+        'Order': Order
+    }
+
+@app.cli.command('init-db')
+def init_db():
+    """Ma'lumotlar bazasini yaratish"""
+    db.create_all()
+    print('Ma\'lumotlar bazasi yaratildi.')
+
+@app.cli.command('seed-db')
+def seed_db():
+    """Boshlang'ich ma'lumotlarni kiritish"""
+    categories = ['Klassik', 'Shokoladli', 'Mevali', 
+                  'Premium', 'Bolalar uchun']
+    for name in categories:
+        cat = Category(name=name)
+        db.session.add(cat)
+    
+    admin = User(username='admin', email='admin@muzqaymoq.uz',
+                 role='admin')
+    admin.set_password('admin123')
+    db.session.add(admin)
+    db.session.commit()
+    print('Boshlang\'ich ma\'lumotlar kiritildi.')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+</pre>
+    <p>Loyihaning bog'liqliklari requirements.txt faylida saqlanadi:</p>
+<pre>
+# requirements.txt
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-Login==0.6.3
+Flask-WTF==1.2.1
+Flask-Migrate==4.0.5
+SQLAlchemy==2.0.23
+Werkzeug==3.0.1
+WTForms==3.1.1
+python-dotenv==1.0.0
+pytest==7.4.3
+</pre>
+    <p>Loyihani o'rnatish va ishga tushirish quyidagi buyruqlar orqali amalga oshiriladi:</p>
+<pre>
+# Virtual muhit yaratish va faollashtirish
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+
+# Bog'liqliklarni o'rnatish
+pip install -r requirements.txt
+
+# Ma'lumotlar bazasini yaratish
+flask init-db
+flask seed-db
+
+# Ilovani ishga tushirish
+flask run --host=0.0.0.0 --port=5000
+</pre>
+    <p>Shu tariqa loyihaning texnologik asosi tayyorlandi. Keyingi bo'limda tizimning asosiy modullarini ishlab chiqish jarayoni batafsil ko'rib chiqiladi.</p>
+    <div class="page-num">30</div>
+</div>
+
+<!-- ===== 31-BET: 3.2 boshlanishi ===== -->
+<div class="page">
+    <h3>3.2 Tizim modullarini ishlab chiqish</h3>
+    <p>Tizimni ishlab chiqish jarayoni modular yondashuv asosida amalga oshirildi. Har bir modul (Flask Blueprint) mustaqil ravishda ishlab chiqildi va testlandi. Birinchi navbatda ma'lumotlar bazasi modellari yaratiladi, chunki boshqa barcha modullar ularga bog'liq.</p>
+    <p><b>Ma'lumotlar bazasi modellari (models.py):</b></p>
+<pre>
+# app/models.py - Ma'lumotlar bazasi modellari
+from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from app import db, login_manager
+
+class User(UserMixin, db.Model):
+    """Foydalanuvchi modeli"""
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(256), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default='seller')
+    is_active = db.Column(db.Boolean, default=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Bog'lanishlar
+    orders = db.relationship('Order', backref='seller', lazy='dynamic')
+    
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+    
+    def is_admin(self):
+        return self.role == 'admin'
+    
+    def __repr__(self):
+        return f'&lt;User {self.username}&gt;'
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+class Category(db.Model):
+    """Toifa modeli"""
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+    description = db.Column(db.Text)
+    products = db.relationship('Product', backref='category', 
+                               lazy='dynamic')
+
+class Product(db.Model):
+    """Mahsulot modeli"""
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.Text)
+    price = db.Column(db.Numeric(10, 2), nullable=False)
+    quantity = db.Column(db.Integer, default=0)
+    category_id = db.Column(db.Integer, 
+                            db.ForeignKey('category.id'))
+    expiry_date = db.Column(db.Date)
+    min_stock = db.Column(db.Integer, default=10)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def is_low_stock(self):
+        return self.quantity &lt;= self.min_stock
+    
+    def is_expired(self):
+        if self.expiry_date:
+            return self.expiry_date &lt; datetime.utcnow().date()
+        return False
+</pre>
+    <div class="page-num">31</div>
+</div>
+
 </body>
 </html>
