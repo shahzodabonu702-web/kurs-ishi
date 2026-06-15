@@ -784,5 +784,144 @@
         <div class="page-number">18</div>
     </div>
 
+    <!-- ==================== SAHIFA 19: 1.3 boshlanishi ==================== -->
+    <div class="page">
+        <div class="content">
+            <h3>1.3. Ma'lumotlar bazasi va server tomonidagi texnologiyalar</h3>
+
+            <p>Ma'lumotlar bazasi (Database) - bu ma'lumotlarni tartibli saqlash, boshqarish va ularga tez kirish imkonini beruvchi dasturiy tizim. Maktab boshqaruv tizimida o'quvchilar, o'qituvchilar, baholar, davomat va boshqa ko'plab ma'lumotlar saqlanishi kerak. To'g'ri ma'lumotlar bazasini tanlash tizim samaradorligiga bevosita ta'sir qiladi.</p>
+
+            <p><b>MongoDB ma'lumotlar bazasi.</b> MongoDB - bu hujjatga yo'naltirilgan (document-oriented) NoSQL ma'lumotlar bazasi bo'lib, 2009-yilda ishlab chiqilgan. Ma'lumotlar JSON ga o'xshash BSON (Binary JSON) formatida saqlanadi. MongoDB ni maktab boshqaruv tizimi uchun tanlashning sabablari:</p>
+
+            <ul>
+                <li><b>Moslashuvchan sxema</b> - qat'iy jadval strukturasi talab qilinmaydi, yangi maydonlar osongina qo'shiladi;</li>
+                <li><b>JavaScript bilan to'liq moslik</b> - Node.js va MongoDB birgalikda JSON formatida ishlaydi;</li>
+                <li><b>Yuqori samaradorlik</b> - katta hajmdagi ma'lumotlar bilan tez ishlash;</li>
+                <li><b>Gorizontal masshtablanish</b> - sharding orqali ma'lumotlarni bir nechta serverga taqsimlash;</li>
+                <li><b>Aggregation Framework</b> - murakkab so'rovlar va statistik tahlillar.</li>
+            </ul>
+
+            <p><b>MongoDB asosiy tushunchalari:</b></p>
+
+            <ul>
+                <li><b>Database</b> - ma'lumotlar bazasi, bir nechta collection larni o'z ichiga oladi;</li>
+                <li><b>Collection</b> - hujjatlar to'plami (relyatsion bazadagi jadvalga o'xshash);</li>
+                <li><b>Document</b> - ma'lumot yozuvi, BSON formatida (jadval qatoriga o'xshash);</li>
+                <li><b>Field</b> - hujjat ichidagi maydon (jadval ustuniga o'xshash);</li>
+                <li><b>Index</b> - qidiruv tezligini oshiruvchi indekslar;</li>
+                <li><b>ObjectId</b> - har bir hujjatning noyob identifikatori.</li>
+            </ul>
+
+            <p><b>Mongoose ODM (Object Document Mapper).</b> Mongoose - MongoDB bilan Node.js da ishlash uchun eng mashhur kutubxona. U schema (sxema) asosidagi yondashuvni taqdim etadi va ma'lumotlar validatsiyasi, middleware va virtual maydonlar kabi qo'shimcha imkoniyatlarni beradi.</p>
+        </div>
+        <div class="page-number">19</div>
+    </div>
+
+    <!-- ==================== SAHIFA 20: 1.3 davomi ==================== -->
+    <div class="page">
+        <div class="content">
+            <p>Maktab boshqaruv tizimi uchun Mongoose yordamida quyidagi sxemalar yaratiladi:</p>
+
+            <p><b>O'quvchi sxemasi (Student Schema):</b> ism, familiya, tug'ilgan sana, jinsi, sinf (reference), ota-ona telefoni, manzil, rasm, ro'yxatdan o'tgan sana, holat (aktiv/passiv) maydonlarini o'z ichiga oladi.</p>
+
+            <p><b>O'qituvchi sxemasi (Teacher Schema):</b> ism, familiya, fan (reference), tajriba yillari, malaka darajasi, telefon, email, login ma'lumotlari va biriktirilgan sinflar ro'yxatini saqlaydi.</p>
+
+            <p><b>Baho sxemasi (Grade Schema):</b> o'quvchi (reference), fan (reference), o'qituvchi (reference), baho qiymati, baho turi (joriy/oraliq/yakuniy), sana va izoh maydonlariga ega.</p>
+
+            <p><b>Davomat sxemasi (Attendance Schema):</b> o'quvchi (reference), sinf (reference), sana, holat (keldi/kelmadi/kechikdi/sababli), izoh maydonlarini o'z ichiga oladi.</p>
+
+            <p><b>MongoDB Atlas - bulutli xizmat.</b> MongoDB Atlas - bu MongoDB ning bulutli versiyasi bo'lib, ma'lumotlar bazasini o'rnatish va boshqarish zaruratini bartaraf etadi. Asosiy afzalliklari:</p>
+
+            <ul>
+                <li>Avtomatik zaxira nusxa olish (backup);</li>
+                <li>Avtomatik masshtablanish;</li>
+                <li>Xavfsizlik (shifrlash, IP whitelist, autentifikatsiya);</li>
+                <li>Monitoring va performance alerts;</li>
+                <li>Bepul tier (M0) - 512 MB gacha bepul saqlash;</li>
+                <li>Global klasterlar - dunyoning istalgan nuqtasida joylashish.</li>
+            </ul>
+
+            <p><b>Server arxitekturasi va deployment.</b> Maktab boshqaruv tizimining server qismi quyidagi arxitekturada quriladi:</p>
+
+            <ul>
+                <li><b>Application Layer</b> - Express.js asosidagi API server;</li>
+                <li><b>Business Logic Layer</b> - biznes mantiq (controllers, services);</li>
+                <li><b>Data Access Layer</b> - ma'lumotlar bazasi bilan ishlash (models, repositories);</li>
+                <li><b>Authentication Layer</b> - JWT va bcrypt asosidagi xavfsizlik qatlami.</li>
+            </ul>
+        </div>
+        <div class="page-number">20</div>
+    </div>
+
+    <!-- ==================== SAHIFA 21: 1.3 davomi ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Deployment (joylashtirish) texnologiyalari.</b> Ishlab chiqilgan tizimni ishlab chiqarish muhitiga (production) joylashtirish uchun bir nechta variant mavjud:</p>
+
+            <p><b>1. Heroku.</b> PaaS (Platform as a Service) xizmati bo'lib, Node.js ilovalarni osongina joylashtirish imkonini beradi. Git push orqali avtomatik deployment, bepul tier va oson masshtablanish afzalliklariga ega.</p>
+
+            <p><b>2. Vercel.</b> Front-end ilovalar uchun optimallashtirilgan platforma. React ilovalarni avtomatik build va deploy qiladi, global CDN orqali tez yuklanishni ta'minlaydi.</p>
+
+            <p><b>3. DigitalOcean/AWS.</b> IaaS (Infrastructure as a Service) xizmatlari bo'lib, to'liq server boshqaruvi imkonini beradi. Kattaroq loyihalar va yuqori nazorat talab qilinganida ishlatiladi.</p>
+
+            <p><b>Environment Variables (Muhit o'zgaruvchilari).</b> Maxfiy ma'lumotlar (ma'lumotlar bazasi paroli, JWT kalit, API kalitlar) kodda ochiq saqlanmasligi kerak. .env fayli yordamida muhit o'zgaruvchilari boshqariladi:</p>
+
+            <ul>
+                <li>MONGODB_URI - ma'lumotlar bazasi ulanish satri;</li>
+                <li>JWT_SECRET - token imzolash uchun maxfiy kalit;</li>
+                <li>PORT - server port raqami;</li>
+                <li>NODE_ENV - muhit turi (development/production);</li>
+                <li>CORS_ORIGIN - ruxsat etilgan domenlar.</li>
+            </ul>
+
+            <p><b>CORS (Cross-Origin Resource Sharing).</b> Web ilovalar xavfsizligi uchun brauzerlar turli domenlardan kelgan so'rovlarni cheklaydi. CORS middleware server tomonida sozlanib, faqat ruxsat berilgan domenlardan kelgan so'rovlarga javob beradi. Maktab tizimida front-end va back-end turli portlarda ishlashi mumkinligi sababli, CORS ni to'g'ri sozlash muhim.</p>
+
+            <p><b>Rate Limiting va Security.</b> Server xavfsizligini ta'minlash uchun quyidagi choralar ko'riladi:</p>
+
+            <ul>
+                <li><b>Rate Limiting</b> - bir IP dan keladigan so'rovlar sonini cheklash (DDoS himoya);</li>
+                <li><b>Helmet.js</b> - HTTP headerlarni xavfsiz sozlash;</li>
+                <li><b>Input Sanitization</b> - foydalanuvchi kiritgan ma'lumotlarni tozalash (XSS himoya);</li>
+                <li><b>HTTPS</b> - SSL/TLS sertifikati orqali ma'lumotlarni shifrlash.</li>
+            </ul>
+        </div>
+        <div class="page-number">21</div>
+    </div>
+
+    <!-- ==================== SAHIFA 22: 1.3 yakuni, I BOB xulosa ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Logging va Monitoring.</b> Ishlab chiqarish muhitida tizim holatini kuzatish va xatolarni aniqlash uchun logging va monitoring vositalari zarur:</p>
+
+            <ul>
+                <li><b>Winston</b> - Node.js uchun mashhur logging kutubxonasi. Turli darajadagi loglar (error, warn, info, debug) va turli transportlar (fayl, konsol, ma'lumotlar bazasi) qo'llab-quvvatlanadi;</li>
+                <li><b>Morgan</b> - HTTP so'rovlarini logging qilish uchun Express.js middleware;</li>
+                <li><b>PM2</b> - Node.js ilovalarni ishlab chiqarish muhitida boshqarish, monitoring va avtomatik qayta ishga tushirish.</li>
+            </ul>
+
+            <p><b>Testing (Sinovdan o'tkazish) vositalari.</b> Dasturiy ta'minot sifatini ta'minlash uchun avtomatlashtirilgan testlar yoziladi:</p>
+
+            <ul>
+                <li><b>Jest</b> - JavaScript uchun testing framework. Unit testlar va integration testlar yozish;</li>
+                <li><b>Supertest</b> - API endpointlarini sinovdan o'tkazish uchun kutubxona;</li>
+                <li><b>React Testing Library</b> - React komponentlarini sinovdan o'tkazish;</li>
+                <li><b>Cypress</b> - End-to-end (E2E) testlar uchun vosita.</li>
+            </ul>
+
+            <p><b>I BOB xulosasi.</b> Birinchi bobda maktab boshqaruv tizimlarining nazariy asoslari, ularning rivojlanish tarixi va zamonaviy holati batafsil yoritildi. Web dasturlash texnologiyalari - HTML5, CSS3, JavaScript (ES6+), React.js, Node.js, Express.js hamda MongoDB ma'lumotlar bazasi tahlil qilindi. Tanlangan texnologiyalar to'plami (MERN stack - MongoDB, Express.js, React.js, Node.js) maktab boshqaruv tizimini ishlab chiqish uchun optimal yechim hisoblanadi, chunki:</p>
+
+            <ul>
+                <li>Barcha qatlamlarda yagona til (JavaScript) ishlatiladi;</li>
+                <li>JSON formatida yagona ma'lumotlar almashinuvi;</li>
+                <li>Katta hamjamiyat va boy ekosistema;</li>
+                <li>Yuqori samaradorlik va masshtablanish imkoniyati;</li>
+                <li>Bepul va ochiq kodli texnologiyalar.</li>
+            </ul>
+
+            <p>Keyingi bobda ushbu texnologiyalar asosida maktab boshqaruv tizimini loyihalash va dasturiy ta'minotini ishlab chiqish jarayoni batafsil yoritiladi.</p>
+        </div>
+        <div class="page-number">22</div>
+    </div>
+
 </body>
 </html>
