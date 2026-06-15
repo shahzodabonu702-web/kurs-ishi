@@ -335,5 +335,71 @@
     <div class="page-num">11</div>
 </div>
 
+<!-- ===== 12-BET: 1.3 davomi ===== -->
+<div class="page">
+    <p>Yuqorida ko'rib chiqilgan tizimlarni umumiy jadval shaklida solishtiramiz:</p>
+    <p class="tbl-caption">1.5-jadval. Mavjud boshqaruv tizimlarining qiyosiy tahlili</p>
+    <table class="tbl">
+        <tr><th>Mezon</th><th>1C</th><th>iiko</th><th>R-Keeper</th><th>Poster</th><th>Square</th><th>Bizning tizim</th></tr>
+        <tr><td>Narx (boshlang'ich)</td><td>5-15 mln</td><td>1-3 mln/oy</td><td>10+ mln</td><td>200-500 ming/oy</td><td>Bepul*</td><td>Bepul</td></tr>
+        <tr><td>O'rnatish murakkabligi</td><td>Yuqori</td><td>O'rta</td><td>Yuqori</td><td>Past</td><td>Past</td><td>Past</td></tr>
+        <tr><td>O'zbekiston uchun moslik</td><td>O'rta</td><td>Past</td><td>Past</td><td>O'rta</td><td>Yo'q</td><td>To'liq</td></tr>
+        <tr><td>O'zbek tili qo'llab-quvvatlashi</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Ha</td></tr>
+        <tr><td>Bulutli versiya</td><td>Ha</td><td>Ha</td><td>Cheklangan</td><td>Ha</td><td>Ha</td><td>Ha</td></tr>
+        <tr><td>Ochiq kod</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Yo'q</td><td>Ha</td></tr>
+        <tr><td>Texnik qo'llab-quvvatlash</td><td>Pullik</td><td>Pullik</td><td>Pullik</td><td>Pullik</td><td>Yo'q</td><td>O'zida</td></tr>
+        <tr><td>Moslashuvchanlik</td><td>Yuqori</td><td>O'rta</td><td>Past</td><td>Past</td><td>Past</td><td>Yuqori</td></tr>
+    </table>
+    <p>Jadvaldan ko'rinib turibdiki, ishlab chiqilayotgan tizim bir qator muhim afzalliklarga ega. Birinchidan, u to'liq bepul va ochiq kodli. Ikkinchidan, O'zbekiston bozori uchun maxsus moslashtirilgan - o'zbek tilida interfeys, mahalliy soliq tizimiga mos hisobotlar, so'mda ishlash. Uchinchidan, uni o'zgartirish va kengaytirish mumkin.</p>
+    <p>Biroq, mavjud tizimlarning ham o'rganish kerak bo'lgan kuchli tomonlari bor. 1C ning buxgalteriya integratsiyasi, iiko ning real vaqt analitikasi, Poster ning sodda interfeysi - bularning barchasidan o'z tizimimizda foydalanishimiz mumkin. Amalda eng yaxshi amaliyotlarni o'rganib, ularni o'z tizimimizga qo'llash - bu eng to'g'ri yondashuv.</p>
+    <p>Texnik arxitektura nuqtai nazaridan ham farqlarni ko'rib chiqamiz. 1C o'zining maxsus platformasida ishlaydi va uni o'zgartirish uchun 1C dasturchilarini jalb qilish kerak. iiko va R-Keeper yopiq tijorat tizimlari bo'lib, foydalanuvchi ularning ichki kodiga kira olmaydi. Poster va Square SaaS (Software as a Service) modelida ishlaydi - yani foydalanuvchi dasturni emas, balki xizmatni sotib oladi.</p>
+    <p>Bizning tizimimiz esa ochiq kodli texnologiyalar (Python, Flask, SQLite) asosida qurilgan. Bu quyidagi afzalliklarni beradi: kod to'liq nazorat ostida, istalgan vaqtda o'zgartirish mumkin, hech qanday litsenziya to'lovlari yo'q, jamiyat tomonidan qo'llab-quvvatlanuvchi texnologiyalar ishlatilgan. Bundan tashqari, tizimni istalgan serverga o'rnatish mumkin - mahalliy kompyuter, VPS yoki bulutli platforma.</p>
+    <div class="page-num">12</div>
+</div>
+
+<!-- ===== 13-BET: 1.3 davomi ===== -->
+<div class="page">
+    <p>Mavjud tizimlarning narx-sifat tahlilini vizual ko'rinishda ifodalash uchun quyidagi diagrammani ko'rib chiqamiz:</p>
+    <svg width="100%" height="280" viewBox="0 0 550 280" xmlns="http://www.w3.org/2000/svg">
+        <rect x="50" y="10" width="480" height="250" fill="#fafafa" stroke="#333" stroke-width="1"/>
+        <text x="280" y="270" text-anchor="middle" font-size="10" font-weight="bold">Funksionallik darajasi →</text>
+        <text x="30" y="140" text-anchor="middle" font-size="10" font-weight="bold" transform="rotate(-90,30,140)">Narx (mln so'm) →</text>
+        <!-- Grid lines -->
+        <line x1="80" y1="230" x2="500" y2="230" stroke="#ccc" stroke-width="0.5"/>
+        <line x1="80" y1="180" x2="500" y2="180" stroke="#ccc" stroke-width="0.5"/>
+        <line x1="80" y1="130" x2="500" y2="130" stroke="#ccc" stroke-width="0.5"/>
+        <line x1="80" y1="80" x2="500" y2="80" stroke="#ccc" stroke-width="0.5"/>
+        <line x1="80" y1="30" x2="500" y2="30" stroke="#ccc" stroke-width="0.5"/>
+        <!-- Y axis labels -->
+        <text x="70" y="233" text-anchor="end" font-size="8">0</text>
+        <text x="70" y="183" text-anchor="end" font-size="8">3</text>
+        <text x="70" y="133" text-anchor="end" font-size="8">6</text>
+        <text x="70" y="83" text-anchor="end" font-size="8">9</text>
+        <text x="70" y="33" text-anchor="end" font-size="8">12+</text>
+        <!-- Points -->
+        <circle cx="420" cy="50" r="12" fill="#cc0000" opacity="0.7"/>
+        <text x="420" y="54" text-anchor="middle" font-size="7" fill="white">R-Keeper</text>
+        <circle cx="380" cy="100" r="12" fill="#ff6600" opacity="0.7"/>
+        <text x="380" y="104" text-anchor="middle" font-size="7" fill="white">1C</text>
+        <circle cx="320" cy="150" r="12" fill="#ffaa00" opacity="0.7"/>
+        <text x="320" y="154" text-anchor="middle" font-size="7" fill="white">iiko</text>
+        <circle cx="200" cy="200" r="12" fill="#0088cc" opacity="0.7"/>
+        <text x="200" y="204" text-anchor="middle" font-size="7" fill="white">Poster</text>
+        <circle cx="150" cy="220" r="12" fill="#666" opacity="0.7"/>
+        <text x="150" y="224" text-anchor="middle" font-size="7" fill="white">Square</text>
+        <circle cx="300" cy="228" r="14" fill="#008800" opacity="0.8"/>
+        <text x="300" y="232" text-anchor="middle" font-size="7" fill="white">Bizning</text>
+        <!-- Ideal zone -->
+        <rect x="250" y="200" width="120" height="45" fill="none" stroke="#008800" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="310" y="255" text-anchor="middle" font-size="8" fill="#008800">Ideal zona</text>
+    </svg>
+    <p class="fig-caption">1.2-rasm. Tizimlarning narx-funksionallik diagrammasi</p>
+    <p>Diagrammadan ko'rinib turibdiki, bizning tizimimiz "ideal zona"da joylashgan - yuqori funksionallik va past narx kombinatsiyasi. Bu kichik va o'rta biznes uchun eng maqbul variant hisoblanadi.</p>
+    <p>Bozordagi tizimlarning yana bir muhim farqi - texnik qo'llab-quvvatlash modelidir. Tijorat tizimlari (1C, iiko, R-Keeper) uchun texnik xizmat ko'rsatish alohida to'lov talab qiladi, bu yillik xarajatlarga 2-5 mln so'm qo'shadi. Poster va Square uchun texnik qo'llab-quvvatlash oylik obuna narxiga kiritilgan, lekin u cheklangan. Bizning tizimimiz ochiq kodli bo'lgani uchun, texnik masalalarni tashkilotning o'z IT-mutaxassisi hal qilishi yoki jamiyat (community) yordamiga murojaat qilishi mumkin.</p>
+    <p>Xavfsizlik jihatidan ham farqlar mavjud. Tijorat tizimlari ma'lumotlarni o'z serverlarida saqlaydi va foydalanuvchi ularning xavfsizlik siyosatiga bog'liq bo'ladi. Bizning tizimimiz esa ma'lumotlarni mahalliy serverda saqlaydi, bu esa foydalanuvchiga to'liq nazorat imkonini beradi. Shu bilan birga, zamonaviy xavfsizlik standartlari (HTTPS, bcrypt, CSRF himoya) qo'llaniladi.</p>
+    <p>Muhim jihat - bu tizimlarning O'zbekiston bozorigq moslashganlik darajasidir. Mavjud tizimlarning hech biri O'zbekiston so'mida ishlash, mahalliy soliq hisobotlari, o'zbek tilida interfeys kabi xususiyatlarni to'liq qo'llab-quvvatlamaydi. Bizning tizimimiz esa boshidanoq O'zbekiston bozori uchun maxsus ishlab chiqilgan.</p>
+    <div class="page-num">13</div>
+</div>
+
 </body>
 </html>
