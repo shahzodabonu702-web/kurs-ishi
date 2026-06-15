@@ -1043,5 +1043,162 @@ END;
     <div class="page-num">27</div>
 </div>
 
+<!-- ===== 28-BET: 3.1 davomi ===== -->
+<div class="page">
+    <p><b>Qo'shimcha texnologiyalar va kutubxonalar:</b></p>
+    <p class="tbl-caption">3.1-jadval. Loyihada ishlatiladigan texnologiyalar to'plami</p>
+    <table class="tbl">
+        <tr><th>Texnologiya</th><th>Versiya</th><th>Maqsadi</th></tr>
+        <tr><td>Python</td><td>3.10+</td><td>Asosiy dasturlash tili</td></tr>
+        <tr><td>Flask</td><td>2.3.x</td><td>Web framework</td></tr>
+        <tr><td>SQLite</td><td>3.x</td><td>Ma'lumotlar bazasi</td></tr>
+        <tr><td>SQLAlchemy</td><td>2.0</td><td>ORM (Object-Relational Mapping)</td></tr>
+        <tr><td>Flask-Login</td><td>0.6.x</td><td>Autentifikatsiya</td></tr>
+        <tr><td>Flask-WTF</td><td>1.2.x</td><td>Form validatsiya</td></tr>
+        <tr><td>Flask-Migrate</td><td>4.x</td><td>Ma'lumotlar bazasi migrasiyalari</td></tr>
+        <tr><td>Bootstrap</td><td>5.3</td><td>CSS framework</td></tr>
+        <tr><td>Jinja2</td><td>3.x</td><td>Shablon tizimi</td></tr>
+        <tr><td>Chart.js</td><td>4.x</td><td>Grafiklar va diagrammalar</td></tr>
+        <tr><td>pytest</td><td>7.x</td><td>Unit testlash</td></tr>
+        <tr><td>Git</td><td>2.x</td><td>Versiya nazorati</td></tr>
+    </table>
+    <p><b>Loyiha tuzilishi (Project Structure).</b> Flask loyihasi quyidagi papka tuzilishida tashkil etiladi:</p>
+<pre>
+muzqaymoq-boshqaruv/
+├── app/
+│   ├── __init__.py          # Flask ilovasi yaratish (app factory)
+│   ├── models.py            # SQLAlchemy modellari
+│   ├── auth/
+│   │   ├── __init__.py      # Auth blueprint
+│   │   ├── routes.py        # Login/logout/register
+│   │   └── forms.py         # Auth formalari
+│   ├── main/
+│   │   ├── __init__.py      # Main blueprint
+│   │   ├── routes.py        # Bosh sahifa, dashboard
+│   │   └── forms.py         # Asosiy formalar
+│   ├── products/
+│   │   ├── __init__.py      # Products blueprint
+│   │   ├── routes.py        # CRUD operatsiyalar
+│   │   └── forms.py         # Mahsulot formalari
+│   ├── orders/
+│   │   ├── __init__.py      # Orders blueprint
+│   │   ├── routes.py        # Buyurtma yaratish/boshqarish
+│   │   └── forms.py         # Buyurtma formalari
+│   ├── reports/
+│   │   ├── __init__.py      # Reports blueprint
+│   │   └── routes.py        # Hisobotlar generatsiyasi
+│   ├── templates/           # HTML shablonlar
+│   │   ├── base.html        # Asosiy shablon
+│   │   ├── auth/            # Auth sahifalari
+│   │   ├── products/        # Mahsulot sahifalari
+│   │   ├── orders/          # Buyurtma sahifalari
+│   │   └── reports/         # Hisobot sahifalari
+│   └── static/              # CSS, JS, rasmlar
+│       ├── css/
+│       └── js/
+├── config.py                # Konfiguratsiya
+├── run.py                   # Ishga tushirish
+├── requirements.txt         # Bog'liqliklar
+└── tests/                   # Testlar
+    ├── test_auth.py
+    ├── test_products.py
+    └── test_orders.py
+</pre>
+    <div class="page-num">28</div>
+</div>
+
+<!-- ===== 29-BET: 3.1 davomi - Configuration ===== -->
+<div class="page">
+    <p>Loyihaning konfiguratsiya fayli turli muhitlar (development, testing, production) uchun sozlamalarni boshqaradi:</p>
+<pre>
+# config.py - Loyiha konfiguratsiyasi
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config:
+    """Asosiy konfiguratsiya klassi"""
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'maxfiy-kalit-2025'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    
+    # Sessiya sozlamalari
+    PERMANENT_SESSION_LIFETIME = 28800  # 8 soat (soniyalarda)
+    
+    # Sahifalash
+    ITEMS_PER_PAGE = 20
+    
+    # Fayl yuklash
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB
+
+class DevelopmentConfig(Config):
+    """Ishlab chiqish muhiti"""
+    DEBUG = True
+    SQLALCHEMY_ECHO = True  # SQL so'rovlarni konsolga chiqarish
+
+class TestingConfig(Config):
+    """Testlash muhiti"""
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+    WTF_CSRF_ENABLED = False
+
+class ProductionConfig(Config):
+    """Ishlab chiqarish muhiti"""
+    DEBUG = False
+    SQLALCHEMY_ECHO = False
+
+config = {
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig
+}
+</pre>
+    <p>Flask ilovasini yaratish uchun "Application Factory" patterni qo'llaniladi. Bu pattern ilovani funksiya ichida yaratish imkonini beradi, bu esa testlash va turli konfiguratsiyalar bilan ishlashni osonlashtiradi:</p>
+<pre>
+# app/__init__.py - Application Factory
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+from flask_migrate import Migrate
+from config import config
+
+db = SQLAlchemy()
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
+login_manager.login_message = 'Iltimos, tizimga kiring.'
+migrate = Migrate()
+
+def create_app(config_name='default'):
+    app = Flask(__name__)
+    app.config.from_object(config[config_name])
+    
+    # Kengaytmalarni ishga tushirish
+    db.init_app(app)
+    login_manager.init_app(app)
+    migrate.init_app(app, db)
+    
+    # Blueprintlarni ro'yxatdan o'tkazish
+    from app.auth import bp as auth_bp
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+    
+    from app.main import bp as main_bp
+    app.register_blueprint(main_bp)
+    
+    from app.products import bp as products_bp
+    app.register_blueprint(products_bp, url_prefix='/products')
+    
+    from app.orders import bp as orders_bp
+    app.register_blueprint(orders_bp, url_prefix='/orders')
+    
+    from app.reports import bp as reports_bp
+    app.register_blueprint(reports_bp, url_prefix='/reports')
+    
+    return app
+</pre>
+    <div class="page-num">29</div>
+</div>
+
 </body>
 </html>
