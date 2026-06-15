@@ -176,6 +176,148 @@
             font-size: 14pt;
         }
 
+        /* Jadvallar */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 12pt;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            text-align: left;
+            font-size: 12pt;
+        }
+
+        .data-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .data-table td {
+            text-align: center;
+        }
+
+        .table-caption {
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            font-style: italic;
+        }
+
+        /* Rasmlar */
+        .figure {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 12pt;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* SVG diagrammalar */
+        .diagram-box {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 11pt;
+            display: inline-block;
+            min-width: 120px;
+            background: #fff;
+        }
+
+        .diagram-box.primary {
+            background: #e3f2fd;
+            border-color: #1976D2;
+        }
+
+        .diagram-box.success {
+            background: #e8f5e9;
+            border-color: #388E3C;
+        }
+
+        .diagram-box.warning {
+            background: #fff3e0;
+            border-color: #F57C00;
+        }
+
+        /* Bar chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 200px;
+            border-left: 2px solid #333;
+            border-bottom: 2px solid #333;
+            padding: 0 10px;
+            margin: 15px 0;
+        }
+
+        .bar-chart .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40px;
+        }
+
+        .bar-chart .bar-fill {
+            width: 35px;
+            background: #1976D2;
+            border-radius: 3px 3px 0 0;
+            transition: height 0.3s;
+        }
+
+        .bar-chart .bar-label {
+            font-size: 9pt;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .bar-chart .bar-value {
+            font-size: 9pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* Pie chart (CSS) */
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+
+        /* Flow diagram */
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin: 15px 0;
+        }
+
+        .flow-arrow {
+            font-size: 20pt;
+            color: #333;
+            line-height: 1;
+        }
+
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         @media print {
             .page {
                 border: none;
@@ -366,6 +508,47 @@
 
             <p><b>5. Kundalik.uz</b> - O'zbekistonda ishlab chiqilgan elektron kundalik tizimi bo'lib, maktab o'quvchilari, o'qituvchilari va ota-onalar uchun mo'ljallangan. Tizim baholar, davomat va dars jadvali haqida ma'lumot beradi.</p>
 
+            <!-- Jadval: Tizimlar qiyosiy tahlili -->
+            <p class="table-caption">1.1-jadval. Xorijiy maktab boshqaruv tizimlarining qiyosiy tahlili</p>
+            <table class="data-table">
+                <tr>
+                    <th>Tizim nomi</th>
+                    <th>Mamlakat</th>
+                    <th>Foydalanuvchilar</th>
+                    <th>Asosiy xususiyat</th>
+                </tr>
+                <tr>
+                    <td>PowerSchool</td>
+                    <td>AQSh</td>
+                    <td>45 mln+</td>
+                    <td>To'liq boshqaruv</td>
+                </tr>
+                <tr>
+                    <td>Infinite Campus</td>
+                    <td>AQSh</td>
+                    <td>8 mln+</td>
+                    <td>Davomat, baholar</td>
+                </tr>
+                <tr>
+                    <td>Schoology</td>
+                    <td>AQSh</td>
+                    <td>20 mln+</td>
+                    <td>LMS, baholash</td>
+                </tr>
+                <tr>
+                    <td>EMIS</td>
+                    <td>Xalqaro</td>
+                    <td>50+ davlat</td>
+                    <td>Statistik hisobot</td>
+                </tr>
+                <tr>
+                    <td>Kundalik.uz</td>
+                    <td>O'zbekiston</td>
+                    <td>2 mln+</td>
+                    <td>Elektron kundalik</td>
+                </tr>
+            </table>
+
             <p>Maktab boshqaruv tizimlarining asosiy komponentlari quyidagilardan iborat:</p>
 
             <p><b>O'quvchilar ma'lumotlar bazasi (Student Information System).</b> Bu modul o'quvchilarning shaxsiy ma'lumotlari, o'quv tarixi, sog'liq holati, oila tarkibi va boshqa muhim ma'lumotlarni saqlaydi. Har bir o'quvchiga individual identifikatsiya raqami beriladi va uning barcha ma'lumotlari yagona profilda jamlangan bo'ladi.</p>
@@ -420,6 +603,48 @@
                 <li><b>Controller</b> - Model va View o'rtasidagi aloqani boshqaradi, foydalanuvchi so'rovlarini qayta ishlaydi.</li>
             </ul>
 
+            <!-- MVC Diagramma -->
+            <div class="figure">
+                <svg width="450" height="200" viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Model box -->
+                    <rect x="10" y="70" width="120" height="60" rx="8" fill="#e3f2fd" stroke="#1976D2" stroke-width="2"/>
+                    <text x="70" y="95" text-anchor="middle" font-size="12" font-weight="bold">MODEL</text>
+                    <text x="70" y="115" text-anchor="middle" font-size="9">(Ma'lumotlar,</text>
+                    <text x="70" y="127" text-anchor="middle" font-size="9">Biznes logika)</text>
+
+                    <!-- View box -->
+                    <rect x="320" y="70" width="120" height="60" rx="8" fill="#e8f5e9" stroke="#388E3C" stroke-width="2"/>
+                    <text x="380" y="95" text-anchor="middle" font-size="12" font-weight="bold">VIEW</text>
+                    <text x="380" y="115" text-anchor="middle" font-size="9">(Foydalanuvchi</text>
+                    <text x="380" y="127" text-anchor="middle" font-size="9">Interfeysi)</text>
+
+                    <!-- Controller box -->
+                    <rect x="165" y="10" width="120" height="60" rx="8" fill="#fff3e0" stroke="#F57C00" stroke-width="2"/>
+                    <text x="225" y="35" text-anchor="middle" font-size="12" font-weight="bold">CONTROLLER</text>
+                    <text x="225" y="55" text-anchor="middle" font-size="9">(So'rovlarni</text>
+                    <text x="225" y="67" text-anchor="middle" font-size="9">boshqarish)</text>
+
+                    <!-- User box -->
+                    <rect x="165" y="140" width="120" height="50" rx="8" fill="#fce4ec" stroke="#c62828" stroke-width="2"/>
+                    <text x="225" y="165" text-anchor="middle" font-size="12" font-weight="bold">FOYDALANUVCHI</text>
+                    <text x="225" y="180" text-anchor="middle" font-size="9">(Brauzer)</text>
+
+                    <!-- Arrows -->
+                    <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#333"/></marker></defs>
+                    <!-- Controller -> Model -->
+                    <line x1="165" y1="50" x2="130" y2="75" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    <!-- Model -> Controller -->
+                    <line x1="130" y1="85" x2="165" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    <!-- Controller -> View -->
+                    <line x1="285" y1="50" x2="320" y2="75" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    <!-- View -> User -->
+                    <line x1="340" y1="130" x2="285" y2="150" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    <!-- User -> Controller -->
+                    <line x1="225" y1="140" x2="225" y2="75" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                </svg>
+                <p class="figure-caption">1.1-rasm. MVC arxitektura namunasi diagrammasi</p>
+            </div>
+
             <p><b>REST (Representational State Transfer) arxitekturasi.</b> Zamonaviy web ilovalar ishlab chiqishda REST API keng qo'llaniladi. REST tamoyillari quyidagilardan iborat:</p>
 
             <ul>
@@ -451,6 +676,38 @@
                 <li>O'qituvchilar malakasini oshirish masofaviy platformalari yaratildi;</li>
                 <li>COVID-19 pandemiyasi davrida masofaviy ta'lim platformalari keng joriy etildi.</li>
             </ul>
+
+            <!-- Timeline diagramma -->
+            <div class="figure">
+                <svg width="450" height="120" viewBox="0 0 450 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Timeline line -->
+                    <line x1="30" y1="50" x2="430" y2="50" stroke="#333" stroke-width="2"/>
+                    <!-- Period 1 -->
+                    <circle cx="80" cy="50" r="8" fill="#1976D2"/>
+                    <text x="80" y="30" text-anchor="middle" font-size="8" font-weight="bold">2000-2010</text>
+                    <text x="80" y="72" text-anchor="middle" font-size="7">Kompyuterlar</text>
+                    <text x="80" y="82" text-anchor="middle" font-size="7">kiritildi</text>
+                    <!-- Period 2 -->
+                    <circle cx="200" cy="50" r="8" fill="#F57C00"/>
+                    <text x="200" y="30" text-anchor="middle" font-size="8" font-weight="bold">2010-2018</text>
+                    <text x="200" y="72" text-anchor="middle" font-size="7">Internet va</text>
+                    <text x="200" y="82" text-anchor="middle" font-size="7">e-resurslar</text>
+                    <!-- Period 3 -->
+                    <circle cx="330" cy="50" r="8" fill="#388E3C"/>
+                    <text x="330" y="30" text-anchor="middle" font-size="8" font-weight="bold">2018-hozir</text>
+                    <text x="330" y="72" text-anchor="middle" font-size="7">Raqamli</text>
+                    <text x="330" y="82" text-anchor="middle" font-size="7">transformatsiya</text>
+                    <!-- Future -->
+                    <circle cx="420" cy="50" r="6" fill="#fff" stroke="#333" stroke-width="2"/>
+                    <text x="420" y="72" text-anchor="middle" font-size="7">Kelajak</text>
+                    <!-- Gradient on line -->
+                    <rect x="30" y="47" width="100" height="6" fill="#e3f2fd" opacity="0.5"/>
+                    <rect x="130" y="47" width="120" height="6" fill="#fff3e0" opacity="0.5"/>
+                    <rect x="250" y="47" width="130" height="6" fill="#e8f5e9" opacity="0.5"/>
+
+                    <text x="230" y="105" text-anchor="middle" font-size="9" font-style="italic">1.3-rasm. O'zbekistonda ta'lim tizimi raqamlashtirilishining bosqichlari</text>
+                </svg>
+            </div>
 
             <p>Shu bilan birga, mavjud tizimlarning bir qator kamchiliklari ham mavjud:</p>
 
@@ -522,6 +779,83 @@
             </ul>
 
             <p>Ushbu kurs ishida biz gibrid yondashuvni qo'llaymiz - asosiy ma'lumotlar uchun MongoDB (NoSQL) dan foydalanib, murakkab bog'lanishlar uchun esa reference (havola) usulidan foydalanamiz. Bu yondashuv tizimning moslashuvchanligini va ishlash tezligini oshiradi.</p>
+
+            <!-- ER Diagramma -->
+            <div class="figure">
+                <svg width="480" height="280" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Students table -->
+                    <rect x="10" y="10" width="130" height="100" fill="#e3f2fd" stroke="#1976D2" stroke-width="2" rx="5"/>
+                    <rect x="10" y="10" width="130" height="25" fill="#1976D2" rx="5"/>
+                    <rect x="10" y="33" width="130" height="2" fill="#1976D2"/>
+                    <text x="75" y="28" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">STUDENTS</text>
+                    <text x="20" y="52" font-size="9">_id (ObjectId)</text>
+                    <text x="20" y="65" font-size="9">firstName, lastName</text>
+                    <text x="20" y="78" font-size="9">classId (ref)</text>
+                    <text x="20" y="91" font-size="9">parentId (ref)</text>
+                    <text x="20" y="104" font-size="9">dateOfBirth, gender</text>
+
+                    <!-- Classes table -->
+                    <rect x="180" y="10" width="130" height="90" fill="#e8f5e9" stroke="#388E3C" stroke-width="2" rx="5"/>
+                    <rect x="180" y="10" width="130" height="25" fill="#388E3C" rx="5"/>
+                    <rect x="180" y="33" width="130" height="2" fill="#388E3C"/>
+                    <text x="245" y="28" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">CLASSES</text>
+                    <text x="190" y="52" font-size="9">_id (ObjectId)</text>
+                    <text x="190" y="65" font-size="9">name, grade</text>
+                    <text x="190" y="78" font-size="9">classTeacherId (ref)</text>
+                    <text x="190" y="91" font-size="9">capacity, year</text>
+
+                    <!-- Grades table -->
+                    <rect x="350" y="10" width="120" height="100" fill="#fff3e0" stroke="#F57C00" stroke-width="2" rx="5"/>
+                    <rect x="350" y="10" width="120" height="25" fill="#F57C00" rx="5"/>
+                    <rect x="350" y="33" width="120" height="2" fill="#F57C00"/>
+                    <text x="410" y="28" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GRADES</text>
+                    <text x="360" y="52" font-size="9">_id (ObjectId)</text>
+                    <text x="360" y="65" font-size="9">studentId (ref)</text>
+                    <text x="360" y="78" font-size="9">subjectId (ref)</text>
+                    <text x="360" y="91" font-size="9">value (1-5), type</text>
+                    <text x="360" y="104" font-size="9">date, comment</text>
+
+                    <!-- Attendance table -->
+                    <rect x="10" y="140" width="130" height="90" fill="#fce4ec" stroke="#c62828" stroke-width="2" rx="5"/>
+                    <rect x="10" y="140" width="130" height="25" fill="#c62828" rx="5"/>
+                    <rect x="10" y="163" width="130" height="2" fill="#c62828"/>
+                    <text x="75" y="158" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">ATTENDANCE</text>
+                    <text x="20" y="182" font-size="9">_id (ObjectId)</text>
+                    <text x="20" y="195" font-size="9">studentId (ref)</text>
+                    <text x="20" y="208" font-size="9">date, status</text>
+                    <text x="20" y="221" font-size="9">markedBy (ref)</text>
+
+                    <!-- Users table -->
+                    <rect x="180" y="150" width="130" height="90" fill="#f3e5f5" stroke="#7B1FA2" stroke-width="2" rx="5"/>
+                    <rect x="180" y="150" width="130" height="25" fill="#7B1FA2" rx="5"/>
+                    <rect x="180" y="173" width="130" height="2" fill="#7B1FA2"/>
+                    <text x="245" y="168" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">USERS</text>
+                    <text x="190" y="192" font-size="9">_id (ObjectId)</text>
+                    <text x="190" y="205" font-size="9">email, password</text>
+                    <text x="190" y="218" font-size="9">role (admin/teacher/</text>
+                    <text x="190" y="231" font-size="9">parent/student)</text>
+
+                    <!-- Timetable table -->
+                    <rect x="350" y="140" width="120" height="90" fill="#e0f2f1" stroke="#00695C" stroke-width="2" rx="5"/>
+                    <rect x="350" y="140" width="120" height="25" fill="#00695C" rx="5"/>
+                    <rect x="350" y="163" width="120" height="2" fill="#00695C"/>
+                    <text x="410" y="158" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">TIMETABLE</text>
+                    <text x="360" y="182" font-size="9">_id (ObjectId)</text>
+                    <text x="360" y="195" font-size="9">classId (ref)</text>
+                    <text x="360" y="208" font-size="9">subjectId (ref)</text>
+                    <text x="360" y="221" font-size="9">teacherId, day, period</text>
+
+                    <!-- Relations (lines) -->
+                    <line x1="140" y1="55" x2="180" y2="45" stroke="#555" stroke-width="1.5" stroke-dasharray="4"/>
+                    <line x1="140" y1="65" x2="350" y2="65" stroke="#555" stroke-width="1.5" stroke-dasharray="4"/>
+                    <line x1="75" y1="110" x2="75" y2="140" stroke="#555" stroke-width="1.5" stroke-dasharray="4"/>
+                    <line x1="140" y1="90" x2="180" y2="170" stroke="#555" stroke-width="1.5" stroke-dasharray="4"/>
+
+                    <!-- Legend -->
+                    <text x="160" y="268" text-anchor="middle" font-size="9" fill="#555">--- bog'lanish (reference)</text>
+                </svg>
+                <p class="figure-caption">1.2-rasm. Maktab boshqaruv tizimi ma'lumotlar bazasi ER diagrammasi</p>
+            </div>
 
             <p>Maktab boshqaruv tizimini ishlab chiqishda foydalanuvchi rollariga asoslangan kirish boshqaruvi (Role-Based Access Control - RBAC) muhim ahamiyatga ega. Tizimda quyidagi rollar belgilanadi:</p>
         </div>
@@ -668,6 +1002,47 @@
             </ul>
 
             <p>Maktab boshqaruv tizimida React.js quyidagi afzalliklarni beradi:</p>
+
+            <!-- Texnologiyalar solishtirish jadvali -->
+            <p class="table-caption">1.2-jadval. Frontend freymvorklarni qiyosiy tahlil</p>
+            <table class="data-table">
+                <tr>
+                    <th>Mezon</th>
+                    <th>React.js</th>
+                    <th>Angular</th>
+                    <th>Vue.js</th>
+                </tr>
+                <tr>
+                    <td>O'rganish qiyinligi</td>
+                    <td>O'rta</td>
+                    <td>Yuqori</td>
+                    <td>Past</td>
+                </tr>
+                <tr>
+                    <td>Ishlash tezligi</td>
+                    <td>Yuqori</td>
+                    <td>O'rta</td>
+                    <td>Yuqori</td>
+                </tr>
+                <tr>
+                    <td>Hamjamiyat</td>
+                    <td>Eng katta</td>
+                    <td>Katta</td>
+                    <td>O'sib bormoqda</td>
+                </tr>
+                <tr>
+                    <td>Ekosistema</td>
+                    <td>Juda boy</td>
+                    <td>Yaxshi</td>
+                    <td>Yaxshi</td>
+                </tr>
+                <tr>
+                    <td>Moslashuvchanlik</td>
+                    <td>Juda yuqori</td>
+                    <td>O'rta</td>
+                    <td>Yuqori</td>
+                </tr>
+            </table>
 
             <ul>
                 <li>Komponent asosidagi arxitektura - kodni qayta ishlatish va xizmat ko'rsatishni soddalashtiradi;</li>
@@ -940,6 +1315,51 @@
                 <li><b>Data Layer (Ma'lumotlar qatlami)</b> - MongoDB ma'lumotlar bazasi. Barcha ma'lumotlarni saqlaydi va boshqaradi.</li>
             </ul>
 
+            <!-- Uch qatlamli arxitektura diagrammasi -->
+            <div class="figure">
+                <svg width="460" height="300" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Title -->
+                    <text x="230" y="18" text-anchor="middle" font-size="11" font-weight="bold">Tizimning uch qatlamli arxitekturasi</text>
+
+                    <!-- Client layer -->
+                    <rect x="30" y="30" width="400" height="65" rx="10" fill="#e3f2fd" stroke="#1976D2" stroke-width="2"/>
+                    <text x="230" y="50" text-anchor="middle" font-size="11" font-weight="bold" fill="#1976D2">PRESENTATION LAYER (Taqdimot qatlami)</text>
+                    <text x="100" y="72" text-anchor="middle" font-size="9">React.js</text>
+                    <text x="200" y="72" text-anchor="middle" font-size="9">HTML/CSS</text>
+                    <text x="300" y="72" text-anchor="middle" font-size="9">JavaScript</text>
+                    <text x="390" y="72" text-anchor="middle" font-size="9">Bootstrap</text>
+                    <text x="230" y="88" text-anchor="middle" font-size="9" fill="#555">Brauzer / Mobil qurilma</text>
+
+                    <!-- Arrow down -->
+                    <polygon points="220,100 240,100 230,115" fill="#333"/>
+                    <polygon points="220,125 240,125 230,110" fill="#333"/>
+                    <text x="260" y="113" font-size="8" fill="#555">REST API (JSON)</text>
+
+                    <!-- Server layer -->
+                    <rect x="30" y="130" width="400" height="65" rx="10" fill="#fff3e0" stroke="#F57C00" stroke-width="2"/>
+                    <text x="230" y="150" text-anchor="middle" font-size="11" font-weight="bold" fill="#F57C00">BUSINESS LOGIC LAYER (Server qatlami)</text>
+                    <text x="90" y="172" text-anchor="middle" font-size="9">Node.js</text>
+                    <text x="180" y="172" text-anchor="middle" font-size="9">Express.js</text>
+                    <text x="280" y="172" text-anchor="middle" font-size="9">JWT Auth</text>
+                    <text x="380" y="172" text-anchor="middle" font-size="9">Middleware</text>
+                    <text x="230" y="188" text-anchor="middle" font-size="9" fill="#555">API Server / Controllers / Services</text>
+
+                    <!-- Arrow down -->
+                    <polygon points="220,200 240,200 230,215" fill="#333"/>
+                    <polygon points="220,225 240,225 230,210" fill="#333"/>
+                    <text x="265" y="213" font-size="8" fill="#555">Mongoose ODM</text>
+
+                    <!-- Database layer -->
+                    <rect x="30" y="230" width="400" height="60" rx="10" fill="#e8f5e9" stroke="#388E3C" stroke-width="2"/>
+                    <text x="230" y="250" text-anchor="middle" font-size="11" font-weight="bold" fill="#388E3C">DATA LAYER (Ma'lumotlar qatlami)</text>
+                    <text x="120" y="272" text-anchor="middle" font-size="9">MongoDB Atlas</text>
+                    <text x="250" y="272" text-anchor="middle" font-size="9">Collections</text>
+                    <text x="370" y="272" text-anchor="middle" font-size="9">Indexes</text>
+                    <text x="230" y="285" text-anchor="middle" font-size="9" fill="#555">Ma'lumotlar bazasi / BSON hujjatlar</text>
+                </svg>
+                <p class="figure-caption">2.1-rasm. Maktab boshqaruv tizimining uch qatlamli arxitekturasi</p>
+            </div>
+
             <p><b>Tizimning funksional talablari (Functional Requirements):</b></p>
 
             <ol>
@@ -1083,6 +1503,46 @@
                 <li>Fon (Background): #F5F5F5 (och kulrang);</li>
                 <li>Matn (Text): #212121 (qora).</li>
             </ul>
+
+            <!-- Login sahifasi wireframe -->
+            <div class="figure">
+                <svg width="350" height="280" viewBox="0 0 350 280" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Browser frame -->
+                    <rect x="20" y="10" width="310" height="260" fill="#f5f5f5" stroke="#999" stroke-width="1.5" rx="5"/>
+                    <!-- Browser toolbar -->
+                    <rect x="20" y="10" width="310" height="25" fill="#e0e0e0" stroke="#999" stroke-width="1" rx="5"/>
+                    <circle cx="35" cy="22" r="5" fill="#ff5252"/>
+                    <circle cx="50" cy="22" r="5" fill="#ffab40"/>
+                    <circle cx="65" cy="22" r="5" fill="#69f0ae"/>
+                    <rect x="90" y="16" width="160" height="13" rx="3" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+                    <text x="170" y="26" text-anchor="middle" font-size="7" fill="#666">maktab.uz/login</text>
+
+                    <!-- Login form -->
+                    <rect x="80" y="60" width="190" height="190" fill="#fff" stroke="#1976D2" stroke-width="1" rx="8"/>
+                    <!-- Logo area -->
+                    <circle cx="175" cy="85" r="15" fill="#e3f2fd" stroke="#1976D2" stroke-width="1"/>
+                    <text x="175" y="89" text-anchor="middle" font-size="10" fill="#1976D2">M</text>
+                    <text x="175" y="110" text-anchor="middle" font-size="9" font-weight="bold">Maktab Tizimi</text>
+
+                    <!-- Email input -->
+                    <text x="95" y="130" font-size="8" fill="#333">Email:</text>
+                    <rect x="95" y="133" width="160" height="22" rx="3" fill="#fff" stroke="#bbb" stroke-width="1"/>
+                    <text x="105" y="148" font-size="8" fill="#999">email@example.com</text>
+
+                    <!-- Password input -->
+                    <text x="95" y="168" font-size="8" fill="#333">Parol:</text>
+                    <rect x="95" y="171" width="160" height="22" rx="3" fill="#fff" stroke="#bbb" stroke-width="1"/>
+                    <text x="105" y="186" font-size="8" fill="#999">********</text>
+
+                    <!-- Login button -->
+                    <rect x="95" y="205" width="160" height="28" rx="5" fill="#1976D2"/>
+                    <text x="175" y="223" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">KIRISH</text>
+
+                    <!-- Forgot password -->
+                    <text x="175" y="245" text-anchor="middle" font-size="7" fill="#1976D2">Parolni unutdingizmi?</text>
+                </svg>
+                <p class="figure-caption">2.4-rasm. Login sahifasi wireframe (eskiz)</p>
+            </div>
         </div>
         <div class="page-number">26</div>
     </div>
@@ -1118,6 +1578,59 @@
             </ul>
 
             <p><b>API endpointlar rejasi.</b> Tizimning barcha API yo'nalishlari RESTful tamoyillariga amal qiladi va /api/v1 prefiksi bilan boshlanadi. Versiyalash (v1) kelajakda yangi versiyalar qo'shish imkonini beradi. Har bir endpoint JSON formatida javob qaytaradi va HTTP status kodlaridan to'g'ri foydalanadi (200 - muvaffaqiyat, 201 - yaratildi, 400 - noto'g'ri so'rov, 401 - avtorizatsiya xatosi, 404 - topilmadi, 500 - server xatosi).</p>
+
+            <!-- API Endpoints jadvali -->
+            <p class="table-caption">2.1-jadval. Tizimning asosiy API endpointlari</p>
+            <table class="data-table">
+                <tr>
+                    <th>Metod</th>
+                    <th>Endpoint</th>
+                    <th>Tavsif</th>
+                    <th>Rol</th>
+                </tr>
+                <tr>
+                    <td style="color:#388E3C; font-weight:bold;">GET</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/students</td>
+                    <td style="text-align:left;">O'quvchilar ro'yxati</td>
+                    <td>Admin, Teacher</td>
+                </tr>
+                <tr>
+                    <td style="color:#1976D2; font-weight:bold;">POST</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/students</td>
+                    <td style="text-align:left;">Yangi o'quvchi</td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td style="color:#F57C00; font-weight:bold;">PUT</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/students/:id</td>
+                    <td style="text-align:left;">Ma'lumot yangilash</td>
+                    <td>Admin</td>
+                </tr>
+                <tr>
+                    <td style="color:#388E3C; font-weight:bold;">GET</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/grades/:studentId</td>
+                    <td style="text-align:left;">Baholarni olish</td>
+                    <td>Hammasi</td>
+                </tr>
+                <tr>
+                    <td style="color:#1976D2; font-weight:bold;">POST</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/grades</td>
+                    <td style="text-align:left;">Baho qo'yish</td>
+                    <td>Teacher</td>
+                </tr>
+                <tr>
+                    <td style="color:#1976D2; font-weight:bold;">POST</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/attendance</td>
+                    <td style="text-align:left;">Davomat belgilash</td>
+                    <td>Teacher</td>
+                </tr>
+                <tr>
+                    <td style="color:#1976D2; font-weight:bold;">POST</td>
+                    <td style="text-align:left; font-size:10pt;">/api/v1/auth/login</td>
+                    <td style="text-align:left;">Tizimga kirish</td>
+                    <td>Hammasi</td>
+                </tr>
+            </table>
 
             <p>Loyihalash bosqichi yakunlandi. Keyingi bo'limda tizimni dasturiy ta'minotini ishlab chiqish va kodlash jarayoni batafsil yoritiladi.</p>
         </div>
@@ -1184,6 +1697,59 @@
             </ol>
 
             <p><b>Auth Middleware:</b> Himoyalangan endpointlarga kirish uchun har bir so'rovda JWT token tekshiriladi. Token header da "Authorization: Bearer [token]" formatida yuboriladi. Middleware token ni dekod qiladi, foydalanuvchi ID va rolini aniqlab, request obyektiga qo'shadi.</p>
+
+            <!-- Autentifikatsiya flow diagrammasi -->
+            <div class="figure">
+                <svg width="400" height="260" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Start -->
+                    <ellipse cx="200" cy="20" rx="60" ry="16" fill="#e3f2fd" stroke="#1976D2" stroke-width="1.5"/>
+                    <text x="200" y="24" text-anchor="middle" font-size="9">Foydalanuvchi kiradi</text>
+                    <!-- Arrow -->
+                    <line x1="200" y1="36" x2="200" y2="50" stroke="#333" stroke-width="1"/>
+                    <polygon points="195,50 205,50 200,56" fill="#333"/>
+
+                    <!-- Email/Parol -->
+                    <rect x="130" y="58" width="140" height="30" rx="5" fill="#fff3e0" stroke="#F57C00" stroke-width="1.5"/>
+                    <text x="200" y="77" text-anchor="middle" font-size="9">Email + Parol kiritadi</text>
+                    <line x1="200" y1="88" x2="200" y2="102" stroke="#333" stroke-width="1"/>
+                    <polygon points="195,102 205,102 200,108" fill="#333"/>
+
+                    <!-- Decision: Email mavjudmi? -->
+                    <polygon points="200,110 280,135 200,160 120,135" fill="#fce4ec" stroke="#c62828" stroke-width="1.5"/>
+                    <text x="200" y="138" text-anchor="middle" font-size="8">Email bazada</text>
+                    <text x="200" y="148" text-anchor="middle" font-size="8">mavjudmi?</text>
+
+                    <!-- No - error -->
+                    <line x1="120" y1="135" x2="60" y2="135" stroke="#333" stroke-width="1"/>
+                    <text x="90" y="128" font-size="7" fill="#c62828">Yo'q</text>
+                    <rect x="10" y="122" width="55" height="25" rx="4" fill="#ffcdd2" stroke="#c62828" stroke-width="1"/>
+                    <text x="37" y="138" text-anchor="middle" font-size="7">404 Xato</text>
+
+                    <!-- Yes - continue -->
+                    <line x1="200" y1="160" x2="200" y2="174" stroke="#333" stroke-width="1"/>
+                    <text x="215" y="168" font-size="7" fill="#388E3C">Ha</text>
+                    <polygon points="195,174 205,174 200,180" fill="#333"/>
+
+                    <!-- Parol tekshirish -->
+                    <polygon points="200,182 280,207 200,232 120,207" fill="#e8f5e9" stroke="#388E3C" stroke-width="1.5"/>
+                    <text x="200" y="207" text-anchor="middle" font-size="8">Parol to'g'rimi?</text>
+                    <text x="200" y="218" text-anchor="middle" font-size="8">(bcrypt.compare)</text>
+
+                    <!-- No -->
+                    <line x1="120" y1="207" x2="60" y2="207" stroke="#333" stroke-width="1"/>
+                    <text x="90" y="200" font-size="7" fill="#c62828">Yo'q</text>
+                    <rect x="10" y="194" width="55" height="25" rx="4" fill="#ffcdd2" stroke="#c62828" stroke-width="1"/>
+                    <text x="37" y="210" text-anchor="middle" font-size="7">401 Xato</text>
+
+                    <!-- Yes - JWT -->
+                    <line x1="280" y1="207" x2="340" y2="207" stroke="#333" stroke-width="1"/>
+                    <text x="305" y="200" font-size="7" fill="#388E3C">Ha</text>
+                    <rect x="330" y="192" width="65" height="30" rx="5" fill="#e3f2fd" stroke="#1976D2" stroke-width="1.5"/>
+                    <text x="362" y="208" text-anchor="middle" font-size="8">JWT Token</text>
+                    <text x="362" y="218" text-anchor="middle" font-size="8">yaratiladi</text>
+                </svg>
+                <p class="figure-caption">2.2-rasm. Autentifikatsiya jarayoni oqim diagrammasi (Flow Chart)</p>
+            </div>
 
             <p><b>Role-based Middleware:</b> Ba'zi endpointlar faqat ma'lum rollarga ochiq. Masalan, o'quvchi qo'shish faqat admin uchun, baho qo'yish faqat o'qituvchi uchun ruxsat etiladi. authorize('admin', 'teacher') kabi middleware qo'llaniladi.</p>
 
@@ -1453,6 +2019,27 @@
             </table>
 
             <p><b>II BOB xulosasi.</b> Ikkinchi bobda maktab boshqaruv tizimini loyihalash, dasturlash va sinovdan o'tkazish jarayonlari batafsil yoritildi. Tizim MERN stack (MongoDB, Express.js, React.js, Node.js) asosida qurildi. Autentifikatsiya, o'quvchilar boshqaruvi, baholash, davomat nazorati va hisobotlar modullari muvaffaqiyatli ishlab chiqildi. Sinovdan o'tkazish natijasida 94% muvaffaqiyat ko'rsatkichiga erishildi va aniqlangan barcha xatolar bartaraf etildi.</p>
+
+            <!-- Sinov natijalari doira diagrammasi -->
+            <div class="figure">
+                <svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pie chart - 94% muvaffaqiyat, 6% xato -->
+                    <circle cx="120" cy="100" r="70" fill="#e8f5e9" stroke="#388E3C" stroke-width="2"/>
+                    <!-- 6% segment (xato) = 21.6 degrees -->
+                    <path d="M 120 100 L 120 30 A 70 70 0 0 1 144 33 Z" fill="#ffcdd2" stroke="#c62828" stroke-width="1"/>
+                    <!-- Center text -->
+                    <text x="120" y="95" text-anchor="middle" font-size="16" font-weight="bold" fill="#388E3C">94%</text>
+                    <text x="120" y="112" text-anchor="middle" font-size="9" fill="#333">Muvaffaqiyat</text>
+
+                    <!-- Legend -->
+                    <rect x="220" y="70" width="15" height="15" fill="#e8f5e9" stroke="#388E3C" stroke-width="1"/>
+                    <text x="240" y="82" font-size="10">Muvaffaqiyatli: 79 test</text>
+                    <rect x="220" y="95" width="15" height="15" fill="#ffcdd2" stroke="#c62828" stroke-width="1"/>
+                    <text x="240" y="107" font-size="10">Muvaffaqiyatsiz: 5 test</text>
+                    <text x="220" y="135" font-size="10" font-weight="bold">Jami: 84 test</text>
+                </svg>
+                <p class="figure-caption">2.3-rasm. Sinovdan o'tkazish natijalari (doira diagramma)</p>
+            </div>
         </div>
         <div class="page-number">35</div>
     </div>
@@ -1579,6 +2166,56 @@
 
             <p>So'rov natijalari shuni ko'rsatdiki, foydalanuvchilarning 88% tizimdan qoniqish bildirgan (4 va 5 ball bergan). Eng yuqori baho ma'lumotlar aniqligiga (4.7), eng past baho esa mobil qurilmada ishlash sifatiga (4.1) berilgan.</p>
 
+            <!-- Qoniqish darajasi bar chart -->
+            <div class="figure">
+                <svg width="440" height="220" viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Y axis -->
+                    <line x1="60" y1="20" x2="60" y2="180" stroke="#333" stroke-width="1.5"/>
+                    <!-- X axis -->
+                    <line x1="60" y1="180" x2="420" y2="180" stroke="#333" stroke-width="1.5"/>
+                    <!-- Y labels -->
+                    <text x="55" y="25" text-anchor="end" font-size="9">5.0</text>
+                    <text x="55" y="60" text-anchor="end" font-size="9">4.0</text>
+                    <text x="55" y="95" text-anchor="end" font-size="9">3.0</text>
+                    <text x="55" y="130" text-anchor="end" font-size="9">2.0</text>
+                    <text x="55" y="165" text-anchor="end" font-size="9">1.0</text>
+                    <!-- Grid lines -->
+                    <line x1="60" y1="25" x2="420" y2="25" stroke="#ddd" stroke-width="0.5"/>
+                    <line x1="60" y1="60" x2="420" y2="60" stroke="#ddd" stroke-width="0.5"/>
+                    <line x1="60" y1="95" x2="420" y2="95" stroke="#ddd" stroke-width="0.5"/>
+                    <line x1="60" y1="130" x2="420" y2="130" stroke="#ddd" stroke-width="0.5"/>
+
+                    <!-- Bars (4.3, 4.5, 4.7, 4.1, 4.4) - scale: 5=20, 0=180, so 1 unit = 32px -->
+                    <!-- Interfeys 4.3 -->
+                    <rect x="80" y="42.4" width="50" height="137.6" fill="#1976D2" rx="3"/>
+                    <text x="105" y="37" text-anchor="middle" font-size="9" font-weight="bold">4.3</text>
+                    <text x="105" y="198" text-anchor="middle" font-size="8">Interfeys</text>
+
+                    <!-- Tezlik 4.5 -->
+                    <rect x="150" y="36" width="50" height="144" fill="#388E3C" rx="3"/>
+                    <text x="175" y="31" text-anchor="middle" font-size="9" font-weight="bold">4.5</text>
+                    <text x="175" y="198" text-anchor="middle" font-size="8">Tezlik</text>
+
+                    <!-- Aniqlik 4.7 -->
+                    <rect x="220" y="29.6" width="50" height="150.4" fill="#F57C00" rx="3"/>
+                    <text x="245" y="25" text-anchor="middle" font-size="9" font-weight="bold">4.7</text>
+                    <text x="245" y="198" text-anchor="middle" font-size="8">Aniqlik</text>
+
+                    <!-- Mobil 4.1 -->
+                    <rect x="290" y="48.8" width="50" height="131.2" fill="#7B1FA2" rx="3"/>
+                    <text x="315" y="44" text-anchor="middle" font-size="9" font-weight="bold">4.1</text>
+                    <text x="315" y="198" text-anchor="middle" font-size="8">Mobil</text>
+
+                    <!-- Umumiy 4.4 -->
+                    <rect x="360" y="39.2" width="50" height="140.8" fill="#c62828" rx="3"/>
+                    <text x="385" y="34" text-anchor="middle" font-size="9" font-weight="bold">4.4</text>
+                    <text x="385" y="198" text-anchor="middle" font-size="8">Umumiy</text>
+
+                    <text x="25" y="105" text-anchor="middle" font-size="9" transform="rotate(-90, 25, 105)">Ball (5 dan)</text>
+                </svg>
+                <p class="figure-caption">3.1-rasm. Foydalanuvchilar qoniqishi ko'rsatkichlari (5 balli shkala)</p>
+            </div>
+
             <p><b>Tizimning an'anaviy usullar bilan qiyosiy tahlili:</b></p>
 
             <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
@@ -1663,6 +2300,48 @@
                 <li>150 foydalanuvchi: o'rtacha javob vaqti 350ms, xatolar 1.1%;</li>
                 <li>200 foydalanuvchi: o'rtacha javob vaqti 780ms, xatolar 3.5%.</li>
             </ul>
+
+            <!-- Yuklanish testi grafigi -->
+            <div class="figure">
+                <svg width="420" height="200" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="60" y1="20" x2="60" y2="160" stroke="#333" stroke-width="1.5"/>
+                    <line x1="60" y1="160" x2="400" y2="160" stroke="#333" stroke-width="1.5"/>
+                    <!-- Y labels (ms) -->
+                    <text x="55" y="25" text-anchor="end" font-size="8">800ms</text>
+                    <text x="55" y="60" text-anchor="end" font-size="8">600ms</text>
+                    <text x="55" y="95" text-anchor="end" font-size="8">400ms</text>
+                    <text x="55" y="130" text-anchor="end" font-size="8">200ms</text>
+                    <text x="55" y="160" text-anchor="end" font-size="8">0ms</text>
+                    <!-- Grid -->
+                    <line x1="60" y1="25" x2="400" y2="25" stroke="#eee" stroke-width="0.5"/>
+                    <line x1="60" y1="60" x2="400" y2="60" stroke="#eee" stroke-width="0.5"/>
+                    <line x1="60" y1="95" x2="400" y2="95" stroke="#eee" stroke-width="0.5"/>
+                    <line x1="60" y1="130" x2="400" y2="130" stroke="#eee" stroke-width="0.5"/>
+                    <!-- X labels -->
+                    <text x="120" y="175" text-anchor="middle" font-size="8">50</text>
+                    <text x="200" y="175" text-anchor="middle" font-size="8">100</text>
+                    <text x="280" y="175" text-anchor="middle" font-size="8">150</text>
+                    <text x="360" y="175" text-anchor="middle" font-size="8">200</text>
+                    <text x="240" y="192" text-anchor="middle" font-size="9">Foydalanuvchilar soni</text>
+                    <!-- Line chart - javob vaqti -->
+                    <polyline points="120,139 200,127 280,84 360,25" fill="none" stroke="#1976D2" stroke-width="2.5"/>
+                    <!-- Points -->
+                    <circle cx="120" cy="139" r="4" fill="#1976D2"/>
+                    <circle cx="200" cy="127" r="4" fill="#1976D2"/>
+                    <circle cx="280" cy="84" r="4" fill="#1976D2"/>
+                    <circle cx="360" cy="25" r="4" fill="#1976D2"/>
+                    <!-- Values -->
+                    <text x="120" y="133" text-anchor="middle" font-size="8" fill="#1976D2">120ms</text>
+                    <text x="200" y="121" text-anchor="middle" font-size="8" fill="#1976D2">180ms</text>
+                    <text x="280" y="78" text-anchor="middle" font-size="8" fill="#1976D2">350ms</text>
+                    <text x="360" y="19" text-anchor="middle" font-size="8" fill="#1976D2">780ms</text>
+                    <!-- Target line (500ms) -->
+                    <line x1="60" y1="60" x2="400" y2="60" stroke="#c62828" stroke-width="1" stroke-dasharray="5,3"/>
+                    <text x="405" y="63" font-size="7" fill="#c62828">maqsad</text>
+                </svg>
+                <p class="figure-caption">3.2-rasm. Yuklanish testi natijalari (javob vaqti / foydalanuvchilar soni)</p>
+            </div>
 
             <p>Natijalar shuni ko'rsatadiki, tizim 150 tagacha bir vaqtdagi foydalanuvchini muammosiz qo'llab-quvvatlaydi. 200 dan ortiq foydalanuvchida esa optimizatsiya talab qilinadi (kesh, CDN, load balancer).</p>
 
