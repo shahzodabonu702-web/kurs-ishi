@@ -25,8 +25,28 @@
         }
         .page:last-child { page-break-after: auto; }
         @media print {
-            body { background: white; }
-            .page { box-shadow: none; margin: 0; page-break-after: always; }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body { background: white; margin: 0; padding: 0; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                page-break-after: always;
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                max-height: 297mm;
+                overflow: hidden;
+                padding: 20mm 15mm 20mm 30mm;
+            }
+            .page-num {
+                position: absolute;
+                bottom: 15mm;
+                right: 15mm;
+                font-size: 14pt;
+            }
         }
         h2 { text-align: center; font-size: 14pt; font-weight: bold; margin-bottom: 15px; }
         h3 { text-align: left; font-size: 14pt; font-weight: bold; margin: 15px 0 10px 0; text-indent: 1.25cm; }
@@ -793,6 +813,140 @@ END;
     <p class="fig-caption">2.2-rasm. Tizimning uch qatlamli arxitekturasi</p>
     <p>Arxitektura diagrammasidan ko'rinib turibdiki, har bir qatlam o'z vazifasini bajaradi va faqat qo'shni qatlam bilan aloqa qiladi. Bu tamoyil (separation of concerns) kodni tushunish va saqlab turishni osonlashtiradi.</p>
     <div class="page-num">23</div>
+</div>
+
+<!-- ===== 24-BET: 2.3 davomi - Use Case diagram ===== -->
+<div class="page">
+    <p>UML (Unified Modeling Language) diagrammalar tizimni turli nuqtai nazardan modellashtirish imkonini beradi. Birinchi navbatda, foydalanish holatlari diagrammasini (Use Case Diagram) ko'rib chiqamiz:</p>
+    <svg width="100%" height="380" viewBox="0 0 550 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- System boundary -->
+        <rect x="130" y="10" width="350" height="360" fill="#fafafa" stroke="#333" stroke-width="2" stroke-dasharray="5,3" rx="10"/>
+        <text x="305" y="30" text-anchor="middle" font-size="11" font-weight="bold">Muzqaymoq do'koni boshqaruv tizimi</text>
+        <!-- Actors -->
+        <!-- Admin -->
+        <circle cx="50" cy="80" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="92" x2="50" y2="130" stroke="#333" stroke-width="1.5"/>
+        <line x1="30" y1="105" x2="70" y2="105" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="130" x2="35" y2="155" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="130" x2="65" y2="155" stroke="#333" stroke-width="1.5"/>
+        <text x="50" y="170" text-anchor="middle" font-size="8">Admin</text>
+        <!-- Menejer -->
+        <circle cx="50" cy="220" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="232" x2="50" y2="270" stroke="#333" stroke-width="1.5"/>
+        <line x1="30" y1="245" x2="70" y2="245" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="270" x2="35" y2="295" stroke="#333" stroke-width="1.5"/>
+        <line x1="50" y1="270" x2="65" y2="295" stroke="#333" stroke-width="1.5"/>
+        <text x="50" y="310" text-anchor="middle" font-size="8">Menejer</text>
+        <!-- Sotuvchi -->
+        <circle cx="530" cy="150" r="12" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line x1="530" y1="162" x2="530" y2="200" stroke="#333" stroke-width="1.5"/>
+        <line x1="510" y1="175" x2="550" y2="175" stroke="#333" stroke-width="1.5"/>
+        <line x1="530" y1="200" x2="515" y2="225" stroke="#333" stroke-width="1.5"/>
+        <line x1="530" y1="200" x2="545" y2="225" stroke="#333" stroke-width="1.5"/>
+        <text x="530" y="240" text-anchor="middle" font-size="8">Sotuvchi</text>
+        <!-- Use cases (ellipses) -->
+        <ellipse cx="250" cy="60" rx="75" ry="20" fill="#e3f2fd" stroke="#1976D2" stroke-width="1.5"/>
+        <text x="250" y="64" text-anchor="middle" font-size="8">Tizimga kirish</text>
+        <ellipse cx="250" cy="110" rx="75" ry="20" fill="#e8f5e9" stroke="#388E3C" stroke-width="1.5"/>
+        <text x="250" y="114" text-anchor="middle" font-size="8">Foydalanuvchi boshqarish</text>
+        <ellipse cx="350" cy="155" rx="75" ry="20" fill="#e8f5e9" stroke="#388E3C" stroke-width="1.5"/>
+        <text x="350" y="159" text-anchor="middle" font-size="8">Mahsulot boshqarish</text>
+        <ellipse cx="350" cy="200" rx="75" ry="20" fill="#fff3e0" stroke="#F57C00" stroke-width="1.5"/>
+        <text x="350" y="204" text-anchor="middle" font-size="8">Buyurtma yaratish</text>
+        <ellipse cx="250" cy="245" rx="75" ry="20" fill="#fce4ec" stroke="#E91E63" stroke-width="1.5"/>
+        <text x="250" y="249" text-anchor="middle" font-size="8">Omborxona boshqarish</text>
+        <ellipse cx="350" cy="290" rx="75" ry="20" fill="#f3e5f5" stroke="#9C27B0" stroke-width="1.5"/>
+        <text x="350" y="294" text-anchor="middle" font-size="8">Hisobot ko'rish</text>
+        <ellipse cx="250" cy="335" rx="75" ry="20" fill="#e0f2f1" stroke="#009688" stroke-width="1.5"/>
+        <text x="250" y="339" text-anchor="middle" font-size="8">Sozlamalar</text>
+        <!-- Connections -->
+        <line x1="70" y1="80" x2="175" y2="60" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="90" x2="175" y2="110" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="100" x2="275" y2="155" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="110" x2="175" y2="335" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="220" x2="275" y2="155" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="240" x2="275" y2="200" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="260" x2="175" y2="245" stroke="#333" stroke-width="1"/>
+        <line x1="70" y1="270" x2="275" y2="290" stroke="#333" stroke-width="1"/>
+        <line x1="510" y1="150" x2="425" y2="155" stroke="#333" stroke-width="1"/>
+        <line x1="510" y1="160" x2="425" y2="200" stroke="#333" stroke-width="1"/>
+        <line x1="510" y1="140" x2="325" y2="60" stroke="#333" stroke-width="1"/>
+    </svg>
+    <p class="fig-caption">2.3-rasm. Foydalanish holatlari (Use Case) diagrammasi</p>
+    <p>Use Case diagrammadan ko'rinib turibdiki, Administrator barcha funksiyalarga kirish huquqiga ega, Menejer mahsulotlar, buyurtmalar, omborxona va hisobotlar bilan ishlaydi, Sotuvchi esa faqat mahsulotlarni ko'rish va buyurtma yaratish imkoniyatiga ega.</p>
+    <div class="page-num">24</div>
+</div>
+
+<!-- ===== 25-BET: 2.3 davomi - Class diagram ===== -->
+<div class="page">
+    <p>Sinflar diagrammasi (Class Diagram) tizimning ob'ektga yo'naltirilgan tuzilishini ko'rsatadi. Quyida asosiy sinflar va ular orasidagi bog'lanishlar keltirilgan:</p>
+    <svg width="100%" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- User class -->
+        <rect x="10" y="10" width="160" height="120" fill="white" stroke="#333" stroke-width="1.5"/>
+        <rect x="10" y="10" width="160" height="25" fill="#e3f2fd" stroke="#333" stroke-width="1.5"/>
+        <text x="90" y="27" text-anchor="middle" font-size="10" font-weight="bold">User</text>
+        <text x="20" y="50" font-size="8">- id: Integer</text>
+        <text x="20" y="62" font-size="8">- username: String</text>
+        <text x="20" y="74" font-size="8">- password_hash: String</text>
+        <text x="20" y="86" font-size="8">- role: String</text>
+        <line x1="10" y1="92" x2="170" y2="92" stroke="#333" stroke-width="0.5"/>
+        <text x="20" y="105" font-size="8">+ check_password()</text>
+        <text x="20" y="117" font-size="8">+ set_password()</text>
+        <!-- Product class -->
+        <rect x="200" y="10" width="160" height="130" fill="white" stroke="#333" stroke-width="1.5"/>
+        <rect x="200" y="10" width="160" height="25" fill="#e8f5e9" stroke="#333" stroke-width="1.5"/>
+        <text x="280" y="27" text-anchor="middle" font-size="10" font-weight="bold">Product</text>
+        <text x="210" y="50" font-size="8">- id: Integer</text>
+        <text x="210" y="62" font-size="8">- name: String</text>
+        <text x="210" y="74" font-size="8">- price: Decimal</text>
+        <text x="210" y="86" font-size="8">- quantity: Integer</text>
+        <text x="210" y="98" font-size="8">- category_id: FK</text>
+        <line x1="200" y1="104" x2="360" y2="104" stroke="#333" stroke-width="0.5"/>
+        <text x="210" y="117" font-size="8">+ is_low_stock()</text>
+        <text x="210" y="129" font-size="8">+ is_expired()</text>
+        <!-- Order class -->
+        <rect x="10" y="180" width="160" height="120" fill="white" stroke="#333" stroke-width="1.5"/>
+        <rect x="10" y="180" width="160" height="25" fill="#fce4ec" stroke="#333" stroke-width="1.5"/>
+        <text x="90" y="197" text-anchor="middle" font-size="10" font-weight="bold">Order</text>
+        <text x="20" y="220" font-size="8">- id: Integer</text>
+        <text x="20" y="232" font-size="8">- user_id: FK</text>
+        <text x="20" y="244" font-size="8">- total_amount: Decimal</text>
+        <text x="20" y="256" font-size="8">- status: String</text>
+        <line x1="10" y1="262" x2="170" y2="262" stroke="#333" stroke-width="0.5"/>
+        <text x="20" y="275" font-size="8">+ calculate_total()</text>
+        <text x="20" y="287" font-size="8">+ cancel()</text>
+        <!-- OrderItem class -->
+        <rect x="200" y="180" width="160" height="110" fill="white" stroke="#333" stroke-width="1.5"/>
+        <rect x="200" y="180" width="160" height="25" fill="#f3e5f5" stroke="#333" stroke-width="1.5"/>
+        <text x="280" y="197" text-anchor="middle" font-size="10" font-weight="bold">OrderItem</text>
+        <text x="210" y="220" font-size="8">- id: Integer</text>
+        <text x="210" y="232" font-size="8">- order_id: FK</text>
+        <text x="210" y="244" font-size="8">- product_id: FK</text>
+        <text x="210" y="256" font-size="8">- quantity: Integer</text>
+        <line x1="200" y1="262" x2="360" y2="262" stroke="#333" stroke-width="0.5"/>
+        <text x="210" y="275" font-size="8">+ get_subtotal()</text>
+        <!-- Category class -->
+        <rect x="400" y="10" width="150" height="90" fill="white" stroke="#333" stroke-width="1.5"/>
+        <rect x="400" y="10" width="150" height="25" fill="#fff3e0" stroke="#333" stroke-width="1.5"/>
+        <text x="475" y="27" text-anchor="middle" font-size="10" font-weight="bold">Category</text>
+        <text x="410" y="50" font-size="8">- id: Integer</text>
+        <text x="410" y="62" font-size="8">- name: String</text>
+        <line x1="400" y1="68" x2="550" y2="68" stroke="#333" stroke-width="0.5"/>
+        <text x="410" y="82" font-size="8">+ get_products()</text>
+        <!-- Relationships -->
+        <line x1="90" y1="130" x2="90" y2="180" stroke="#333" stroke-width="1.5"/>
+        <text x="95" y="158" font-size="7">1..*</text>
+        <line x1="170" y1="240" x2="200" y2="240" stroke="#333" stroke-width="1.5"/>
+        <text x="185" y="233" font-size="7">1..*</text>
+        <line x1="280" y1="140" x2="280" y2="180" stroke="#333" stroke-width="1.5"/>
+        <text x="285" y="163" font-size="7">1..*</text>
+        <line x1="360" y1="50" x2="400" y2="50" stroke="#333" stroke-width="1.5"/>
+        <text x="380" y="43" font-size="7">*..1</text>
+    </svg>
+    <p class="fig-caption">2.4-rasm. Sinflar (Class) diagrammasi</p>
+    <p>Sinflar diagrammasida asosiy to'rtta sinf ko'rsatilgan: User, Product, Order va OrderItem. Har bir sinf atributlar (xususiyatlar) va metodlarga (funksiyalar) ega. Sinflar orasidagi bog'lanishlar (association) sonlar bilan belgilangan - masalan, bitta Order bir nechta OrderItem ga ega bo'lishi mumkin (1:*).</p>
+    <p>Tizimning ketma-ketlik diagrammasi (Sequence Diagram) "Buyurtma yaratish" jarayonini vaqt bo'yicha tasvirlaydi. Sotuvchi mahsulotlarni tanlaydi, tizim omborxona qoldig'ini tekshiradi, buyurtma yaratiladi va omborxona yangilanadi. Bu jarayon transaksion xususiyatga ega - agar biron bir bosqichda xatolik yuzaga kelsa, barcha o'zgarishlar bekor qilinadi (rollback).</p>
+    <div class="page-num">25</div>
 </div>
 
 </body>
