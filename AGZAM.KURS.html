@@ -674,5 +674,126 @@ CREATE TABLE product (
     <div class="page-num">21</div>
 </div>
 
+<!-- ===== 22-BET: 2.2 yakuni ===== -->
+<div class="page">
+<pre>
+-- Buyurtmalar jadvali
+CREATE TABLE "order" (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES user(id),
+    total_amount DECIMAL(12,2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'completed',
+    payment_method VARCHAR(20) DEFAULT 'cash',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Buyurtma tarkibi jadvali
+CREATE TABLE order_item (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL REFERENCES "order"(id),
+    product_id INTEGER NOT NULL REFERENCES product(id),
+    quantity INTEGER NOT NULL CHECK(quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(12,2) NOT NULL
+);
+
+-- Omborxona harakatlari jadvali
+CREATE TABLE inventory (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_id INTEGER NOT NULL REFERENCES product(id),
+    quantity INTEGER NOT NULL,
+    type VARCHAR(10) NOT NULL CHECK(type IN ('in', 'out')),
+    note TEXT,
+    user_id INTEGER REFERENCES user(id),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+</pre>
+    <p>Ma'lumotlar bazasining indekslari (indexes) so'rovlar tezligini oshirish uchun muhim ahamiyatga ega. Quyidagi indekslar yaratiladi:</p>
+<pre>
+-- Tez-tez ishlatiladigan so'rovlar uchun indekslar
+CREATE INDEX idx_product_category ON product(category_id);
+CREATE INDEX idx_product_name ON product(name);
+CREATE INDEX idx_order_user ON "order"(user_id);
+CREATE INDEX idx_order_date ON "order"(created_at);
+CREATE INDEX idx_order_item_order ON order_item(order_id);
+CREATE INDEX idx_inventory_product ON inventory(product_id);
+CREATE INDEX idx_inventory_date ON inventory(created_at);
+</pre>
+    <p>Indekslar product jadvalidagi category_id bo'yicha filtratsiya, order jadvalidagi sana bo'yicha so'rovlar va inventory jadvalidagi mahsulot bo'yicha qidiruvni tezlashtiradi. SQLite da indekslar B-tree tuzilmasida saqlanadi va O(log n) murakkablikda ishlaydi.</p>
+    <p>Ma'lumotlar bazasi yaxlitligi (integrity) uchun quyidagi trigger yaratiladi - buyurtma yaratilganda omborxona qoldig'i avtomatik kamaytiriladi:</p>
+<pre>
+-- Omborxona qoldig'ini avtomatik yangilash triggeri
+CREATE TRIGGER update_stock_after_order
+AFTER INSERT ON order_item
+BEGIN
+    UPDATE product 
+    SET quantity = quantity - NEW.quantity 
+    WHERE id = NEW.product_id;
+    
+    INSERT INTO inventory (product_id, quantity, type, note)
+    VALUES (NEW.product_id, NEW.quantity, 'out', 
+            'Buyurtma #' || NEW.order_id);
+END;
+</pre>
+    <p>Shu tariqa ma'lumotlar bazasi loyihalash bosqichi yakunlandi. Keyingi bo'limda tizimning umumiy arxitekturasi va UML diagrammalar ko'rib chiqiladi.</p>
+    <div class="page-num">22</div>
+</div>
+
+<!-- ===== 23-BET: 2.3 boshlanishi ===== -->
+<div class="page">
+    <h3>2.3 Tizim arxitekturasi va UML diagrammalar</h3>
+    <p>Tizim arxitekturasi - bu tizimning asosiy komponentlari va ularning o'zaro aloqalarini belgilaydigan yuqori darajadagi dizayn. Muzqaymoq do'koni boshqaruv tizimi uch qatlamli (3-tier) arxitekturada quriladi. Bu arxitektura prezentatsiya, biznes-logika va ma'lumotlar qatlamlarini ajratib, tizimning saqlanishi va kengaytirilishini osonlashtiradi.</p>
+    <svg width="100%" height="350" viewBox="0 0 550 350" xmlns="http://www.w3.org/2000/svg">
+        <!-- Title -->
+        <text x="275" y="20" text-anchor="middle" font-size="12" font-weight="bold">Uch qatlamli arxitektura</text>
+        <!-- Presentation Layer -->
+        <rect x="50" y="35" width="450" height="80" fill="#e3f2fd" stroke="#1976D2" stroke-width="2" rx="5"/>
+        <text x="275" y="55" text-anchor="middle" font-size="11" font-weight="bold" fill="#1976D2">Prezentatsiya qatlami (Presentation Layer)</text>
+        <rect x="70" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
+        <text x="120" y="87" text-anchor="middle" font-size="9">HTML/CSS</text>
+        <rect x="190" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
+        <text x="240" y="87" text-anchor="middle" font-size="9">Bootstrap 5</text>
+        <rect x="310" y="65" width="100" height="35" fill="white" stroke="#64B5F6" rx="3"/>
+        <text x="360" y="87" text-anchor="middle" font-size="9">Jinja2 Templates</text>
+        <rect x="430" y="65" width="55" height="35" fill="white" stroke="#64B5F6" rx="3"/>
+        <text x="457" y="87" text-anchor="middle" font-size="9">JS</text>
+        <!-- Arrow -->
+        <line x1="275" y1="115" x2="275" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="295" y="132" font-size="8">HTTP/HTTPS</text>
+        <!-- Business Logic Layer -->
+        <rect x="50" y="140" width="450" height="90" fill="#e8f5e9" stroke="#388E3C" stroke-width="2" rx="5"/>
+        <text x="275" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#388E3C">Biznes-logika qatlami (Business Logic Layer)</text>
+        <rect x="70" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
+        <text x="110" y="188" text-anchor="middle" font-size="8">Flask App</text>
+        <text x="110" y="200" text-anchor="middle" font-size="7">Routes</text>
+        <rect x="165" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
+        <text x="205" y="188" text-anchor="middle" font-size="8">Auth Module</text>
+        <text x="205" y="200" text-anchor="middle" font-size="7">Flask-Login</text>
+        <rect x="260" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
+        <text x="300" y="188" text-anchor="middle" font-size="8">Forms</text>
+        <text x="300" y="200" text-anchor="middle" font-size="7">WTForms</text>
+        <rect x="355" y="170" width="80" height="45" fill="white" stroke="#81C784" rx="3"/>
+        <text x="395" y="188" text-anchor="middle" font-size="8">Reports</text>
+        <text x="395" y="200" text-anchor="middle" font-size="7">Analytics</text>
+        <rect x="450" y="170" width="40" height="45" fill="white" stroke="#81C784" rx="3"/>
+        <text x="470" y="195" text-anchor="middle" font-size="7">API</text>
+        <!-- Arrow -->
+        <line x1="275" y1="230" x2="275" y2="255" stroke="#333" stroke-width="2"/>
+        <text x="295" y="247" font-size="8">SQLAlchemy ORM</text>
+        <!-- Data Layer -->
+        <rect x="50" y="255" width="450" height="80" fill="#fff3e0" stroke="#F57C00" stroke-width="2" rx="5"/>
+        <text x="275" y="275" text-anchor="middle" font-size="11" font-weight="bold" fill="#F57C00">Ma'lumotlar qatlami (Data Access Layer)</text>
+        <rect x="120" y="290" width="130" height="35" fill="white" stroke="#FFB74D" rx="3"/>
+        <text x="185" y="312" text-anchor="middle" font-size="9">SQLite Database</text>
+        <rect x="300" y="290" width="130" height="35" fill="white" stroke="#FFB74D" rx="3"/>
+        <text x="365" y="312" text-anchor="middle" font-size="9">File Storage</text>
+        <!-- Arrow marker definition -->
+        <defs><marker id="arrow" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="#333"/></marker></defs>
+    </svg>
+    <p class="fig-caption">2.2-rasm. Tizimning uch qatlamli arxitekturasi</p>
+    <p>Arxitektura diagrammasidan ko'rinib turibdiki, har bir qatlam o'z vazifasini bajaradi va faqat qo'shni qatlam bilan aloqa qiladi. Bu tamoyil (separation of concerns) kodni tushunish va saqlab turishni osonlashtiradi.</p>
+    <div class="page-num">23</div>
+</div>
+
 </body>
 </html>
