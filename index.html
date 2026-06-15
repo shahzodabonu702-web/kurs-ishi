@@ -1200,5 +1200,82 @@
         <div class="page-number">29</div>
     </div>
 
+    <!-- ==================== SAHIFA 30: 2.2 davomi - Frontend ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Baholar moduli (Grades Module).</b> Baholar tizimi o'qituvchilarga o'quvchilarga baho qo'yish imkonini beradi. Controller funksiyalari:</p>
+
+            <ul>
+                <li><b>addGrade</b> - yangi baho qo'shish (studentId, subjectId, value, type, date);</li>
+                <li><b>getGradesByStudent</b> - o'quvchining barcha baholari (fan va chorak bo'yicha filtrlash);</li>
+                <li><b>getGradesByClass</b> - sinf bo'yicha baholar (jadval ko'rinishida);</li>
+                <li><b>updateGrade</b> - bahoni tahrirlash (faqat baho egasi o'qituvchi);</li>
+                <li><b>getAverageGrade</b> - o'rtacha ball hisoblash (sinf/fan/o'quvchi bo'yicha).</li>
+            </ul>
+
+            <p><b>Davomat moduli (Attendance Module).</b> Kundalik davomat nazorati:</p>
+
+            <ul>
+                <li><b>markAttendance</b> - sinf bo'yicha davomat belgilash (bir so'rovda barcha o'quvchilar);</li>
+                <li><b>getAttendanceByDate</b> - ma'lum sana uchun davomat;</li>
+                <li><b>getAttendanceByStudent</b> - o'quvchining davomat tarixi;</li>
+                <li><b>getAttendanceStats</b> - davomat statistikasi (foiz, grafik uchun ma'lumot).</li>
+            </ul>
+
+            <p><b>Frontend qismini ishlab chiqish (React.js).</b> React loyihasi Create React App (CRA) yordamida yaratiladi. Asosiy komponentlar va sahifalar tuzilmasi:</p>
+
+            <p><b>App.js - asosiy komponent:</b> React Router yordamida sahifalar orasida navigatsiya tashkil etiladi. PrivateRoute komponenti himoyalangan sahifalarni boshqaradi - faqat autentifikatsiya qilingan foydalanuvchilar kira oladi.</p>
+
+            <p><b>AuthContext - autentifikatsiya holati:</b> React Context API yordamida global autentifikatsiya holati boshqariladi. Login, logout, register funksiyalari va joriy foydalanuvchi ma'lumotlari barcha komponentlarga taqdim etiladi.</p>
+
+            <p><b>API Service (axios).</b> Server bilan aloqa qilish uchun axios kutubxonasidan foydalaniladi. Asosiy xususiyatlar:</p>
+
+            <ul>
+                <li>Base URL sozlash (API server manzili);</li>
+                <li>Request interceptor - har bir so'rovga JWT token qo'shish;</li>
+                <li>Response interceptor - xatolarni markazlashtirilgan boshqarish;</li>
+                <li>Token muddati tugaganda avtomatik logout qilish.</li>
+            </ul>
+        </div>
+        <div class="page-number">30</div>
+    </div>
+
+    <!-- ==================== SAHIFA 31: 2.2 davomi ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Dashboard komponenti.</b> Bosh sahifada foydalanuvchi roliga qarab turli statistik ma'lumotlar ko'rsatiladi:</p>
+
+            <p><b>Admin dashboard:</b></p>
+            <ul>
+                <li>Jami o'quvchilar soni va o'sish dinamikasi;</li>
+                <li>O'qituvchilar soni;</li>
+                <li>Sinflar soni;</li>
+                <li>Bugungi umumiy davomat foizi;</li>
+                <li>Eng so'nggi qo'shilgan o'quvchilar ro'yxati;</li>
+                <li>Oylik davomat grafigi (Chart.js kutubxonasi).</li>
+            </ul>
+
+            <p><b>O'qituvchi dashboard:</b></p>
+            <ul>
+                <li>Biriktirilgan sinflar ro'yxati;</li>
+                <li>Bugungi dars jadvali;</li>
+                <li>Belgilanmagan davomatlar (eslatma);</li>
+                <li>Sinf bo'yicha o'rtacha ball;</li>
+                <li>Oxirgi qo'yilgan baholar.</li>
+            </ul>
+
+            <p><b>Students (O'quvchilar) sahifasi komponentlari:</b></p>
+
+            <p><b>StudentList komponenti</b> - o'quvchilar ro'yxatini jadval ko'rinishida ko'rsatadi. Xususiyatlari: pagination (sahifalash), search (qidiruv), filter (sinf bo'yicha filtrlash), sort (tartiblash). Har bir qatorda "Ko'rish", "Tahrirlash", "O'chirish" tugmalari mavjud.</p>
+
+            <p><b>StudentForm komponenti</b> - yangi o'quvchi qo'shish yoki mavjud o'quvchi ma'lumotlarini tahrirlash uchun forma. React Hook Form kutubxonasi yordamida forma holati boshqariladi va validatsiya amalga oshiriladi. Maydonlar: ism, familiya, tug'ilgan sana, jinsi, sinf (dropdown), ota-ona (dropdown), manzil, telefon.</p>
+
+            <p><b>StudentProfile komponenti</b> - o'quvchining to'liq profili: shaxsiy ma'lumotlar, baholar tarixi (jadval va grafik), davomat statistikasi, sinf ma'lumotlari. Tab (varaq) navigatsiya orqali turli bo'limlar ko'rsatiladi.</p>
+
+            <p><b>Grades (Baholar) sahifasi.</b> O'qituvchi sinf va fanni tanlagandan so'ng, o'quvchilar ro'yxati ko'rsatiladi. Har bir o'quvchi yonida baho kiritish uchun input maydoni mavjud. "Saqlash" tugmasi bosilganda barcha baholar bir vaqtda serverga yuboriladi (batch save). Baholar rangli indikatorlar bilan belgilanadi: 5 - yashil, 4 - ko'k, 3 - sariq, 2 - to'q sariq, 1 - qizil.</p>
+        </div>
+        <div class="page-number">31</div>
+    </div>
+
 </body>
 </html>
