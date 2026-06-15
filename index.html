@@ -1402,5 +1402,60 @@
         <div class="page-number">34</div>
     </div>
 
+    <!-- ==================== SAHIFA 35: 2.3 yakuni, II BOB xulosa ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>3-xato: Mobil qurilmalarda sidebar menyusi ekranni to'liq yopib qo'yadi.</b></p>
+            <p><i>Sabab:</i> CSS media query larda sidebar kenglik to'g'ri sozlanmagan.</p>
+            <p><i>Yechim:</i> Mobil rejimda sidebar overlay sifatida ko'rsatiladi va fon bosilganda yopiladi. Z-index va position:fixed qo'llanildi.</p>
+
+            <p><b>4-xato: Katta hajmdagi o'quvchilar ro'yxatida sahifa sekin yuklanadi.</b></p>
+            <p><i>Sabab:</i> Barcha o'quvchilar bir vaqtda yuklanayotgan edi (1000+ yozuv).</p>
+            <p><i>Yechim:</i> Server-side pagination joriy etildi. Bir sahifada 20 ta yozuv ko'rsatiladi, lazy loading va infinite scroll qo'llanildi.</p>
+
+            <p><b>5-xato: Parol tiklash funksiyasi ishlamaydi.</b></p>
+            <p><i>Sabab:</i> Email yuborish xizmati (nodemailer) to'g'ri sozlanmagan.</p>
+            <p><i>Yechim:</i> SMTP sozlamalari yangilandi, email shablonlari yaratildi va xato holatida foydalanuvchiga tushunarli xabar ko'rsatiladi.</p>
+
+            <p><b>Sinov natijalari jadvali:</b></p>
+
+            <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
+                <tr style="border: 1px solid #000; background: #f0f0f0;">
+                    <td style="border: 1px solid #000; padding: 5px;"><b>Sinov turi</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>Testlar soni</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>Muvaffaqiyatli</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>Foiz</b></td>
+                </tr>
+                <tr style="border: 1px solid #000;">
+                    <td style="border: 1px solid #000; padding: 5px;">Unit testlar</td>
+                    <td style="border: 1px solid #000; padding: 5px;">48</td>
+                    <td style="border: 1px solid #000; padding: 5px;">46</td>
+                    <td style="border: 1px solid #000; padding: 5px;">95.8%</td>
+                </tr>
+                <tr style="border: 1px solid #000;">
+                    <td style="border: 1px solid #000; padding: 5px;">Integration testlar</td>
+                    <td style="border: 1px solid #000; padding: 5px;">24</td>
+                    <td style="border: 1px solid #000; padding: 5px;">22</td>
+                    <td style="border: 1px solid #000; padding: 5px;">91.7%</td>
+                </tr>
+                <tr style="border: 1px solid #000;">
+                    <td style="border: 1px solid #000; padding: 5px;">E2E testlar</td>
+                    <td style="border: 1px solid #000; padding: 5px;">12</td>
+                    <td style="border: 1px solid #000; padding: 5px;">11</td>
+                    <td style="border: 1px solid #000; padding: 5px;">91.7%</td>
+                </tr>
+                <tr style="border: 1px solid #000;">
+                    <td style="border: 1px solid #000; padding: 5px;"><b>Jami</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>84</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>79</b></td>
+                    <td style="border: 1px solid #000; padding: 5px;"><b>94.0%</b></td>
+                </tr>
+            </table>
+
+            <p><b>II BOB xulosasi.</b> Ikkinchi bobda maktab boshqaruv tizimini loyihalash, dasturlash va sinovdan o'tkazish jarayonlari batafsil yoritildi. Tizim MERN stack (MongoDB, Express.js, React.js, Node.js) asosida qurildi. Autentifikatsiya, o'quvchilar boshqaruvi, baholash, davomat nazorati va hisobotlar modullari muvaffaqiyatli ishlab chiqildi. Sinovdan o'tkazish natijasida 94% muvaffaqiyat ko'rsatkichiga erishildi va aniqlangan barcha xatolar bartaraf etildi.</p>
+        </div>
+        <div class="page-number">35</div>
+    </div>
+
 </body>
 </html>
