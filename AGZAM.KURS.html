@@ -126,5 +126,48 @@
     <div class="page-num">1</div>
 </div>
 
+<!-- ===== 2-BET: I BOB, 1.1 boshlanishi ===== -->
+<div class="page">
+    <h2>I BOB. AXBOROT TIZIMLARI VA MUZQAYMOQ SANOATI TAHLILI</h2>
+    <h3>1.1 Axborot tizimlarining nazariy asoslari</h3>
+    <p>Axborot tizimi (AT) - bu ma'lumotlarni yig'ish, saqlash, qayta ishlash va uzatish uchun mo'ljallangan o'zaro bog'langan komponentlar majmuasidir. K.Loudon va J.Loudonning ta'rifiga ko'ra, axborot tizimi - tashkilotda qaror qabul qilish, muvofiqlashtirish va nazorat qilishni qo'llab-quvvatlash uchun axborotni yig'adigan, qayta ishlaydigan, saqlaydigan va tarqatadigan o'zaro bog'langan komponentlar to'plamidir.</p>
+    <p>Axborot tizimlarining rivojlanish tarixi bir necha bosqichni o'z ichiga oladi. Birinchi bosqich (1950-1960 yillar) - EHM yordamida hisob-kitob operatsiyalari avtomatlashtirilgan. Ikkinchi bosqich (1960-1970) - boshqaruv axborot tizimlari (MIS) paydo bo'lgan. Uchinchi bosqich (1970-1980) - qaror qabul qilishni qo'llab-quvvatlash tizimlari (DSS) rivojlangan. To'rtinchi bosqich (1980-1990) - shaxsiy kompyuterlar va tarmoq texnologiyalari tarqalgan. Beshinchi bosqich (1990-2000) - internet va e-tijorat tizimlari yaratilgan. Oltinchi bosqich (2000-hozir) - bulutli texnologiyalar, Big Data va sun'iy intellekt asosidagi tizimlar rivojlanmoqda.</p>
+    <p>Axborot tizimlarining asosiy tarkibiy qismlari: 1) Apparat ta'minot (hardware) - kompyuterlar, serverlar, tarmoq qurilmalari; 2) Dasturiy ta'minot (software) - operatsion tizimlar, MBBT, amaliy dasturlar; 3) Ma'lumotlar (data) - tizimda saqlanadigan barcha axborot; 4) Protseduralar (procedures) - ishlash qoidalari va ko'rsatmalari; 5) Odamlar (people) - ishlab chiquvchilar, administratorlar va foydalanuvchilar.</p>
+    <p>Axborot tizimlarini tasniflash bir necha mezon bo'yicha amalga oshiriladi:</p>
+    <p class="tbl-caption">1.1-jadval. Axborot tizimlarining tasnifi</p>
+    <table class="tbl">
+        <tr><th>Mezon</th><th>Turlar</th><th>Tavsifi</th></tr>
+        <tr><td>Funksional maqsad</td><td>TPS, MIS, DSS, EIS</td><td>Tranzaksion, boshqaruv, qaror qo'llab-quvvatlash</td></tr>
+        <tr><td>Qamrab olish</td><td>ERP, bo'lim, individual</td><td>Korxona, bo'lim yoki shaxsiy darajada</td></tr>
+        <tr><td>Arxitektura</td><td>Fayl-server, mijoz-server, web, bulut</td><td>Texnik amalga oshirish usuli</td></tr>
+    </table>
+    <p>Bizning loyihamiz uchun veb-asosli mijoz-server arxitekturasidagi tranzaksion qayta ishlash va boshqaruv axborot tizimi kombinatsiyasi eng mos keladi.</p>
+    <div class="page-num">2</div>
+</div>
+
+<!-- ===== 3-BET: 1.1 davomi ===== -->
+<div class="page">
+    <p>Zamonaviy axborot tizimlari ko'p qatlamli (multi-tier) arxitekturada quriladi. Eng keng tarqalgan uch qatlamli arxitektura quyidagi qatlamlardan iborat:</p>
+    <ul>
+        <li><b>Prezentatsiya qatlami (Presentation Layer)</b> - foydalanuvchi interfeysi, ma'lumotlarni ko'rsatish va kiritilgan ma'lumotlarni qabul qilish;</li>
+        <li><b>Biznes-logika qatlami (Business Logic Layer)</b> - dasturning asosiy mantiqiy qismi, barcha hisob-kitoblar va biznes qoidalari;</li>
+        <li><b>Ma'lumotlarga kirish qatlami (Data Access Layer)</b> - ma'lumotlar bazasi bilan o'zaro aloqa.</li>
+    </ul>
+    <p>Bu arxitektura tizimning kengaytirilishi, saqlanishi va xavfsizligini ta'minlashga yordam beradi. Har bir qatlamni mustaqil ravishda yangilash va takomillashtirish mumkin.</p>
+    <p>Savdo sohasida ishlatiladigan axborot tizimlari odatda quyidagi asosiy modullarni o'z ichiga oladi:</p>
+    <ul>
+        <li><b>Mahsulotlar boshqaruvi</b> - katalog yaratish, narxlar belgilash, toifalar boshqarish;</li>
+        <li><b>Omborxona boshqaruvi</b> - kirim-chiqim, qoldiqlar kuzatish, ogohlantirish;</li>
+        <li><b>Sotuvlar moduli</b> - sotuvlar amalga oshirish, to'lov usullarini boshqarish;</li>
+        <li><b>Mijozlar boshqaruvi</b> - bazani yuritish, sodiqlik dasturlari;</li>
+        <li><b>Hisobotlar moduli</b> - kunlik, haftalik, oylik statistik hisobotlar;</li>
+        <li><b>Xodimlar boshqaruvi</b> - ro'yxat, ish grafiklari, ish haqi;</li>
+        <li><b>Xavfsizlik moduli</b> - rollar, huquqlar, autentifikatsiya.</li>
+    </ul>
+    <p>Axborot tizimlarini ishlab chiqish jarayoni SDLC (Software Development Life Cycle) modellariga asoslanadi. Eng ko'p ishlatiladigan modellar: kaskad (waterfall), iterativ, spiral va Agile. Bizning loyihamizda iterativ yondashuvdan foydalanildi, chunki u kurs ishi doirasida eng maqbul usul hisoblanadi - har bir iteratsiyada yangi funksionallik qo'shiladi va tizim bosqichma-bosqich takomillashtiriladi.</p>
+    <p>Ma'lumotlar bazasini loyihalash axborot tizimini yaratishning eng muhim bosqichlaridan biridir. Ma'lumotlar bazasi - ma'lum sohaga tegishli strukturalangan ma'lumotlar to'plami bo'lib, MBBT (Ma'lumotlar Bazasini Boshqarish Tizimi) yordamida boshqariladi. Zamonaviy MBBT larga Oracle, MySQL, PostgreSQL, SQLite va MongoDB misol bo'la oladi.</p>
+    <div class="page-num">3</div>
+</div>
+
 </body>
 </html>
