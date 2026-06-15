@@ -949,5 +949,99 @@ END;
     <div class="page-num">25</div>
 </div>
 
+<!-- ===== 26-BET: 2.3 yakuni - Sequence diagram ===== -->
+<div class="page">
+    <p>Ketma-ketlik diagrammasi (Sequence Diagram) "Buyurtma yaratish" use case sini batafsil ko'rsatadi:</p>
+    <svg width="100%" height="320" viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lifelines -->
+        <rect x="30" y="10" width="70" height="30" fill="#e3f2fd" stroke="#333" stroke-width="1"/>
+        <text x="65" y="30" text-anchor="middle" font-size="9" font-weight="bold">Sotuvchi</text>
+        <line x1="65" y1="40" x2="65" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+        
+        <rect x="155" y="10" width="70" height="30" fill="#e8f5e9" stroke="#333" stroke-width="1"/>
+        <text x="190" y="30" text-anchor="middle" font-size="9" font-weight="bold">UI</text>
+        <line x1="190" y1="40" x2="190" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+        
+        <rect x="280" y="10" width="70" height="30" fill="#fff3e0" stroke="#333" stroke-width="1"/>
+        <text x="315" y="30" text-anchor="middle" font-size="9" font-weight="bold">Controller</text>
+        <line x1="315" y1="40" x2="315" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+        
+        <rect x="405" y="10" width="70" height="30" fill="#fce4ec" stroke="#333" stroke-width="1"/>
+        <text x="440" y="30" text-anchor="middle" font-size="9" font-weight="bold">Model</text>
+        <line x1="440" y1="40" x2="440" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+        
+        <rect x="505" y="10" width="45" height="30" fill="#f3e5f5" stroke="#333" stroke-width="1"/>
+        <text x="527" y="30" text-anchor="middle" font-size="9" font-weight="bold">DB</text>
+        <line x1="527" y1="40" x2="527" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4,3"/>
+        
+        <!-- Messages -->
+        <line x1="65" y1="60" x2="190" y2="60" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="128" y="55" text-anchor="middle" font-size="7">1: Mahsulot tanlash</text>
+        
+        <line x1="190" y1="85" x2="315" y2="85" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="252" y="80" text-anchor="middle" font-size="7">2: create_order(items)</text>
+        
+        <line x1="315" y1="110" x2="440" y2="110" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="377" y="105" text-anchor="middle" font-size="7">3: check_stock(product_id)</text>
+        
+        <line x1="440" y1="135" x2="527" y2="135" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="483" y="130" text-anchor="middle" font-size="7">4: SELECT quantity</text>
+        
+        <line x1="527" y1="155" x2="440" y2="155" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
+        <text x="483" y="150" text-anchor="middle" font-size="7">5: quantity=OK</text>
+        
+        <line x1="440" y1="180" x2="527" y2="180" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="483" y="175" text-anchor="middle" font-size="7">6: INSERT order</text>
+        
+        <line x1="440" y1="205" x2="527" y2="205" stroke="#333" stroke-width="1" marker-end="url(#arrowS)"/>
+        <text x="483" y="200" text-anchor="middle" font-size="7">7: UPDATE stock</text>
+        
+        <line x1="527" y1="225" x2="440" y2="225" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
+        <text x="483" y="220" text-anchor="middle" font-size="7">8: success</text>
+        
+        <line x1="440" y1="245" x2="315" y2="245" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
+        <text x="377" y="240" text-anchor="middle" font-size="7">9: order_created</text>
+        
+        <line x1="315" y1="270" x2="190" y2="270" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
+        <text x="252" y="265" text-anchor="middle" font-size="7">10: render receipt</text>
+        
+        <line x1="190" y1="295" x2="65" y2="295" stroke="#333" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrowS)"/>
+        <text x="128" y="290" text-anchor="middle" font-size="7">11: Kvitansiya ko'rsatish</text>
+        
+        <defs><marker id="arrowS" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="#333"/></marker></defs>
+    </svg>
+    <p class="fig-caption">2.5-rasm. Buyurtma yaratish ketma-ketlik diagrammasi</p>
+    <p>Ketma-ketlik diagrammasidan ko'rinib turibdiki, buyurtma yaratish jarayoni 11 ta bosqichdan iborat. Sotuvchi mahsulotlarni tanlaydi, Controller omborxona qoldig'ini tekshiradi, keyin buyurtma va omborxona yangilanadi. Barcha amallar tranzaksiya ichida bajariladi, bu esa ma'lumotlar yaxlitligini ta'minlaydi.</p>
+    <p><b>II Bob bo'yicha xulosa.</b> Ikkinchi bobda tizimning to'liq loyihasi yaratildi. Funksional va nofunksional talablar aniqlandi, foydalanuvchi rollari va ularning huquqlari belgilandi. Ma'lumotlar bazasi normalizatsiya qilinib loyihalandi, SQL buyruqlari yozildi. Tizim arxitekturasi (3-tier), UML diagrammalar (Use Case, Class, Sequence) yaratildi. Uchinchi bobda ushbu loyihani dasturiy amalga oshirish jarayoni batafsil ko'rib chiqiladi.</p>
+    <div class="page-num">26</div>
+</div>
+
+<!-- ===== 27-BET: III BOB, 3.1 boshlanishi ===== -->
+<div class="page">
+    <h2>III BOB. TIZIMNI DASTURIY TA'MINOT BILAN AMALGA OSHIRISH</h2>
+    <h3>3.1 Dasturlash tillari va texnologiyalarni tanlash</h3>
+    <p>Tizimni dasturiy amalga oshirish uchun texnologiyalar to'plamini (technology stack) tanlash muhim qarordir. Bu qaror tizimning unumdorligi, saqlanishi va kengaytirilishiga bevosita ta'sir qiladi. Quyida tanlangan texnologiyalar va ularni tanlash sabablari batafsil ko'rib chiqiladi.</p>
+    <p><b>Python dasturlash tili.</b> Python - yuqori darajadagi, ko'p maqsadli dasturlash tili bo'lib, 1991-yilda Guido van Rossum tomonidan yaratilgan. 2024-yil TIOBE indeksiga ko'ra, Python dunyodagi eng mashhur dasturlash tili hisoblanadi. Uni tanlash sabablari:</p>
+    <ul>
+        <li>Sodda va o'qilishi oson sintaksis - kodni tushunish va saqlab turish oson;</li>
+        <li>Keng kutubxonalar ekotizimi (PyPI da 400 000+ paket mavjud);</li>
+        <li>Kuchli veb-frameworklar (Django, Flask, FastAPI);</li>
+        <li>Katta jamiyat va boy hujjatlar;</li>
+        <li>Cross-platform - Windows, Linux, macOS da ishlaydi;</li>
+        <li>Rapid Application Development (RAD) ga mos - prototiplarni tez yaratish.</li>
+    </ul>
+    <p><b>Flask web-framework.</b> Flask - Python uchun yengil "micro-framework" bo'lib, 2010-yilda Armin Ronacher tomonidan yaratilgan. "Micro" so'zi frameworkning kichik ekanligini emas, balki yadro funksionalligining minimal ekanligini anglatadi - foydalanuvchi faqat o'ziga kerakli komponentlarni qo'shadi. Flask ning afzalliklari:</p>
+    <ul>
+        <li>Minimal va moslashuvchan - keraksiz murakkablik yo'q;</li>
+        <li>Blueprint tizimi - modular dastur yaratish imkoniyati;</li>
+        <li>Jinja2 shablon tizimi - kuchli HTML generatsiya;</li>
+        <li>Werkzeug WSGI toolkit - ishonchli HTTP ishlov berish;</li>
+        <li>Ko'p sonli kengaytmalar (Flask-Login, Flask-WTF, Flask-SQLAlchemy);</li>
+        <li>Kichik loyihalar uchun Django ga nisbatan maqbulroq.</li>
+    </ul>
+    <p><b>SQLite ma'lumotlar bazasi.</b> SQLite - serverga ehtiyoj bo'lmagan, bitta faylda saqlanadigan relyatsion MBBT. U dunyodagi eng ko'p tarqalgan MBBT hisoblanadi (har bir smartfon va brauzerda mavjud). Uni tanlash sabablari: o'rnatish kerak emas, bitta .db fayli, tranzaksiyalar qo'llab-quvvatlanadi, 281 TB gacha ma'lumot saqlaydi, cross-platform.</p>
+    <div class="page-num">27</div>
+</div>
+
 </body>
 </html>
