@@ -923,5 +923,206 @@
         <div class="page-number">22</div>
     </div>
 
+    <!-- ==================== SAHIFA 23: II BOB, 2.1 boshlanishi ==================== -->
+    <div class="page">
+        <div class="content">
+            <h2>II BOB. MAKTAB BOSHQARUV TIZIMINI LOYIHALASH VA DASTURIY TA'MINOT ISHLAB CHIQISH</h2>
+
+            <h3>2.1. Tizim arxitekturasi va loyihalash bosqichlari</h3>
+
+            <p>Maktab boshqaruv tizimini ishlab chiqish jarayoni bir necha muhim bosqichlardan iborat. Ushbu bo'limda tizim arxitekturasi, ma'lumotlar bazasi strukturasi, foydalanuvchi interfeysi dizayni va loyihalash qarorlari batafsil yoritiladi.</p>
+
+            <p><b>Tizim umumiy arxitekturasi.</b> Ishlab chiqilayotgan maktab boshqaruv tizimi uch qatlamli (three-tier) arxitekturada qurilgan:</p>
+
+            <ul>
+                <li><b>Presentation Layer (Taqdimot qatlami)</b> - React.js asosidagi foydalanuvchi interfeysi. Brauzerda ishlaydi va API orqali server bilan aloqa qiladi;</li>
+                <li><b>Business Logic Layer (Biznes mantiq qatlami)</b> - Node.js/Express.js asosidagi API server. So'rovlarni qayta ishlaydi, biznes qoidalarni bajaradi;</li>
+                <li><b>Data Layer (Ma'lumotlar qatlami)</b> - MongoDB ma'lumotlar bazasi. Barcha ma'lumotlarni saqlaydi va boshqaradi.</li>
+            </ul>
+
+            <p><b>Tizimning funksional talablari (Functional Requirements):</b></p>
+
+            <ol>
+                <li>Foydalanuvchilarni ro'yxatdan o'tkazish va autentifikatsiya qilish;</li>
+                <li>O'quvchilar ma'lumotlarini kiritish, tahrirlash va o'chirish (CRUD);</li>
+                <li>O'qituvchilar ma'lumotlarini boshqarish;</li>
+                <li>Sinflar va fanlarni boshqarish;</li>
+                <li>Baholar tizimini yuritish (5 balli tizim);</li>
+                <li>Davomat nazoratini amalga oshirish;</li>
+                <li>Dars jadvalini tuzish va ko'rsatish;</li>
+                <li>Hisobotlar va statistik ma'lumotlarni shakllantirish;</li>
+                <li>Ota-onalar uchun farzand ma'lumotlarini ko'rish;</li>
+                <li>Bildirishnomalar (notification) yuborish.</li>
+            </ol>
+
+            <p><b>Nofunksional talablar (Non-Functional Requirements):</b></p>
+
+            <ul>
+                <li>Sahifa yuklanish vaqti 2 soniyadan oshmasligi kerak;</li>
+                <li>Tizim bir vaqtda kamida 100 foydalanuvchiga xizmat ko'rsatishi kerak;</li>
+                <li>Ma'lumotlar bazasi zaxira nusxasi har 24 soatda olinishi kerak;</li>
+                <li>Tizim 99.5% vaqt davomida ishga tayyor bo'lishi kerak;</li>
+                <li>Barcha ma'lumotlar HTTPS orqali uzatilishi kerak.</li>
+            </ul>
+        </div>
+        <div class="page-number">23</div>
+    </div>
+
+    <!-- ==================== SAHIFA 24: 2.1 davomi - Use Case ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Use Case diagrammasi (Foydalanish holatlari).</b> Tizimning asosiy foydalanish holatlari quyidagicha:</p>
+
+            <p><b>Administrator uchun:</b></p>
+            <ul>
+                <li>Tizim sozlamalarini boshqarish;</li>
+                <li>Foydalanuvchilarni yaratish va boshqarish;</li>
+                <li>Sinflar va fanlarni yaratish;</li>
+                <li>O'qituvchilarni fanlarga biriktirish;</li>
+                <li>Umumiy hisobotlarni ko'rish;</li>
+                <li>Ma'lumotlarni eksport/import qilish.</li>
+            </ul>
+
+            <p><b>O'qituvchi uchun:</b></p>
+            <ul>
+                <li>O'z sinflaridagi o'quvchilar ro'yxatini ko'rish;</li>
+                <li>Baholar qo'yish va tahrirlash;</li>
+                <li>Davomat belgilash;</li>
+                <li>Dars jadvalini ko'rish;</li>
+                <li>Ota-onalarga xabar yuborish;</li>
+                <li>Sinf bo'yicha hisobotlarni ko'rish.</li>
+            </ul>
+
+            <p><b>Ota-ona uchun:</b></p>
+            <ul>
+                <li>Farzandining baholarini ko'rish;</li>
+                <li>Davomat ma'lumotlarini ko'rish;</li>
+                <li>Dars jadvalini ko'rish;</li>
+                <li>O'qituvchilarga xabar yuborish;</li>
+                <li>Bildirishnomalarni olish.</li>
+            </ul>
+
+            <p><b>Ma'lumotlar bazasi sxemasi (Database Schema Design).</b> MongoDB uchun quyidagi collection (to'plam) lar loyihalangan:</p>
+
+            <p><b>Users Collection:</b> Barcha foydalanuvchilar (admin, o'qituvchi, ota-ona, o'quvchi) uchun yagona collection. Maydonlar: _id, firstName, lastName, email, password (hashed), role, phone, avatar, isActive, createdAt, updatedAt.</p>
+
+            <p><b>Students Collection:</b> O'quvchilar ma'lumotlari. Maydonlar: _id, firstName, lastName, dateOfBirth, gender, classId (ref), parentId (ref), address, enrollmentDate, status.</p>
+
+            <p><b>Classes Collection:</b> Sinflar haqida ma'lumot. Maydonlar: _id, name (masalan, "5-A"), grade (sinf raqami), classTeacherId (ref), academicYear, capacity.</p>
+        </div>
+        <div class="page-number">24</div>
+    </div>
+
+    <!-- ==================== SAHIFA 25: 2.1 davomi - DB Schema ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Subjects Collection:</b> Fanlar haqida ma'lumot. Maydonlar: _id, name, code, grade, weeklyHours, teacherId (ref), description.</p>
+
+            <p><b>Grades Collection:</b> Baholar. Maydonlar: _id, studentId (ref), subjectId (ref), teacherId (ref), value (1-5), type (daily/midterm/final), date, semester, comment.</p>
+
+            <p><b>Attendance Collection:</b> Davomat. Maydonlar: _id, studentId (ref), classId (ref), date, status (present/absent/late/excused), markedBy (ref), note.</p>
+
+            <p><b>Timetable Collection:</b> Dars jadvali. Maydonlar: _id, classId (ref), subjectId (ref), teacherId (ref), dayOfWeek (1-6), period (1-7), room, academicYear.</p>
+
+            <p><b>Ma'lumotlar orasidagi bog'lanishlar:</b></p>
+
+            <ul>
+                <li>Student → Class (ko'pga-bir): har bir o'quvchi bitta sinfga tegishli;</li>
+                <li>Student → Parent/User (ko'pga-bir): har bir o'quvchining ota-onasi bor;</li>
+                <li>Class → Teacher/User (birga-bir): har bir sinfning sinf rahbari bor;</li>
+                <li>Grade → Student, Subject, Teacher (ko'pga-bir): har bir baho o'quvchi, fan va o'qituvchiga bog'langan;</li>
+                <li>Attendance → Student, Class (ko'pga-bir): davomat o'quvchi va sinfga bog'langan;</li>
+                <li>Timetable → Class, Subject, Teacher (ko'pga-bir): dars jadvali sinf, fan va o'qituvchiga bog'langan.</li>
+            </ul>
+
+            <p><b>Foydalanuvchi interfeysi (UI) loyihalash.</b> Tizim interfeysi Material Design tamoyillariga asoslangan bo'lib, quyidagi asosiy sahifalardan iborat:</p>
+
+            <p><b>1. Login sahifasi.</b> Foydalanuvchi email va parol kiritadi. "Parolni unutdim" funksiyasi ham mavjud. Muvaffaqiyatli kirishdan so'ng foydalanuvchi dashboard sahifasiga yo'naltiriladi.</p>
+
+            <p><b>2. Dashboard (Boshqaruv paneli).</b> Foydalanuvchi roliga qarab turli statistik ma'lumotlar ko'rsatiladi: o'quvchilar soni, o'rtacha ball, bugungi davomat foizi, yaqinlashayotgan tadbirlar va tezkor havolalar.</p>
+
+            <p><b>3. O'quvchilar sahifasi.</b> O'quvchilar ro'yxati jadval ko'rinishida, qidiruv va filtrlash imkoniyati, yangi o'quvchi qo'shish, ma'lumotlarni tahrirlash va o'chirish.</p>
+        </div>
+        <div class="page-number">25</div>
+    </div>
+
+    <!-- ==================== SAHIFA 26: 2.1 davomi - UI ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>4. Baholar sahifasi.</b> O'qituvchi sinf va fanni tanlab, o'quvchilarga baho qo'yadi. Jadval ko'rinishida barcha o'quvchilar va ularning baholari ko'rsatiladi. Baholarni filtrlash (sana, chorak, fan bo'yicha) imkoniyati mavjud.</p>
+
+            <p><b>5. Davomat sahifasi.</b> O'qituvchi sinfni tanlab, bugungi davomat belgilaydi. Har bir o'quvchi uchun "keldi", "kelmadi", "kechikdi" yoki "sababli" holatlaridan birini tanlaydi.</p>
+
+            <p><b>6. Dars jadvali sahifasi.</b> Haftalik dars jadvali jadval ko'rinishida. Kunlar ustunlarda, dars soatlari qatorlarda joylashgan. Administrator jadvalni tahrirlashi mumkin.</p>
+
+            <p><b>7. Hisobotlar sahifasi.</b> Turli hisobotlarni shakllantirish: sinf bo'yicha o'rtacha ball, davomat statistikasi, fan bo'yicha natijalar, choraklik va yillik hisobotlar. Grafiklar va diagrammalar ko'rinishida vizualizatsiya.</p>
+
+            <p><b>Navigatsiya strukturasi.</b> Tizim chap tomonida vertikal sidebar menyuga ega. Menyuda quyidagi bo'limlar joylashgan:</p>
+
+            <ul>
+                <li>Dashboard (Bosh sahifa);</li>
+                <li>O'quvchilar;</li>
+                <li>O'qituvchilar;</li>
+                <li>Sinflar;</li>
+                <li>Fanlar;</li>
+                <li>Baholar;</li>
+                <li>Davomat;</li>
+                <li>Dars jadvali;</li>
+                <li>Hisobotlar;</li>
+                <li>Sozlamalar.</li>
+            </ul>
+
+            <p><b>Wireframe va Prototype.</b> UI loyihalash jarayonida avval wireframe (simli katak) chiziladi - bu sahifaning oddiy eskizi bo'lib, elementlarning joylashuvini ko'rsatadi. Keyin prototype (namuna) yaratiladi - bu interaktiv model bo'lib, foydalanuvchi tajribasini sinovdan o'tkazish imkonini beradi.</p>
+
+            <p><b>Rang sxemasi:</b> Tizimda quyidagi ranglar ishlatiladi:</p>
+            <ul>
+                <li>Asosiy rang (Primary): #1976D2 (ko'k) - navigatsiya, tugmalar;</li>
+                <li>Ikkilamchi rang (Secondary): #388E3C (yashil) - muvaffaqiyat xabarlari;</li>
+                <li>Ogohlantirish (Warning): #F57C00 (to'q sariq);</li>
+                <li>Xato (Error): #D32F2F (qizil) - xato xabarlari;</li>
+                <li>Fon (Background): #F5F5F5 (och kulrang);</li>
+                <li>Matn (Text): #212121 (qora).</li>
+            </ul>
+        </div>
+        <div class="page-number">26</div>
+    </div>
+
+    <!-- ==================== SAHIFA 27: 2.1 yakuni ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Loyiha fayl strukturasi.</b> Tizim kodi quyidagi papka strukturasida tartibga solingan:</p>
+
+            <p><b>Backend (server) strukturasi:</b></p>
+            <ul>
+                <li>/server - asosiy server papkasi;</li>
+                <li>/server/config - sozlamalar fayllari (db.js, dotenv);</li>
+                <li>/server/models - Mongoose modellari (Student.js, User.js, Grade.js);</li>
+                <li>/server/routes - API yo'nalishlari (studentRoutes.js, authRoutes.js);</li>
+                <li>/server/controllers - so'rovlarni qayta ishlash mantiqi;</li>
+                <li>/server/middleware - auth.js, errorHandler.js, validator.js;</li>
+                <li>/server/utils - yordamchi funksiyalar;</li>
+                <li>/server/server.js - asosiy kirish nuqtasi.</li>
+            </ul>
+
+            <p><b>Frontend (mijoz) strukturasi:</b></p>
+            <ul>
+                <li>/client/src - asosiy manba kodi;</li>
+                <li>/client/src/components - qayta ishlatiladigan UI komponentlar;</li>
+                <li>/client/src/pages - sahifa komponentlari (Dashboard, Students, Grades);</li>
+                <li>/client/src/services - API bilan aloqa funksiyalari;</li>
+                <li>/client/src/context - React Context (autentifikatsiya holati);</li>
+                <li>/client/src/hooks - maxsus React hooklar;</li>
+                <li>/client/src/utils - yordamchi funksiyalar;</li>
+                <li>/client/src/styles - CSS/SCSS fayllar;</li>
+                <li>/client/public - statik fayllar (index.html, favicon).</li>
+            </ul>
+
+            <p><b>API endpointlar rejasi.</b> Tizimning barcha API yo'nalishlari RESTful tamoyillariga amal qiladi va /api/v1 prefiksi bilan boshlanadi. Versiyalash (v1) kelajakda yangi versiyalar qo'shish imkonini beradi. Har bir endpoint JSON formatida javob qaytaradi va HTTP status kodlaridan to'g'ri foydalanadi (200 - muvaffaqiyat, 201 - yaratildi, 400 - noto'g'ri so'rov, 401 - avtorizatsiya xatosi, 404 - topilmadi, 500 - server xatosi).</p>
+
+            <p>Loyihalash bosqichi yakunlandi. Keyingi bo'limda tizimni dasturiy ta'minotini ishlab chiqish va kodlash jarayoni batafsil yoritiladi.</p>
+        </div>
+        <div class="page-number">27</div>
+    </div>
+
 </body>
 </html>
