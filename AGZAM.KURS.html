@@ -401,5 +401,41 @@
     <div class="page-num">13</div>
 </div>
 
+<!-- ===== 14-BET: 1.3 yakuni, I Bob xulosa ===== -->
+<div class="page">
+    <p>Qiyosiy tahlil natijalarini umumlashtirsak, quyidagi xulosalarga kelish mumkin:</p>
+    <p>Birinchidan, bozorda mavjud tizimlar asosan yirik biznes uchun mo'ljallangan va ularning narxi kichik muzqaymoq do'konlari uchun juda yuqori. O'rta statistik muzqaymoq do'konining oylik daromadi 30-80 mln so'mni tashkil etadi. Bunday do'kon uchun yiliga 10-50 mln so'm litsenziya to'lashi iqtisodiy jihatdan oqlanmaydi.</p>
+    <p>Ikkinchidan, mavjud tizimlarning hech biri O'zbekiston bozori uchun to'liq moslashtirilmagan. O'zbek tili, mahalliy soliq qonunchiligi, so'mda hisob-kitob kabi talablar qondirilmaydi. Bu esa foydalanuvchilarga noqulaylik tug'diradi va qo'shimcha moslashtirish xarajatlarini talab qiladi.</p>
+    <p>Uchinchidan, tijorat tizimlari yopiq kod asosida ishlaydi, bu esa foydalanuvchining tizimni o'z ehtiyojlariga moslashtirish imkoniyatini cheklaydi. Har qanday o'zgartirish uchun vendor kompaniyaga murojaat qilish va qo'shimcha to'lov qilish kerak.</p>
+    <p>To'rtinchidan, ko'pchilik tizimlar internetga doimiy ulanishni talab qiladi. O'zbekistonning ayrim hududlarida internet sifati hali ham yetarli darajada emas, bu esa bulutli tizimlar uchun muammo yaratishi mumkin. Bizning tizimimiz esa lokal rejimda ham ishlash imkoniyatiga ega.</p>
+    <p><b>I Bob bo'yicha xulosa.</b> Birinchi bobda axborot tizimlarining nazariy asoslari o'rganildi, ularning turlari, arxitekturasi va rivojlanish bosqichlari ko'rib chiqildi. Muzqaymoq do'koni faoliyatining o'ziga xos xususiyatlari va avtomatlashtirishning dolzarbligi asoslandi. Bozordagi mavjud tizimlar qiyosiy tahlil qilindi va ishlab chiqilayotgan tizimning afzalliklari ko'rsatildi.</p>
+    <p>Tahlil natijalari shuni ko'rsatdiki, O'zbekiston muzqaymoq do'konlari uchun maxsus moslashtirilgan, arzon va ochiq kodli boshqaruv tizimini yaratish zaruriyati mavjud. Ikkinchi bobda biz ana shu tizimni loyihalash jarayonini - talablar tahlili, ma'lumotlar bazasi loyihalash va UML diagrammalar yaratishni batafsil ko'rib chiqamiz.</p>
+    <div class="page-num">14</div>
+</div>
+
+<!-- ===== 15-BET: II BOB, 2.1 boshlanishi ===== -->
+<div class="page">
+    <h2>II BOB. MUZQAYMOQ DO'KONI BOSHQARUV TIZIMINI LOYIHALASH</h2>
+    <h3>2.1 Tizimga qo'yilgan talablar va funksional tahlil</h3>
+    <p>Tizimni loyihalashning birinchi bosqichi - bu foydalanuvchi talablarini to'plash va tahlil qilish. IEEE 830 standarti (Software Requirements Specification) ga muvofiq, talablar funksional va nofunksional turlarga bo'linadi. Funksional talablar tizim nima qilishi kerakligini, nofunksional talablar esa tizim qanday ishlashi kerakligini belgilaydi.</p>
+    <p>Talablar to'plash jarayonida quyidagi usullardan foydalanildi: muzqaymoq do'koni xodimlari bilan suhbat (interview), mavjud ish jarayonlarini kuzatish (observation), hujjatlarni tahlil qilish va bozordagi analoglarni o'rganish. Natijada quyidagi funksional talablar ro'yxati shakllantirildi:</p>
+    <p class="tbl-caption">2.1-jadval. Tizimning funksional talablari</p>
+    <table class="tbl">
+        <tr><th>ID</th><th>Talab</th><th>Ustuvorlik</th><th>Modul</th></tr>
+        <tr><td>FR-01</td><td>Foydalanuvchi ro'yxatdan o'tishi va tizimga kirishi</td><td>Yuqori</td><td>Autentifikatsiya</td></tr>
+        <tr><td>FR-02</td><td>Mahsulotlar ro'yxatini ko'rish, qo'shish, tahrirlash, o'chirish</td><td>Yuqori</td><td>Mahsulotlar</td></tr>
+        <tr><td>FR-03</td><td>Toifalar bo'yicha mahsulotlarni tasniflash</td><td>O'rta</td><td>Mahsulotlar</td></tr>
+        <tr><td>FR-04</td><td>Buyurtmalarni yaratish va boshqarish</td><td>Yuqori</td><td>Buyurtmalar</td></tr>
+        <tr><td>FR-05</td><td>Omborxona qoldiqlarini kuzatish</td><td>Yuqori</td><td>Omborxona</td></tr>
+        <tr><td>FR-06</td><td>Mahsulot yaroqlilik muddatini nazorat qilish</td><td>Yuqori</td><td>Omborxona</td></tr>
+        <tr><td>FR-07</td><td>Kunlik, haftalik, oylik hisobotlar shakllantirish</td><td>O'rta</td><td>Hisobotlar</td></tr>
+        <tr><td>FR-08</td><td>Xodimlar ro'yxatini boshqarish</td><td>O'rta</td><td>Xodimlar</td></tr>
+        <tr><td>FR-09</td><td>Foydalanuvchi rollarini boshqarish</td><td>Yuqori</td><td>Xavfsizlik</td></tr>
+        <tr><td>FR-10</td><td>Sotuv statistikasini vizualizatsiya qilish</td><td>Past</td><td>Hisobotlar</td></tr>
+    </table>
+    <p>Har bir funksional talab uchun ustuvorlik darajasi belgilangan: Yuqori - tizim ishlamay qoladi, O'rta - muhim, lekin tizim ishlay oladi, Past - qulaylik uchun kerakli funksiya.</p>
+    <div class="page-num">15</div>
+</div>
+
 </body>
 </html>
