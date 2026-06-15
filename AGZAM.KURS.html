@@ -1707,5 +1707,155 @@ def inventory():
     <p>Hisobotlar moduli SQLAlchemy ning aggregate funksiyalaridan (SUM, COUNT, GROUP BY) foydalanib, turli davrlar uchun statistik ma'lumotlarni shakllantirib beradi. Natijalar Chart.js kutubxonasi yordamida grafik ko'rinishda vizualizatsiya qilinadi.</p>
 </div>
 
+<!-- ===== 36-BET: 3.2 davomi - Screenshots mockups ===== -->
+<div class="page">
+    <p><b>Tizim interfeysi ko'rinishlari.</b> Quyida tizimning asosiy sahifalari ko'rinishi tasvirlangan:</p>
+    <svg width="100%" height="220" viewBox="0 0 550 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Browser window -->
+        <rect x="10" y="5" width="530" height="210" fill="white" stroke="#333" stroke-width="1" rx="5"/>
+        <!-- Browser bar -->
+        <rect x="10" y="5" width="530" height="25" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5"/>
+        <circle cx="25" cy="17" r="5" fill="#ff5f56"/>
+        <circle cx="40" cy="17" r="5" fill="#ffbd2e"/>
+        <circle cx="55" cy="17" r="5" fill="#27c93f"/>
+        <rect x="100" y="10" width="300" height="15" fill="white" stroke="#ccc" rx="3"/>
+        <text x="250" y="21" text-anchor="middle" font-size="7" fill="#666">localhost:5000/dashboard</text>
+        <!-- Navbar -->
+        <rect x="10" y="30" width="530" height="25" fill="#0d6efd"/>
+        <text x="25" y="46" font-size="9" fill="white" font-weight="bold">Muzqaymoq BT</text>
+        <text x="140" y="46" font-size="8" fill="white">Mahsulotlar</text>
+        <text x="220" y="46" font-size="8" fill="white">Buyurtmalar</text>
+        <text x="300" y="46" font-size="8" fill="white">Hisobotlar</text>
+        <text x="470" y="46" font-size="8" fill="white">admin</text>
+        <!-- Dashboard cards -->
+        <rect x="20" y="65" width="120" height="55" fill="#0d6efd" rx="5"/>
+        <text x="80" y="82" text-anchor="middle" font-size="7" fill="white">Bugungi sotuv</text>
+        <text x="80" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">2.5M</text>
+        <rect x="150" y="65" width="120" height="55" fill="#198754" rx="5"/>
+        <text x="210" y="82" text-anchor="middle" font-size="7" fill="white">Buyurtmalar</text>
+        <text x="210" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">34</text>
+        <rect x="280" y="65" width="120" height="55" fill="#ffc107" rx="5"/>
+        <text x="340" y="82" text-anchor="middle" font-size="7" fill="#333">Kam qoldiq</text>
+        <text x="340" y="102" text-anchor="middle" font-size="12" fill="#333" font-weight="bold">5</text>
+        <rect x="410" y="65" width="120" height="55" fill="#0dcaf0" rx="5"/>
+        <text x="470" y="82" text-anchor="middle" font-size="7" fill="white">Mahsulotlar</text>
+        <text x="470" y="102" text-anchor="middle" font-size="12" fill="white" font-weight="bold">127</text>
+        <!-- Chart area -->
+        <rect x="20" y="130" width="350" height="80" fill="#fafafa" stroke="#ddd" rx="3"/>
+        <text x="195" y="145" text-anchor="middle" font-size="8" font-weight="bold">Haftalik sotuv dinamikasi</text>
+        <polyline points="40,195 90,180 140,185 190,160 240,170 290,150 340,155" fill="none" stroke="#0d6efd" stroke-width="2"/>
+        <!-- Recent orders -->
+        <rect x="380" y="130" width="150" height="80" fill="#fafafa" stroke="#ddd" rx="3"/>
+        <text x="455" y="145" text-anchor="middle" font-size="8" font-weight="bold">So'nggi buyurtmalar</text>
+        <text x="390" y="160" font-size="7">#1042 - 85,000 so'm</text>
+        <text x="390" y="173" font-size="7">#1041 - 120,000 so'm</text>
+        <text x="390" y="186" font-size="7">#1040 - 45,000 so'm</text>
+        <text x="390" y="199" font-size="7">#1039 - 210,000 so'm</text>
+    </svg>
+    <p class="fig-caption">3.1-rasm. Dashboard (boshqaruv paneli) interfeysi</p>
+    <svg width="100%" height="200" viewBox="0 0 550 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Browser window for products -->
+        <rect x="10" y="5" width="530" height="190" fill="white" stroke="#333" stroke-width="1" rx="5"/>
+        <rect x="10" y="5" width="530" height="25" fill="#f0f0f0" stroke="#333" stroke-width="1" rx="5"/>
+        <circle cx="25" cy="17" r="5" fill="#ff5f56"/>
+        <circle cx="40" cy="17" r="5" fill="#ffbd2e"/>
+        <circle cx="55" cy="17" r="5" fill="#27c93f"/>
+        <rect x="100" y="10" width="300" height="15" fill="white" stroke="#ccc" rx="3"/>
+        <text x="250" y="21" text-anchor="middle" font-size="7" fill="#666">localhost:5000/products</text>
+        <!-- Page title -->
+        <text x="25" y="50" font-size="10" font-weight="bold">Mahsulotlar ro'yxati</text>
+        <rect x="430" y="37" width="100" height="20" fill="#198754" rx="3"/>
+        <text x="480" y="51" text-anchor="middle" font-size="8" fill="white">+ Qo'shish</text>
+        <!-- Table -->
+        <rect x="20" y="60" width="510" height="20" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="30" y="73" font-size="7" font-weight="bold">ID</text>
+        <text x="60" y="73" font-size="7" font-weight="bold">Nomi</text>
+        <text x="200" y="73" font-size="7" font-weight="bold">Toifa</text>
+        <text x="290" y="73" font-size="7" font-weight="bold">Narxi</text>
+        <text x="370" y="73" font-size="7" font-weight="bold">Qoldiq</text>
+        <text x="440" y="73" font-size="7" font-weight="bold">Amallar</text>
+        <rect x="20" y="80" width="510" height="20" fill="white" stroke="#dee2e6"/>
+        <text x="30" y="93" font-size="7">1</text>
+        <text x="60" y="93" font-size="7">Plombir klassik 100g</text>
+        <text x="200" y="93" font-size="7">Klassik</text>
+        <text x="290" y="93" font-size="7">8,000 so'm</text>
+        <text x="370" y="93" font-size="7">245</text>
+        <rect x="440" y="83" width="35" height="14" fill="#0d6efd" rx="2"/>
+        <text x="457" y="93" text-anchor="middle" font-size="6" fill="white">Edit</text>
+        <rect x="480" y="83" width="35" height="14" fill="#dc3545" rx="2"/>
+        <text x="497" y="93" text-anchor="middle" font-size="6" fill="white">Del</text>
+        <rect x="20" y="100" width="510" height="20" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="30" y="113" font-size="7">2</text>
+        <text x="60" y="113" font-size="7">Shokoladli muzqaymoq 120g</text>
+        <text x="200" y="113" font-size="7">Shokoladli</text>
+        <text x="290" y="113" font-size="7">12,000 so'm</text>
+        <text x="370" y="113" font-size="7">89</text>
+        <rect x="440" y="103" width="35" height="14" fill="#0d6efd" rx="2"/>
+        <text x="457" y="113" text-anchor="middle" font-size="6" fill="white">Edit</text>
+        <rect x="480" y="103" width="35" height="14" fill="#dc3545" rx="2"/>
+        <text x="497" y="113" text-anchor="middle" font-size="6" fill="white">Del</text>
+    </svg>
+    <p class="fig-caption">3.2-rasm. Mahsulotlar ro'yxati sahifasi</p>
+</div>
+
+<!-- ===== 37-BET: 3.2 yakuni ===== -->
+<div class="page">
+    <p><b>Xavfsizlik moduli.</b> Tizimda bir nechta xavfsizlik choralari amalga oshirilgan:</p>
+<pre>
+# Dekorator - faqat admin uchun ruxsat
+from functools import wraps
+from flask import abort
+from flask_login import current_user
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not current_user.is_authenticated:
+            return redirect(url_for('auth.login'))
+        if current_user.role != 'admin':
+            abort(403)  # Forbidden
+        return f(*args, **kwargs)
+    return decorated_function
+
+def role_required(*roles):
+    """Ko'p rollar uchun dekorator"""
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if current_user.role not in roles:
+                abort(403)
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+</pre>
+    <p>Xavfsizlik choralari ro'yxati:</p>
+    <ul>
+        <li><b>Parol shifrlash:</b> Werkzeug kutubxonasining generate_password_hash funksiyasi (pbkdf2:sha256 algoritmi) ishlatiladi;</li>
+        <li><b>CSRF himoya:</b> Flask-WTF barcha formlarga avtomatik CSRF token qo'shadi;</li>
+        <li><b>SQL Injection himoya:</b> SQLAlchemy ORM parametrizatsiyalangan so'rovlar ishlatadi;</li>
+        <li><b>XSS himoya:</b> Jinja2 shablon tizimi barcha o'zgaruvchilarni avtomatik escape qiladi;</li>
+        <li><b>Sessiya xavfsizligi:</b> SECRET_KEY asosida imzolangan cookie-lar ishlatiladi;</li>
+        <li><b>Rolga asoslangan kirish nazorati (RBAC):</b> Har bir endpoint uchun ruxsat tekshiriladi.</li>
+    </ul>
+    <p><b>Ma'lumotlar bazasini zaxira nusxalash (backup):</b></p>
+<pre>
+# Kundalik zaxira nusxa olish skripti
+import shutil
+from datetime import datetime
+
+def backup_database():
+    """SQLite bazasining zaxira nusxasini yaratish"""
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    source = 'app.db'
+    destination = f'backups/app_backup_{timestamp}.db'
+    shutil.copy2(source, destination)
+    print(f'Zaxira nusxa yaratildi: {destination}')
+    
+    # Eski nusxalarni o'chirish (7 kundan eski)
+    cleanup_old_backups('backups/', days=7)
+</pre>
+    <p>Shu tariqa tizimning barcha asosiy modullari - autentifikatsiya, mahsulotlar boshqaruvi, buyurtmalar, hisobotlar va xavfsizlik - ishlab chiqildi. Har bir modul mustaqil ishlaydi va Blueprint tizimi orqali asosiy ilovaga ulangan. Keyingi bo'limda tizimni testlash va olingan natijalar ko'rib chiqiladi.</p>
+</div>
+
 </body>
 </html>
