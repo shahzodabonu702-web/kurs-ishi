@@ -1354,5 +1354,197 @@ class Product(db.Model):
     <div class="page-num">31</div>
 </div>
 
+<!-- ===== 32-BET: 3.2 davomi - Auth va Routes ===== -->
+<div class="page">
+    <p><b>Autentifikatsiya moduli (auth/routes.py):</b></p>
+<pre>
+# app/auth/routes.py - Autentifikatsiya
+from flask import render_template, redirect, url_for, flash, request
+from flask_login import login_user, logout_user, current_user
+from app.auth import bp
+from app.auth.forms import LoginForm, RegistrationForm
+from app.models import User
+from app import db
+
+@bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('main.dashboard'))
+    
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(
+            username=form.username.data).first()
+        if user is None or not user.check_password(
+            form.password.data):
+            flash('Noto\'g\'ri login yoki parol', 'danger')
+            return redirect(url_for('auth.login'))
+        
+        login_user(user, remember=form.remember_me.data)
+        next_page = request.args.get('next')
+        return redirect(next_page or url_for('main.dashboard'))
+    
+    return render_template('auth/login.html', form=form)
+
+@bp.route('/logout')
+def logout():
+    logout_user()
+    flash('Tizimdan chiqdingiz', 'info')
+    return redirect(url_for('auth.login'))
+
+@bp.route('/register', methods=['GET', 'POST'])
+def register():
+    if not current_user.is_authenticated or \
+       not current_user.is_admin():
+        flash('Ruxsat yo\'q', 'danger')
+        return redirect(url_for('main.dashboard'))
+    
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data,
+                    email=form.email.data,
+                    role=form.role.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Foydalanuvchi yaratildi!', 'success')
+        return redirect(url_for('main.users'))
+    
+    return render_template('auth/register.html', form=form)
+</pre>
+    <p><b>Mahsulotlar moduli (products/routes.py):</b></p>
+<pre>
+# app/products/routes.py - Mahsulotlar CRUD
+from flask import render_template, redirect, url_for, flash
+from flask_login import login_required, current_user
+from app.products import bp
+from app.products.forms import ProductForm
+from app.models import Product, Category
+from app import db
+
+@bp.route('/')
+@login_required
+def index():
+    page = request.args.get('page', 1, type=int)
+    products = Product.query.order_by(
+        Product.name).paginate(page=page, per_page=20)
+    return render_template('products/index.html', 
+                          products=products)
+
+@bp.route('/add', methods=['GET', 'POST'])
+@login_required
+def add():
+    if current_user.role not in ['admin', 'manager']:
+        flash('Ruxsat yo\'q', 'danger')
+        return redirect(url_for('products.index'))
+    
+    form = ProductForm()
+    form.category_id.choices = [
+        (c.id, c.name) for c in Category.query.all()]
+    
+    if form.validate_on_submit():
+        product = Product(
+            name=form.name.data,
+            price=form.price.data,
+            quantity=form.quantity.data,
+            category_id=form.category_id.data,
+            description=form.description.data,
+            expiry_date=form.expiry_date.data,
+            min_stock=form.min_stock.data
+        )
+        db.session.add(product)
+        db.session.commit()
+        flash('Mahsulot qo\'shildi!', 'success')
+        return redirect(url_for('products.index'))
+    
+    return render_template('products/add.html', form=form)
+</pre>
+    <div class="page-num">32</div>
+</div>
+
+<!-- ===== 33-BET: 3.2 davomi - Orders va Templates ===== -->
+<div class="page">
+    <p><b>Buyurtmalar moduli (orders/routes.py):</b></p>
+<pre>
+# app/orders/routes.py - Buyurtmalar boshqaruvi
+from flask import render_template, redirect, url_for, flash, 
+    request, jsonify
+from flask_login import login_required, current_user
+from app.orders import bp
+from app.models import Order, OrderItem, Product
+from app import db
+from datetime import datetime
+
+@bp.route('/')
+@login_required
+def index():
+    page = request.args.get('page', 1, type=int)
+    if current_user.role == 'seller':
+        orders = Order.query.filter_by(
+            user_id=current_user.id)
+    else:
+        orders = Order.query
+    
+    orders = orders.order_by(
+        Order.created_at.desc()).paginate(
+        page=page, per_page=20)
+    return render_template('orders/index.html', 
+                          orders=orders)
+
+@bp.route('/create', methods=['GET', 'POST'])
+@login_required
+def create():
+    if request.method == 'POST':
+        items = request.get_json()
+        
+        # Tranzaksiya boshlash
+        try:
+            order = Order(
+                user_id=current_user.id,
+                total_amount=0,
+                status='completed',
+                payment_method=items.get('payment', 'cash')
+            )
+            db.session.add(order)
+            db.session.flush()  # ID olish uchun
+            
+            total = 0
+            for item in items['products']:
+                product = Product.query.get(item['id'])
+                if product.quantity < item['qty']:
+                    raise ValueError(
+                        f'{product.name}: yetarli emas')
+                
+                subtotal = product.price * item['qty']
+                order_item = OrderItem(
+                    order_id=order.id,
+                    product_id=product.id,
+                    quantity=item['qty'],
+                    unit_price=product.price,
+                    subtotal=subtotal
+                )
+                db.session.add(order_item)
+                product.quantity -= item['qty']
+                total += subtotal
+            
+            order.total_amount = total
+            db.session.commit()
+            return jsonify({'success': True, 
+                          'order_id': order.id})
+        
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({'success': False, 
+                          'error': str(e)}), 400
+    
+    products = Product.query.filter(
+        Product.quantity > 0).all()
+    return render_template('orders/create.html', 
+                          products=products)
+</pre>
+    <p>Yuqoridagi kodda buyurtma yaratish jarayoni tranzaksiya ichida amalga oshiriladi. Agar biron mahsulotning qoldig'i yetarli bo'lmasa, barcha o'zgarishlar bekor qilinadi (rollback). Bu ma'lumotlar yaxlitligini ta'minlaydi.</p>
+    <div class="page-num">33</div>
+</div>
+
 </body>
 </html>
