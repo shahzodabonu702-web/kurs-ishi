@@ -437,5 +437,64 @@
     <div class="page-num">15</div>
 </div>
 
+<!-- ===== 16-BET: 2.1 davomi ===== -->
+<div class="page">
+    <p>Nofunksional talablar tizimning sifat ko'rsatkichlarini belgilaydi. Ular tizimning ishonchliligi, tezkorligi, xavfsizligi va qulayligi bilan bog'liq:</p>
+    <p class="tbl-caption">2.2-jadval. Tizimning nofunksional talablari</p>
+    <table class="tbl">
+        <tr><th>ID</th><th>Kategoriya</th><th>Talab</th><th>Mezon</th></tr>
+        <tr><td>NFR-01</td><td>Unumdorlik</td><td>Sahifa yuklash vaqti</td><td>≤ 2 soniya</td></tr>
+        <tr><td>NFR-02</td><td>Unumdorlik</td><td>Bir vaqtda foydalanuvchilar</td><td>≥ 50 nafar</td></tr>
+        <tr><td>NFR-03</td><td>Ishonchlilik</td><td>Tizim ish vaqti (uptime)</td><td>≥ 99.5%</td></tr>
+        <tr><td>NFR-04</td><td>Xavfsizlik</td><td>Parollar shifrlash</td><td>bcrypt (salt rounds ≥ 12)</td></tr>
+        <tr><td>NFR-05</td><td>Xavfsizlik</td><td>Sessiya muddati</td><td>≤ 8 soat</td></tr>
+        <tr><td>NFR-06</td><td>Foydalanish qulayligi</td><td>O'rganish vaqti</td><td>≤ 2 soat</td></tr>
+        <tr><td>NFR-07</td><td>Moslik</td><td>Brauzer qo'llab-quvvatlash</td><td>Chrome, Firefox, Safari, Edge</td></tr>
+        <tr><td>NFR-08</td><td>Masshtablanish</td><td>Ma'lumotlar bazasi hajmi</td><td>≥ 100 000 yozuv</td></tr>
+        <tr><td>NFR-09</td><td>Saqlanish</td><td>Kod qamrovi (coverage)</td><td>≥ 80%</td></tr>
+        <tr><td>NFR-10</td><td>Portativlik</td><td>O'rnatish platformasi</td><td>Windows, Linux, macOS</td></tr>
+    </table>
+    <p>Tizimda quyidagi foydalanuvchi rollari aniqlanadi. Har bir rol o'ziga xos huquqlar va imkoniyatlarga ega:</p>
+    <p><b>1. Administrator (Admin).</b> Tizimning to'liq nazoratiga ega. Barcha modullarni boshqaradi, foydalanuvchilarni qo'shadi va o'chiradi, tizim sozlamalarini o'zgartiradi, hisobotlarni ko'radi. Do'kon egasi yoki bosh menejer bu rolni bajaradi.</p>
+    <p><b>2. Menejer.</b> Kundalik operatsiyalarni boshqaradi. Mahsulotlar va buyurtmalar bilan ishlaydi, omborxona qoldiqlarini nazorat qiladi, hisobotlarni ko'radi. Ammo foydalanuvchilarni boshqarolmaydi va tizim sozlamalarini o'zgartira olmaydi.</p>
+    <p><b>3. Sotuvchi (Kassir).</b> Cheklangan huquqlarga ega. Faqat buyurtma yaratadi, mahsulotlar ro'yxatini ko'radi va o'z sotuvlari bo'yicha hisobot oladi. Boshqa xodimlar ma'lumotlariga va tizim sozlamalariga kira olmaydi.</p>
+    <p><b>4. Omborchi.</b> Omborxona operatsiyalarini bajaradi. Mahsulot kirim-chiqimini qayd etadi, qoldiqlarni tekshiradi, yaroqlilik muddatini nazorat qiladi. Moliyaviy hisobotlarga va sotuvlarga kirish huquqi yo'q.</p>
+    <div class="page-num">16</div>
+</div>
+
+<!-- ===== 17-BET: 2.1 davomi - Use Cases ===== -->
+<div class="page">
+    <p>Foydalanish holatlari (Use Cases) tizimning funksional imkoniyatlarini foydalanuvchi nuqtai nazaridan tasvirlaydi. Har bir foydalanish holati uchun asosiy oqim (main flow) va muqobil oqimlar (alternative flows) aniqlanadi:</p>
+    <p><b>UC-01: Tizimga kirish (Login).</b></p>
+    <ul>
+        <li><b>Aktor:</b> Barcha foydalanuvchilar</li>
+        <li><b>Oldingi shart:</b> Foydalanuvchi ro'yxatdan o'tgan</li>
+        <li><b>Asosiy oqim:</b> 1) Login sahifasini ochish → 2) Login va parolni kiritish → 3) "Kirish" tugmasini bosish → 4) Tizim ma'lumotlarni tekshiradi → 5) Bosh sahifaga yo'naltirish</li>
+        <li><b>Muqobil oqim:</b> Noto'g'ri ma'lumotlar kiritilsa - xatolik xabari ko'rsatiladi</li>
+    </ul>
+    <p><b>UC-02: Mahsulot qo'shish.</b></p>
+    <ul>
+        <li><b>Aktor:</b> Administrator, Menejer</li>
+        <li><b>Oldingi shart:</b> Foydalanuvchi tizimga kirgan va tegishli huquqlarga ega</li>
+        <li><b>Asosiy oqim:</b> 1) "Mahsulot qo'shish" sahifasini ochish → 2) Mahsulot ma'lumotlarini kiritish (nomi, narxi, toifasi, tavsifi) → 3) "Saqlash" tugmasini bosish → 4) Tizim validatsiya o'tkazadi → 5) Mahsulot bazaga qo'shiladi</li>
+        <li><b>Muqobil oqim:</b> Validatsiya xatosi - tegishli maydonlar qayta to'ldirish uchun belgilanadi</li>
+    </ul>
+    <p><b>UC-03: Buyurtma yaratish.</b></p>
+    <ul>
+        <li><b>Aktor:</b> Sotuvchi, Menejer, Administrator</li>
+        <li><b>Oldingi shart:</b> Tizimga kirgan, mahsulotlar mavjud</li>
+        <li><b>Asosiy oqim:</b> 1) "Yangi buyurtma" tugmasini bosish → 2) Mahsulotlarni tanlash va miqdor kiritish → 3) Umumiy summani ko'rish → 4) "Tasdiqlash" tugmasini bosish → 5) Omborxona qoldiqlari yangilanadi → 6) Kvitansiya chop etiladi</li>
+        <li><b>Muqobil oqim:</b> Yetarli qoldiq yo'q - ogohlantirish ko'rsatiladi</li>
+    </ul>
+    <p><b>UC-04: Hisobot ko'rish.</b></p>
+    <ul>
+        <li><b>Aktor:</b> Administrator, Menejer</li>
+        <li><b>Oldingi shart:</b> Tizimga kirgan, tegishli huquqlar</li>
+        <li><b>Asosiy oqim:</b> 1) Hisobotlar sahifasini ochish → 2) Hisobot turini tanlash (kunlik/haftalik/oylik) → 3) Sanalar oralig'ini belgilash → 4) "Shakllantirish" tugmasini bosish → 5) Hisobot jadval va grafik shaklida ko'rsatiladi</li>
+    </ul>
+    <p>Yuqoridagi foydalanish holatlari tizimning asosiy funksionalligini qamrab oladi. Har bir holat uchun tegishli test stsenariylari ham tayyorlanadi, bu esa tizimni testlash bosqichida ishlatiladi.</p>
+    <div class="page-num">17</div>
+</div>
+
 </body>
 </html>
