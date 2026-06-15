@@ -1124,5 +1124,81 @@
         <div class="page-number">27</div>
     </div>
 
+    <!-- ==================== SAHIFA 28: 2.2 boshlanishi ==================== -->
+    <div class="page">
+        <div class="content">
+            <h3>2.2. Tizimni dasturiy ta'minoti va kodlash jarayoni</h3>
+
+            <p>Ushbu bo'limda maktab boshqaruv tizimining asosiy dasturiy kodlari, server va mijoz qismlari, autentifikatsiya tizimi va asosiy funksional modullar batafsil ko'rib chiqiladi.</p>
+
+            <p><b>Server qismini sozlash (Backend Setup).</b> Avvalo Node.js loyihasi yaratiladi va zarur kutubxonalar o'rnatiladi. package.json fayliga quyidagi asosiy bog'liqliklar kiritiladi: express (web server), mongoose (MongoDB ODM), jsonwebtoken (JWT), bcryptjs (parol xeshlash), cors (CORS sozlamalari), dotenv (muhit o'zgaruvchilari), express-validator (validatsiya).</p>
+
+            <p><b>Server.js - asosiy kirish nuqtasi:</b> Bu faylda Express ilovasi yaratiladi, middleware lar ulanadi, ma'lumotlar bazasiga ulanish o'rnatiladi va server ishga tushiriladi. Asosiy qadamlar:</p>
+
+            <ul>
+                <li>Express ilovasini yaratish va sozlash;</li>
+                <li>CORS, JSON parser va boshqa middleware larni ulash;</li>
+                <li>MongoDB ga Mongoose orqali ulanish;</li>
+                <li>API route larni registratsiya qilish;</li>
+                <li>Xatolarni boshqarish middleware ni qo'shish;</li>
+                <li>Serverni belgilangan portda ishga tushirish.</li>
+            </ul>
+
+            <p><b>Ma'lumotlar bazasiga ulanish (Database Connection).</b> MongoDB Atlas ga ulanish uchun config/db.js fayli yaratiladi. Mongoose.connect() metodi orqali connection string (MONGODB_URI) yordamida ulanish o'rnatiladi. Ulanish muvaffaqiyatli yoki muvaffaqiyatsiz bo'lganida console ga xabar chiqariladi.</p>
+
+            <p><b>Mongoose modellari.</b> Har bir ma'lumot turi uchun alohida model fayli yaratiladi. Masalan, Student modeli:</p>
+
+            <ul>
+                <li>Schema yaratish - maydonlar, ularning turlari va validatsiya qoidalarini belgilash;</li>
+                <li>Required, minlength, maxlength, enum kabi validatorlar qo'llash;</li>
+                <li>Virtual maydonlar - hisoblangan qiymatlar (masalan, to'liq ism);</li>
+                <li>Pre-save middleware - saqlashdan oldin ma'lumotlarni qayta ishlash;</li>
+                <li>Indexes - tez qidirish uchun indekslar qo'shish.</li>
+            </ul>
+        </div>
+        <div class="page-number">28</div>
+    </div>
+
+    <!-- ==================== SAHIFA 29: 2.2 davomi ==================== -->
+    <div class="page">
+        <div class="content">
+            <p><b>Autentifikatsiya tizimi (Authentication System).</b> Foydalanuvchilar tizimga kirish uchun email va parol ishlatadi. Autentifikatsiya jarayoni quyidagi bosqichlardan iborat:</p>
+
+            <p><b>Ro'yxatdan o'tish (Registration):</b></p>
+            <ol>
+                <li>Foydalanuvchi ma'lumotlarini kiritadi (ism, email, parol, rol);</li>
+                <li>Server ma'lumotlarni validatsiya qiladi (email formati, parol uzunligi);</li>
+                <li>Email bazada mavjud emasligini tekshiradi;</li>
+                <li>Parolni bcrypt yordamida xeshlaydi (salt rounds: 10);</li>
+                <li>Foydalanuvchini ma'lumotlar bazasiga saqlaydi;</li>
+                <li>JWT token yaratadi va mijozga qaytaradi.</li>
+            </ol>
+
+            <p><b>Tizimga kirish (Login):</b></p>
+            <ol>
+                <li>Foydalanuvchi email va parol kiritadi;</li>
+                <li>Server emailni bazada qidiradi;</li>
+                <li>bcrypt.compare() yordamida parolni tekshiradi;</li>
+                <li>Agar to'g'ri bo'lsa, JWT token yaratadi (payload: userId, role);</li>
+                <li>Tokenni mijozga qaytaradi (cookie yoki response body orqali).</li>
+            </ol>
+
+            <p><b>Auth Middleware:</b> Himoyalangan endpointlarga kirish uchun har bir so'rovda JWT token tekshiriladi. Token header da "Authorization: Bearer [token]" formatida yuboriladi. Middleware token ni dekod qiladi, foydalanuvchi ID va rolini aniqlab, request obyektiga qo'shadi.</p>
+
+            <p><b>Role-based Middleware:</b> Ba'zi endpointlar faqat ma'lum rollarga ochiq. Masalan, o'quvchi qo'shish faqat admin uchun, baho qo'yish faqat o'qituvchi uchun ruxsat etiladi. authorize('admin', 'teacher') kabi middleware qo'llaniladi.</p>
+
+            <p><b>O'quvchilar moduli (Students Module).</b> CRUD (Create, Read, Update, Delete) operatsiyalari uchun controller funksiyalari yaratiladi:</p>
+
+            <ul>
+                <li><b>getAllStudents</b> - barcha o'quvchilar ro'yxati (pagination, filtering, sorting);</li>
+                <li><b>getStudentById</b> - bitta o'quvchi ma'lumotlari (populate bilan);</li>
+                <li><b>createStudent</b> - yangi o'quvchi yaratish (validatsiya bilan);</li>
+                <li><b>updateStudent</b> - o'quvchi ma'lumotlarini yangilash;</li>
+                <li><b>deleteStudent</b> - o'quvchini o'chirish (soft delete).</li>
+            </ul>
+        </div>
+        <div class="page-number">29</div>
+    </div>
+
 </body>
 </html>
